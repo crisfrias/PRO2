@@ -7,6 +7,7 @@
 
 #include "Ciudad.hh"
 #include "Barco.hh"
+#include "Inventario.hh"
 
 #ifndef NO_DIAGRAM
 #include "BinTree.hh"
@@ -33,11 +34,22 @@ private:
 
 public:
 
-    // Constructoras
-
+    // Constructora
+	
+	/** @brief Creadora por defecto
+        \pre "cierto"
+        \post Crea un río vacío
+    */
     Rio();
 
     // Modificadoras
+    
+    /** @brief Actualiza el río
+        \pre id_ciudad es el identificador de una ciudad en el río y c 
+        no está vacía
+        \post Actualiza el nodo de la ciudad con id=id_ciudad a c
+    */
+    void actualizar_ciudad_rio(string id_ciudad, const Ciudad& c);
 
     // Consultoras
 
@@ -46,21 +58,24 @@ public:
         \pre "id_ciudad" no está vacío
         \post El resultado es un booleano que es cierto si la ciudad existe, y es falso si es lo contrario
     */
-    bool existe_ciudad(string id_ciudad) const;
-
-    Ciudad buscar_ciudad(Ciudad c) const;
-
-    void leer_inventario_ciudad(string id_ciudad, bool& error);
-
-    /*
-    Se leerán los inventarios de ciudades del río. No necesaria-
-    mente todas las ciudades tendrán inventario
-    */
-    void leer_inventarios();
+    Ciudad buscar_ciudad(const Ciudad& c, bool error);
 
     // Lectura y escritura
-
+	
+	/** @brief Lectura del río
+        \pre id_ciudad es el identificador de una ciudad en el río y c 
+        no está vacía
+        \post Actualiza el nodo de la ciudad con id=id_ciudad a c
+    */
     void leer_cuenca();
     
+    /** @brief Lectura de inventarios de las ciudades del río
+        \pre Está preparado el canal de entrada para los inventarios de
+        las ciudades
+        \post Se han añadido los inventarios a las ciudades del p.i.
+    */
+    void leer_inventarios();
+    
 };
+
 #endif

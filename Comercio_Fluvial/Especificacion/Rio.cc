@@ -2,8 +2,7 @@
 
 // Constructoras
 
-Rio::Rio() {
-}
+Rio::Rio();
 
 static void Rio::leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m) {
     string s;
@@ -17,25 +16,18 @@ static void Rio::leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m) {
     }
 }
 
-
 // Modificadoras
+
+void Rio::actualizar_ciudad_rio(string id_ciudad, const Ciudad& c);
 
 // Consultoras
 
-void buscar_ciudad(Ciudad& c, bool& error) {
-
-}
-
-void Rio::leer_inventario_ciudad(string id_ciudad, bool& error) {
-
-}
-
-void leer_inventarios() {
-
-}
+Ciudad Rio::buscar_ciudad(const Ciudad& c, bool error);
 
 // Lectura y escritura
 
-Rio::leer_cuenca() {
+void Rio::leer_cuenca() {
     leer_cuenca_priv(cuenca, mapa_cuenca);
 }
+void Rio::leer_inventarios();
+

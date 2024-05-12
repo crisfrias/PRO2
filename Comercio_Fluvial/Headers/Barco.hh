@@ -36,6 +36,10 @@ public:
     // Consultoras
 
     // Lectura y escritura
-
+	
+	void leer();
+	
+	void escribir() const;
 };
+
 #endif
