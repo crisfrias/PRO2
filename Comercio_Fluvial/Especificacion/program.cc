@@ -3,33 +3,51 @@
 *
 */
 
+#include "Rio.hh"
+#include "Ciudad.hh"
+#include "Barco.hh"
+#include "Inventario.hh"
+#include "Producto.hh"
+
 #ifndef NO_DIAGRAM
 #include <iostream>
-#include <struct>
+#include <string>
 using namespace std;
+
 #endif
 
 /** @brief Programa Principal
 */
 
-struct Producto {
-	int id;
-	int peso;
-	int vol;
-};
-
 int main() {
-    // Inicializar las estructuras
+    // Inicializar inventario global
+    int n_prods;
+    cin >> n_prods;
+    Inventario v(n_prods);
+    v.leer();
+
+    // Inicializar la cuenca
+    Rio r;
+    r.leer_cuenca();
+    // Inicializar barco
+    Barco b;
+    b.leer();
 
     // Siguientes opciones
     string instr;
     cin >> instr;
     while (instr != "fin") {
         if (instr == "leer_rio" or instr == "lr" ) {
-            // Se leerán los identificadores de las ciudades indicando la estructura
-            // de la cuenca. No se escribe nada
+            cout << "#" << instr << endl;
+            r.leer_cuenca()
         }
         else if (instr == "leer_inventario" or instr == "li") {
+            string ciudad;
+            cin >> ciudad;
+            cout << "#" << instr << " " << ciudad << endl;
+            bool error;
+            r.leer_inventario_ciudad(ciudad, error);
+            if (error) cout << "error: no existe la ciudad" << endl;
             /*
             Se leerá el identificador de una ciudad. Si la ciudad no existe
             se escribirá un mensaje de error. Si la ciudad existe, se leerá un número que in-
@@ -38,21 +56,29 @@ int main() {
             */
         }
         else if (instr == "leer_inventarios" or instr == "ls") {
-            /*
-            Se leerán los inventarios de ciudades del río. No necesaria-
-            mente todas las ciudades tendrán inventario
-            */
+            cout << "#" << instr << endl;
+            r.leer_inventarios();
         }
         else if (instr == "modificar_barco" or instr == "mb") {
-            /*
-            Se leerá el identificador del producto que se quiere comprar
-            y la cantidad, y el identificador del producto que se quiere vender y la cantidad
-            Si algún producto no existe, se escribirá un mensaje de error. Si los dos productos
-            son el mismo, se escribirá un mensaje de error. Se garantiza que ambas cantidades
-            serán no negativas y al menos una de ellas será estrictamente positiva.
-            */
+            cout << "#" << instr << endl;
+            // Lectura del producto que se quiere comprar
+            int id_prod_compra, peso_prod_compra;
+            cin >> id_producto >> peso_producto;
+            // Lectura del producto que se quiere vender
+            int id_prod_venta, peso_prod_venta;
+            cin >> id_prod_venta >> peso_prod_venta;
+            // Comprovacion de errores previa y/o ejecución de la función
+            if (id_prod_compra == id_prod_venta) {
+                cout << "error: no se puede comprar y vender el mismo producto" << endl;
+            }
+            else {
+                bool error;
+                b.modificar_barco(id_producto, peso_producto, error);
+                if (error) cout << "error: no existe el producto" << endl;
+            }
         }
         else if (instr == "escribir_barco" or instr == "eb") {
+            b.escribir();
             /*
             Se escriben los cuatro valores mencionados en la anterior ope-
             ración y los viajes realizados, en orden cronológico. Para cada viaje solo se ha de
@@ -60,25 +86,39 @@ int main() {
             */
         }
         else if (instr == "consultar_num" or instr == "cn") {
-            /*
-            Escribe cuantos productos diferentes hay
-            */
+            cout << "#" << instr << " " << endl;
+            cout << catalogo.size() << endl;
         }
         else if (instr == "agregar_productos" or instr == "ap") {
-            /*
-            Se lee el número de productos nuevos, mayor que 0. Sus
-            identificadores serán correlativos a partir del último producto existente. Se leerán
-            sus pesos y volúmenes respectivos
-            */
+            int prod_nuevos;
+            cin >> prod_nuevos;
+            for (int i = 0; i < prod_nuevos; ++i) {
+                Producto p;
+                p.leer();
+                catalogo.push_back(p);
+            }
         }
         else if (instr == "escribir_producto" or instr == "ep") {
+            int id_prod;
+            cin >> id_prod;
+            cout << "#" << instr << " " << id_prod << endl;
+            bool error;
             /*
             Se lee el identificador de un producto. Si no existe el pro-
             ducto se escribe un mensaje de error. En caso contrario se escribe el peso y volumen
-            del producto
+            del producto (hacerlo con cerca_dic)
             */
         }
         else if (instr == "escribir_ciudad" or instr == "ec") {
+            string ciudad;
+            cin >> ciudad;
+            cout << "#" << instr << " " << ciudad << endl;
+            bool error;
+            Ciudad tmp = r.buscar_ciudad(ciudad, error);
+            if (error) {
+                cout << "error: no existe la ciudad" << endl;
+            }
+            else tmp.escribir();
             /*
             Se leerá el identificador de una ciudad. Si la ciudad no existe
             se escribirá un mensaje de error. Si la ciudad existe, se escribirá su inventario, y el
@@ -86,26 +126,37 @@ int main() {
             */
         }
         else if (instr == "poner_prod" or instr == "pp") {
-            /*
-            Se leerá el identificador de una ciudad, de un producto y las
-            unidades que tiene y que quiere.
-            Si el producto no existe escribe un mensaje de error
-            Si la ciudad no existe, escribe un mensaje de error
-            Si el producto ya está en el inventario de la ciudad, escribe un mensaje de error
-            Si no hay errores, los datos de ese producto se añaden a la ciudad, modificándose el peso y el volumen total 
-            si hace falta. Se escribe el peso y el volumen total
-            */
+            string ciudad;
+            int id_prod;
+            cin >> ciudad >> id_prod;
+            cout << "#" << instr << " " << ciudad << " " << id_prod << endl;
+            bool error;
+            Ciudad tmp = r.buscar_ciudad(ciudad, error);
+            if (error) {
+                cout << "error: no existe la ciudad" << endl;
+            }
+            else {
+                if (error) {
+                    Producto p = // Buscar si existe el producto
+                    cout << "error: no existe el producto" << endl;
+                }
+                else {
+                    tmp.anadir_prod_reserva(p);
+                }
+            }
         }
         else if (instr == "modificar_prod" or instr == "mp") {
-            /*
-            Se leerá el identificador de una ciudad, de un producto y las
-            unidades que tienen y que quiere. Si el producto no existe escribe un mensaje de
-            error. Si la ciudad no existe, escribe un mensaje de error. Si el producto no está en
-            el inventario de la ciudad, escribe un mensaje de error. Si no hay errores, los datos
-            de ese producto sustituyen a los que había en la ciudad, modificándose el peso y
-            el volumen total si hace falta. Se escribe el peso y el volumen total. El número de
-            unidades necesitadas se puede modificar, pero siempre ha de ser mayor que 0.
-            */
+            string ciudad;
+            int id_prod;
+            cin >> ciudad >> id_prod;
+
+            bool error;
+            Ciudad tmp = r.buscar_ciudad(ciudad, error);
+            Producto p = //Consultar si existe el producto en inventario
+
+            int peso_nuevo, volumen_nuevo;
+            cin >> peso_nuevo >> volumen_nuevo;
+            tmp.modificar_producto_reserva(p);
         }
         else if (instr == "quitar_prod" or instr == "qp") {
             /*
@@ -150,6 +201,10 @@ int main() {
             largo de la ruta, modificándose los inventarios de las ciudades. Se escribe el total
             de unidades de productos compradas y vendidas por el barco.
             */
+        }
+        else {
+            string s;
+            getline(cin, s);
         }
 
         cin >> instr;
