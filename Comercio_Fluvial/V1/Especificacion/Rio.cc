@@ -44,6 +44,12 @@ void Rio::leer_cuenca() {
 }
 
 void Rio::leer_inventarios() {
-    
+    string s;
+    cin >> s;
+    while (s != "#") {
+		Ciudad c = mapa_cuenca[s];
+		c.leer_inventario_ciudad();
+		cin >> s;
+	}
 }
 

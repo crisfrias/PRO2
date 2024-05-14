@@ -22,6 +22,13 @@ void Ciudad::anadir_prod_reserva(const Producto& p) {
     volumen_total += p.consultar_vol();
 }
 
+void Ciudad::quitar_prod_reserva(const Producto& p) {
+	int id_prod = p.consultar_id();
+	prods_ciudad.erase(id_prod);
+	peso_total -= p.consultar_peso();
+	volumen_total -= p.consultar_volumen();
+}
+
 void Ciudad::anadir_prod_faltante(const Producto& p) {
     prods_ciudad[p.consultar_id()].second += 1;
 }
@@ -33,7 +40,7 @@ void Ciudad::modificar_producto_reserva(const Producto& p, int reserva, int list
 // Consultoras
 
 string Ciudad::consultar_id_ciudad() const {
-    return id;
+    return id_ciudad;
 }
 
 int Ciudad::consultar_peso_total() const {
@@ -44,11 +51,11 @@ int Ciudad::consultar_volumen_total() const {
     return volumen_total;
 }
 
-int Ciudad::consultar_reserva(int id_prod) const {
+int Ciudad::consultar_reserva(int id_prod) {
     return prods_ciudad[id_prod].first;
 }
 
-int Ciudad::consultar_faltante(int id_prod) const {
+int Ciudad::consultar_faltante(int id_prod) {
     return prods_ciudad[id_prod].second;
 }
 
@@ -64,9 +71,9 @@ void Ciudad::leer_inventario_ciudad() {
 	}
 }
 
-void Ciudad::escribir() const {
+void Ciudad::escribir() {
     for (auto it = prods_ciudad.begin(); it != prods_ciudad.end(); ++it) {
-        cout << *it << " " << prods_ciudad[*it].first << " " << prods_ciudad[*it].second << endl;
+        cout << it->first << " " << prods_ciudad[it->first].first << " " << prods_ciudad[it->first].second << endl;
     }
     cout << peso_total << " " << volumen_total << endl;
 }

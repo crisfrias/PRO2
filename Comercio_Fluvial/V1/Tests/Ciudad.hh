@@ -9,8 +9,10 @@
 #include "Inventario.hh"
 
 #ifndef NO_DIAGRAM
+#include <iostream>
 #include <string>
 #include <map>
+using namespace std;
 
 #endif
 
@@ -52,6 +54,13 @@ public:
         \post Se añade el identificador de p a los productos de la ciudad
     */
     void anadir_prod_reserva(const Producto& p);
+    
+    /** @brief Quitar producto de la reserva
+        p deja de estar en los productos de la ciudad
+        \pre p no está vacío
+        \post Se ha quitado p de los registros de la ciudad
+    */
+    void quitar_prod_reserva(const Producto& p);
 	
 	/** @brief Añadir producto a la lista
         Se añade p a la lista de productos que necesita comprar la ciudad
@@ -121,7 +130,7 @@ public:
         \post Sale por el canal de salida el inventario de la ciudad con su peso 
         y volumen total, respectivamente
     */
-    void escribir() const;
+    void escribir();
 
 };
 

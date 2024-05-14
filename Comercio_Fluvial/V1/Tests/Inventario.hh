@@ -2,8 +2,8 @@
     @brief Especificación de la clase Inventario
 */
 
-#ifndef __INVENTARIO_HH
-#define __INVENTARIO_HH
+#ifndef _INVENTARIO_HH_
+#define _INVENTARIO_HH_
 
 #include "Producto.hh"
 

@@ -58,11 +58,6 @@ int main() {
         else if (instr == "leer_inventarios" or instr == "ls") {
             cout << "#" << instr << endl;
             r.leer_inventarios();
-            /*
-             * Se leerán los inventarios de ciudades del río. Todas las ciudades existirán. 
-             * Los datos del inventario son como en la funcionalidad anterior.
-             * No necesariamente todas las ciudades del río tendrán inventario.
-             */
         }
         else if (instr == "modificar_barco" or instr == "mb") {
             cout << "#" << instr << endl;
@@ -84,6 +79,7 @@ int main() {
             }
         }
         else if (instr == "escribir_barco" or instr == "eb") {
+			cout << "#" << instr << endl;
             b.escribir();
         }
         else if (instr == "consultar_num" or instr == "cn") {
@@ -93,6 +89,7 @@ int main() {
         else if (instr == "agregar_productos" or instr == "ap") {
             int prod_nuevos;
             cin >> prod_nuevos;
+            cout << "#" << instr << " " << prod_nuevos << endl;
             for (int i = 0; i < prod_nuevos; ++i) {
                 Producto p;
                 p.leer();
@@ -150,7 +147,8 @@ int main() {
             string id_ciudad;
             int id_prod;
             cin >> id_ciudad >> id_prod;
-
+			cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
+			
             bool error;
             Ciudad c = r.buscar_ciudad(id_ciudad, error);
             if (error) {
@@ -173,20 +171,31 @@ int main() {
 			string id_ciudad;
 			int id_prod;
 			cin >> id_ciudad >> id_prod;
-            /*
-            Se leerá el identificador de una ciudad y de un producto. Si
-            el producto no existe escribe un mensaje de error. Si la ciudad no existe, escribe
-            un mensaje de error. Si el producto no está en el inventario de la ciudad, escribe
-            un mensaje de error. Si no hay errores, se quitan los datos de este producto en la
-            ciudad, modificándose el peso y el volumen total si hace falta. Se escribe el peso y
-            el volumen total
-            */
+			cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
+			
+			bool error;
+            Ciudad c = r.buscar_ciudad(id_ciudad, error);
+            if (error) {
+				cout << "error: no existe la ciudad" << endl;
+			}
+			else {
+				Producto p = v.consultar_producto(id_prod, error);
+				if (error) {
+					cout << "error: no existe el producto" << endl;
+				}
+				else {
+					c.quitar_prod_reserva(p);
+            		r.actualizar_ciudad_rio(id_ciudad, c);
+            		cout << c.consultar_peso_total << " " << c.consultar_volumen_total() << endl;
+				}
+			}
         }
         else if (instr == "consultar_prod" or instr == "cp") {
 			string id_ciudad;
 			int id_prod;
 			cin >> id_ciudad >> id_prod;
-
+			cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
+			
             bool error;
             Producto p = v.consultar_producto(id_prod, error);
             if (error) {
@@ -203,6 +212,7 @@ int main() {
             }
         }
         else if (instr == "comerciar" or instr == "co") {
+			cout << "#" << instr << endl;
             /*
             Se leerán los identificadores de dos ciudades. Si no existen alguna
             de las dos (o las dos), se escribe un mensaje de error. Si las dos ciudades existen se
@@ -210,6 +220,7 @@ int main() {
             */
         }
         else if (instr == "redistribuir" or instr == "re") {
+			cout << "#" << instr << endl;
             /*
             No se leen datos. La ciudad de la desembocadura comercia con su
             ciudad río arriba a mano derecha y luego con la ciudad río arriba a mano izquierda,
@@ -217,6 +228,7 @@ int main() {
             */
         }
         else if (instr == "hacer_viaje" or instr == "hv") {
+			cout << "#" << instr << endl;
             /*
             El barco busca la ruta a partir de la desembocadura que le per-
             mita comprar y vender el mayor número posible de productos. En caso que haya

@@ -7,11 +7,11 @@
 
 #include "Ciudad.hh"
 #include "Barco.hh"
-#include "Inventario.hh"
 
 #ifndef NO_DIAGRAM
 #include "BinTree.hh"
 #include <string>
+using namespace std;
 
 #endif
 
