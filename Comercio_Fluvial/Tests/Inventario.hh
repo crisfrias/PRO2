@@ -2,15 +2,14 @@
     @brief Especificación de la clase Inventario
 */
 
-#ifndef _CIUDAD_HH_
-#define _CIUDAD_HH_
+#ifndef _INVENTARIO_HH_
+#define _INVENTARIO_HH_
 
 #include "Producto.hh"
 
 #ifndef NO_DIAGRAM
-#include <iostream>
-#include <string>
 #include <vector>
+using namespace std;
 
 #endif
 
@@ -24,6 +23,15 @@ private:
     vector<Producto> catalogo;
     int ultimo_id;
     int tamano_inventario;
+
+    /** @brief Búsqueda dicotómica en el inventario
+
+        \pre v no está vacío y está ordenado crecientemente, esq <= 0 y dre <= tamaño de v,
+        id_prod no está vacío
+        \post Si id_prod está en el vector, devuelve la posición dondé está. Sino devuelve la
+        que tendría que ocupar
+    */
+    static int busqueda_elemento(const vector<Producto>& v, int esq, int dre, int id_prod);
 
 public:
 
@@ -56,7 +64,7 @@ public:
         \pre p está inicializado y existe dentro del p.i y peso_nuevo y volumen_nuevo >= 0
         \post Se actualiza el inventario con los nuevos atributos de p
     */
-    void cambiar_producto(Producto& p, int peso_nuevo, int volumen_nuevo);
+    void cambiar_producto(Producto p, int peso_nuevo, int volumen_nuevo);
 
     // Consultoras
 	
@@ -80,6 +88,12 @@ public:
         sino retorna un producto vacío y error=true 
     */
     Producto consultar_producto(int id_prod, bool& error);
+    
+    /** @brief Devolver producto 
+        \pre id_prod representa a un producto del p.i
+        \post Retorna el producto asociado a id_prod
+    */
+    Producto devolver_producto(int id_prod);
 
     // Lectura y escritura
 	
@@ -87,8 +101,8 @@ public:
         \pre El canal de entrada espera n productos con su peso y volúmen respectivo
         \post Se actualiza el p.i. con el peso y volúmen de n productos
     */
-    void leer_inventario(int n);
+    void leer_inventario();
     
-}
+};
 
 #endif

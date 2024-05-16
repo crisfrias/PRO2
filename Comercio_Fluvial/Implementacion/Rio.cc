@@ -5,15 +5,16 @@
 Rio::Rio() {
 }
 
-static void Rio::leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m) {
+void Rio::leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m) {
     string s;
     BinTree<string> esq, dre;
     cin >> s;
     if (s != "#") {
-        leer_cuenca(esq, mapa_cuenca);
-        leer_cuenca(dre, mapa_cuenca);
+        leer_cuenca_priv(esq, m);
+        leer_cuenca_priv(dre, m);
         t = BinTree<string> (s, esq, dre);
-        m[s] = Ciudad c(s);
+        Ciudad c(s);
+        m[s] = c;
     }
 }
 

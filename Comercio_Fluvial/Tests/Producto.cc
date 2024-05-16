@@ -6,7 +6,7 @@ Producto::Producto() {
     id = -1;
 }
 
-Producto::Producto(string id_prod) {
+Producto::Producto(int id_prod) {
     id = id_prod;
     peso = 0;
     vol = 0;
@@ -41,12 +41,12 @@ int Producto::consultar_vol() const {
 void Producto::leer() {
     // Leemos peso y volumen
     int p, v;
-    std::cin >> p >> v;
+    cin >> p >> v;
     // Asignamos parametros
     peso = p;
     vol = v;
 }
 
 void Producto::escribir() const {
-    std::cout << id << " " << peso << " " << vol << std::endl;
+    cout << id << " " << peso << " " << vol << endl;
 }

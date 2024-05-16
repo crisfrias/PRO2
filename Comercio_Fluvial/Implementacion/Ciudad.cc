@@ -26,7 +26,7 @@ void Ciudad::quitar_prod_reserva(const Producto& p) {
 	int id_prod = p.consultar_id();
 	prods_ciudad.erase(id_prod);
 	peso_total -= p.consultar_peso();
-	volumen_total -= p.consultar_volumen();
+	volumen_total -= p.consultar_vol();
 }
 
 void Ciudad::anadir_prod_faltante(const Producto& p) {

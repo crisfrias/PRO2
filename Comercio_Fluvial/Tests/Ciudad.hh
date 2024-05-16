@@ -6,7 +6,6 @@
 #define _CIUDAD_HH_
 
 #include "Producto.hh"
-#include "Inventario.hh"
 
 #ifndef NO_DIAGRAM
 #include <iostream>

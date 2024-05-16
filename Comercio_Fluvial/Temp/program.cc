@@ -39,7 +39,8 @@ int main() {
     while (instr != "fin") {
         if (instr == "leer_rio" or instr == "lr" ) {
             cout << "#" << instr << endl;
-            r.leer_cuenca()
+            r.leer_cuenca();
+            b.reiniciar_barco();
         }
         else if (instr == "leer_inventario" or instr == "li") {
             string id_ciudad;
@@ -63,7 +64,7 @@ int main() {
             cout << "#" << instr << endl;
             // Lectura del producto que se quiere comprar
             int id_prod_compra, peso_prod_compra;
-            cin >> id_producto >> peso_producto;
+            cin >> id_prod_compra >> peso_prod_compra;
             // Lectura del producto que se quiere vender
             int id_prod_venta, peso_prod_venta;
             cin >> id_prod_venta >> peso_prod_venta;
@@ -73,9 +74,19 @@ int main() {
             }
             else {
                 bool error;
-                b.modificar_barco(id_producto, peso_producto, error);
-                if (error) cout << "error: no existe el producto" << endl;
-                // Actualizar el rio ??
+                Producto p1 = v.consultar_producto(id_prod_compra, error);
+                if (error) {
+					cout << "error: no existe el producto" << endl;
+				}
+				else {
+					Producto p2 = v.consultar_producto(id_prod_venta, error);
+					if (error) {
+						cout << "error: no existe el producto" << endl;
+					}
+					else {
+						b.modificar_barco(id_prod_compra, peso_prod_compra, id_prod_venta, peso_prod_venta);
+					}
+				}
             }
         }
         else if (instr == "escribir_barco" or instr == "eb") {
@@ -213,11 +224,15 @@ int main() {
         }
         else if (instr == "comerciar" or instr == "co") {
 			cout << "#" << instr << endl;
-            /*
-            Se leerán los identificadores de dos ciudades. Si no existen alguna
-            de las dos (o las dos), se escribe un mensaje de error. Si las dos ciudades existen se
-            intercambian los productos que le sobren a una y necesite la otra
-            */
+			bool error;
+			int id_ciudad1, id_ciudad2;
+			Ciudad c1 = r.buscar_ciudad(id_ciudad1, error);
+			if (not error) {
+				Ciudad c2 = r.buscar_ciudad(id_ciudad2, error);
+				if (not error) {
+					r.comerciar(id_ciudad1, id_ciudad2, v);
+				}
+			}
         }
         else if (instr == "redistribuir" or instr == "re") {
 			cout << "#" << instr << endl;
@@ -229,6 +244,9 @@ int main() {
         }
         else if (instr == "hacer_viaje" or instr == "hv") {
 			cout << "#" << instr << endl;
+			int unidades = b.hacer_viaje();
+			cout << unidades << endl;
+			
             /*
             El barco busca la ruta a partir de la desembocadura que le per-
             mita comprar y vender el mayor número posible de productos. En caso que haya

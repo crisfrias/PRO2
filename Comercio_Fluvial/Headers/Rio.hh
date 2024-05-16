@@ -6,11 +6,11 @@
 #define _RIO_HH_
 
 #include "Ciudad.hh"
-#include "Barco.hh"
 
 #ifndef NO_DIAGRAM
 #include "BinTree.hh"
 #include <string>
+#include <map>
 using namespace std;
 
 #endif
@@ -49,7 +49,7 @@ public:
         no está vacía
         \post Actualiza el nodo de la ciudad con id=id_ciudad a c
     */
-    void actualizar_ciudad_rio(string id_ciudad, const Ciudad& c);
+    void actualizar_ciudad_rio(const string& id_ciudad, const Ciudad& c);
 
     // Consultoras
 

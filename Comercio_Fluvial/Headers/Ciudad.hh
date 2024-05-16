@@ -6,11 +6,12 @@
 #define _CIUDAD_HH_
 
 #include "Producto.hh"
-#include "Inventario.hh"
 
 #ifndef NO_DIAGRAM
+#include <iostream>
 #include <string>
 #include <map>
+using namespace std;
 
 #endif
 
@@ -26,7 +27,6 @@ private:
     int peso_total;
     int volumen_total;
     map<int,pair<int,int>> prods_ciudad;
-    Inventario inv_ciudad();
 
 public:
     // Constructoras
@@ -53,6 +53,13 @@ public:
         \post Se añade el identificador de p a los productos de la ciudad
     */
     void anadir_prod_reserva(const Producto& p);
+    
+    /** @brief Quitar producto de la reserva
+        p deja de estar en los productos de la ciudad
+        \pre p no está vacío
+        \post Se ha quitado p de los registros de la ciudad
+    */
+    void quitar_prod_reserva(const Producto& p);
 	
 	/** @brief Añadir producto a la lista
         Se añade p a la lista de productos que necesita comprar la ciudad
@@ -61,6 +68,15 @@ public:
 			  implícito necesita comprar
     */
     void anadir_prod_faltante(const Producto& p);
+
+    /** @brief Modificar producto de la ciudad
+        El producto p es modificador de las listas de unidades que la ciudad tiene
+        y también de las que la ciudad quiere
+        \pre p no está vacío y existe, reserva y lista son positivos y al menos uno de ellos es 
+        estrictamente positivo
+        \post Se han modificado los valores de prods_ciudad
+    */
+    void modificar_producto_reserva(const Producto& p, int reserva, int lista);
 
     // Consultoras
 
@@ -85,6 +101,18 @@ public:
     */
     int consultar_volumen_total() const;
 
+    /** @brief Consultora de cantidad de productos en reserva
+        \pre id_prod hace referencia a un producto que está en la ciudad
+        \post Devuelve la cantidad de ese producto en reserva
+    */
+    int consultar_reserva(int id_prod);
+
+    /** @brief Consultora de la cantidad de productos necesitados
+        \pre id_prod hace referencia a un producto que está en la ciudad
+        \post Devuelve la cantidad de producto que necesita
+    */
+    int consultar_faltante(int id_prod);
+
     // Lectura y escritura
 	
 	/** @brief Lectura del inventario
@@ -101,7 +129,7 @@ public:
         \post Sale por el canal de salida el inventario de la ciudad con su peso 
         y volumen total, respectivamente
     */
-    void escribir() const;
+    void escribir();
 
 };
 
