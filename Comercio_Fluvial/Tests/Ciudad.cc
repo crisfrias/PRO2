@@ -69,8 +69,7 @@ int Ciudad::consultar_faltante(int id_prod) {
 
 void Ciudad::leer_inventario_ciudad(Inventario inv) {
 	// Desinicializamos el peso, volumen y catálogo de la ciudad
-	map<int, pair<int,int>> m;
-	prods_ciudad = m;
+	prods_ciudad.clear();
 	peso_total = 0;
 	volumen_total = 0;
 	// Miramos cuantos productos nuevos entran en la ciudad
@@ -79,8 +78,7 @@ void Ciudad::leer_inventario_ciudad(Inventario inv) {
 	int id, tengo, necesito;
 	for (int i = 0; i < nprods; ++i) {
 		// Lectura de los parámetros de entrada
-		cin >> id;
-		cin >> tengo >> necesito;
+		cin >> id >> tengo >> necesito;
 		prods_ciudad.insert(make_pair(id, make_pair(tengo, necesito)));
 		bool error;
 		Producto p;

@@ -67,7 +67,7 @@ int Inventario::busqueda_elemento(const vector<Producto>& v, int esq, int dre, i
     int i = esq;
     bool found = false;
     while (esq <= dre and not found) {
-        i = (esq+dre)/2 + 1;
+        i = (esq+dre)/2;
         if (id_prod < v[i].consultar_id()) dre = i-1;
         else if (id_prod > v[i].consultar_id()) esq = i+1;
         else found = true;

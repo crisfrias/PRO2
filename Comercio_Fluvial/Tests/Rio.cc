@@ -63,6 +63,7 @@ Ciudad Rio::buscar_ciudad(const string& id_ciudad, bool& error) {
 // Lectura y escritura
 
 void Rio::leer_cuenca() {
+	mapa_cuenca.clear();
     leer_cuenca_priv(cuenca, mapa_cuenca);
 }
 
@@ -70,7 +71,8 @@ void Rio::leer_inventarios(Inventario inv) {
     string s;
     cin >> s;
     while (s != "#") {
-		Ciudad c = mapa_cuenca[s];
+		Ciudad c;
+		c = mapa_cuenca[s];
 		c.leer_inventario_ciudad(inv);
 		mapa_cuenca[s] = c;
 		cin >> s;

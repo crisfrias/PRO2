@@ -34,7 +34,7 @@ int main() {
     // Siguientes opciones
     string instr;
     cin >> instr;
-    while (instr != "fin") {
+    while (instr != "fin") {		
         if (instr == "leer_rio" or instr == "lr" ) {
             cout << "#" << instr << endl;
             r.leer_cuenca();
@@ -48,6 +48,8 @@ int main() {
             Ciudad c = r.buscar_ciudad(id_ciudad, error);
             if (error) {
 				cout << "error: no existe la ciudad" << endl;
+				string s;
+				for (int i = 0; i < 3; ++i) getline(cin, s);
 			}
             else {
 				c.leer_inventario_ciudad(v);
@@ -87,7 +89,6 @@ int main() {
 					}
 					else {
 						b.modificar_barco(id_prod_compra, peso_prod_compra, id_prod_venta, peso_prod_venta);
-						cout << endl;
 					}
 				}
             }
@@ -259,7 +260,7 @@ int main() {
 			*/
 			cout << "Vacio" << endl;
         }
-        else {
+        else if (instr == "//"){
             string s;
             getline(cin, s);
         }
