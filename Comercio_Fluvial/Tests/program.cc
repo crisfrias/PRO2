@@ -21,10 +21,8 @@ using namespace std;
 
 int main() {
     // Inicializar inventario global
-    int n_prods;
-    cin >> n_prods;
-    Inventario v(n_prods);
-    v.leer_inventario(n_prods);
+    Inventario v;
+    v.leer_inventario();
 
     // Inicializar la cuenca
     Rio r;
@@ -52,39 +50,44 @@ int main() {
 				cout << "error: no existe la ciudad" << endl;
 			}
             else {
-				c.leer_inventario_ciudad();
+				c.leer_inventario_ciudad(v);
 				r.actualizar_ciudad_rio(id_ciudad, c);
 			}
         }
         else if (instr == "leer_inventarios" or instr == "ls") {
             cout << "#" << instr << endl;
-            r.leer_inventarios();
+            r.leer_inventarios(v);
         }
         else if (instr == "modificar_barco" or instr == "mb") {
             cout << "#" << instr << endl;
+            
             // Lectura del producto que se quiere comprar
             int id_prod_compra, peso_prod_compra;
             cin >> id_prod_compra >> peso_prod_compra;
+            
             // Lectura del producto que se quiere vender
             int id_prod_venta, peso_prod_venta;
             cin >> id_prod_venta >> peso_prod_venta;
+            
             // Comprovacion de errores previa y/o ejecución de la función
             if (id_prod_compra == id_prod_venta) {
                 cout << "error: no se puede comprar y vender el mismo producto" << endl;
             }
             else {
                 bool error;
-                Producto p1 = v.consultar_producto(id_prod_compra, error);
+                Producto aux;
+                aux = v.consultar_producto(id_prod_compra, error);
                 if (error) {
 					cout << "error: no existe el producto" << endl;
 				}
 				else {
-					Producto p2 = v.consultar_producto(id_prod_venta, error);
+					aux = v.consultar_producto(id_prod_venta, error);
 					if (error) {
 						cout << "error: no existe el producto" << endl;
 					}
 					else {
 						b.modificar_barco(id_prod_compra, peso_prod_compra, id_prod_venta, peso_prod_venta);
+						cout << endl;
 					}
 				}
             }
@@ -95,7 +98,7 @@ int main() {
         }
         else if (instr == "consultar_num" or instr == "cn") {
             cout << "#" << instr << " " << endl;
-            cout << v.consultar_tamano_inventario << endl;
+            cout << v.consultar_tamano_inventario() << endl;
         }
         else if (instr == "agregar_productos" or instr == "ap") {
             int prod_nuevos;
@@ -111,9 +114,11 @@ int main() {
             int id_prod;
             cin >> id_prod;
             cout << "#" << instr << " " << id_prod << endl;
+            
             bool error;
-            Producto p = v.consultar_producto(id_prod, error);
-            if (error) {
+            Producto p;
+            p = v.consultar_producto(id_prod, error);
+            if (error or id_prod >= v.consultar_tamano_inventario()) {
 				cout << "error: no existe el producto" << endl;
 			}
 			else {
@@ -136,7 +141,7 @@ int main() {
         else if (instr == "poner_prod" or instr == "pp") {
             string id_ciudad;
             int id_prod, quiere, tiene;
-            cin >> ciudad >> id_prod >> quiere >> tiene;
+            cin >> id_ciudad >> id_prod >> quiere >> tiene;
             cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
             bool error;
             Ciudad c = r.buscar_ciudad(id_ciudad, error);
@@ -144,12 +149,13 @@ int main() {
                 cout << "error: no existe la ciudad" << endl;
             }
             else {
-                Producto p = v.consultar_producto(id_prod, error);
+                Producto p;
+                p = v.consultar_producto(id_prod, error);
                 if (error) {
                     cout << "error: no existe el producto" << endl;
                 }
                 else {
-                    c.anadir_prod_reserva(p, );
+                    c.anadir_prod_reserva(p);
                     r.actualizar_ciudad_rio(id_ciudad, c);
                 }
             }
@@ -173,7 +179,7 @@ int main() {
 				else {
 					int peso_nuevo, volumen_nuevo;
 					cin >> peso_nuevo >> volumen_nuevo;
-            		c.modificar_producto_reserva(p, quiere, tiene);
+            		c.modificar_producto_reserva(p, peso_nuevo, volumen_nuevo);
             		r.actualizar_ciudad_rio(id_ciudad, c);
 				}
 			}
@@ -197,7 +203,7 @@ int main() {
 				else {
 					c.quitar_prod_reserva(p);
             		r.actualizar_ciudad_rio(id_ciudad, c);
-            		cout << c.consultar_peso_total << " " << c.consultar_volumen_total() << endl;
+            		cout << c.consultar_peso_total() << " " << c.consultar_volumen_total() << endl;
 				}
 			}
         }
@@ -208,7 +214,8 @@ int main() {
 			cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
 			
             bool error;
-            Producto p = v.consultar_producto(id_prod, error);
+            Producto p;
+            p = v.consultar_producto(id_prod, error);
             if (error) {
 				cout << "error: no existe el producto" << endl;
 			}
@@ -223,6 +230,7 @@ int main() {
             }
         }
         else if (instr == "comerciar" or instr == "co") {
+			/*
 			cout << "#" << instr << endl;
 			bool error;
 			int id_ciudad1, id_ciudad2;
@@ -233,39 +241,23 @@ int main() {
 					r.comerciar(id_ciudad1, id_ciudad2, v);
 				}
 			}
+			*/
+			cout << "Vacio" << endl;
         }
         else if (instr == "redistribuir" or instr == "re") {
+			/*
 			cout << "#" << instr << endl;
-            /*
-            No se leen datos. La ciudad de la desembocadura comercia con su
-            ciudad río arriba a mano derecha y luego con la ciudad río arriba a mano izquierda,
-            y así sucesivamente.
-            */
+			r.redistribuir();
+			*/
+			cout << "Vacio" << endl;
         }
         else if (instr == "hacer_viaje" or instr == "hv") {
+			/*
 			cout << "#" << instr << endl;
 			int unidades = b.hacer_viaje();
 			cout << unidades << endl;
-			
-            /*
-            El barco busca la ruta a partir de la desembocadura que le per-
-            mita comprar y vender el mayor número posible de productos. En caso que haya
-            más de una ruta que lo cumpla, se queda con la más corta, y en caso de que ten-
-            gan la misma longitud, se queda con la que viene río arriba a mano derecha. Una
-            vez encontrada la ruta, se hace el viaje y se compran y venden los productos a lo
-            largo de la ruta, modificándose los inventarios de las ciudades. Se escribe el total
-            de unidades de productos compradas y vendidas por el barco.
-            */
-
-            // hacer suma de cada prod los que tiene y los que necesita y hacer la diferencia, ej:
-            /*
-                Ruta_izq = x1+x3+x3+...xn - (y1+y2+y3+...+yn)
-                Ruta_derecha = x1'+x2'+x3'+...xn' - (y1'+y2'+y3'+...+ yn')
-
-                Si el peso o volumen max se alcanzan antes de acabar la rama, parar e ir a la siguiente
-                Comparar según lo que tiene y lo que le falta
-                
-            */
+			*/
+			cout << "Vacio" << endl;
         }
         else {
             string s;

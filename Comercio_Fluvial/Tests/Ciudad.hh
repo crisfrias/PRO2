@@ -6,6 +6,7 @@
 #define _CIUDAD_HH_
 
 #include "Producto.hh"
+#include "Inventario.hh"
 
 #ifndef NO_DIAGRAM
 #include <iostream>
@@ -77,6 +78,15 @@ public:
         \post Se han modificado los valores de prods_ciudad
     */
     void modificar_producto_reserva(const Producto& p, int reserva, int lista);
+    
+     /** @brief Comerciar
+		Una ciudad le dara a la otra todos los productos que le sobren hasta alcanzar
+		si es posible los que la otra necesite, y viceversa
+        \pre s1 y s2 son ciudades inicializadas en el río
+        \post Se ha realizado el intercambio de productos entre las dos ciudades
+    *
+    void comerciar(Ciudad& c);
+    */
 
     // Consultoras
 
@@ -119,9 +129,10 @@ public:
         Entran por el canal de entrada el inventario del parámetro implícito
         \pre "cierto"
         \post Se ha actualizado el inventario de la ciudad con los identificadores
-        de los productos, la cantidad que tiene y necesita, respectivamente
+        de los productos, la cantidad que tiene y necesita, respectivamente, además 
+        de sustituir el peso y volumen totales con los nuevos productos
     */
-    void leer_inventario_ciudad();
+    void leer_inventario_ciudad(Inventario inv);
     
     /** @brief Escritura de la ciudad
         Sale por el canal de salida el inventario del parámetro implícito

@@ -1,15 +1,18 @@
 OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11 -fno-extended-identifiers
 
-program.exe: program.o Ciudad.o Rio.o Barco.o Producto.o Inventario.cc
+program.exe: program.o Ciudad.o Rio.o Barco.o Producto.o Inventario.o
 	g++ -o program.exe *.o
 
-Rio.o: Rio.cc Rio.hh BinTree.hh Ciudad.hh
+program.o: program.cc Rio.hh Ciudad.hh Inventario.hh Producto.hh Barco.hh
+	g++ -c program.cc $(OPCIONS)
+
+Rio.o: Rio.cc Rio.hh BinTree.hh Ciudad.hh Inventario.hh
 	g++ -c Rio.cc $(OPCIONS)
 	
 Barco.o: Barco.cc Barco.hh
 	g++ -c Barco.cc $(OPCIONS)
 
-Ciudad.o: Ciudad.cc Ciudad.hh Producto.hh
+Ciudad.o: Ciudad.cc Ciudad.hh Producto.hh Inventario.hh
 	g++ -c Ciudad.cc $(OPCIONS)
 
 Inventario.o: Inventario.cc Inventario.hh Producto.hh
@@ -17,9 +20,6 @@ Inventario.o: Inventario.cc Inventario.hh Producto.hh
 
 Producto.o: Producto.cc Producto.hh
 	g++ -c Producto.cc $(OPCIONS)
-	
-program.o: program.cc Rio.hh Ciudad.hh Inventario.hh Producto.hh Barco.hh
-	g++ -c program.cc $(OPCIONS)
 
 clean:
 	rm *.o

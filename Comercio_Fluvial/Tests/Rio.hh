@@ -38,8 +38,9 @@ private:
         Es la implementación recursiva de la función redistribuir
         \pre t no está vacío
         \post Se ha realizado la acción de Redistribuir
+    *
+    static void redistribuir_priv(BinTree<string>& t);
     */
-    static void redistribuir_priv(BinTree<string>& t, Inventario inv);
 
 public:
 
@@ -59,14 +60,6 @@ public:
         \post Actualiza el nodo de la ciudad con id=id_ciudad a c
     */
     void actualizar_ciudad_rio(const string& id_ciudad, const Ciudad& c);
-    
-    /** @brief Comerciar
-		Una ciudad le dara a la otra todos los productos que le sobren hasta alcanzar
-		si es posible los que la otra necesite, y viceversa
-        \pre s1 y s2 son ciudades inicializadas en el río
-        \post Se ha realizado el intercambio de productos entre las dos ciudades
-    */
-    void comerciar(const string& s1, const string& s2, Inventario inv);
 	
 	/** @brief Redistribuir
 		A partir de la ciudad de la desembocadura, cada ciudad comerciará con las 
@@ -74,8 +67,9 @@ public:
 		de los nacimientos
         \pre "cierto"
         \post Se ha realizado el intercambio de productos entre las ciudades del río
-    */
+    *
 	void redistribuir(Inventario inv);
+	*/
 	
     // Consultoras
 
@@ -100,7 +94,7 @@ public:
         las ciudades
         \post Se han añadido los inventarios a las ciudades del p.i.
     */
-    void leer_inventarios();
+    void leer_inventarios(Inventario inv);
     
 };
 

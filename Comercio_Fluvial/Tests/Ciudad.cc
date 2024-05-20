@@ -34,8 +34,14 @@ void Ciudad::anadir_prod_faltante(const Producto& p) {
 }
 
 void Ciudad::modificar_producto_reserva(const Producto& p, int reserva, int lista) {
+	peso_total -= p.consultar_peso() * prods_ciudad[p.consultar_id()].first;
     prods_ciudad[p.consultar_id()] = make_pair(reserva, lista);
+    peso_total += reserva * p.consultar_peso();
 }
+
+/*
+void Ciudad::comerciar(Ciudad& c);
+*/
 
 // Consultoras
 
@@ -61,13 +67,30 @@ int Ciudad::consultar_faltante(int id_prod) {
 
 // Lectura y escritura
 
-void Ciudad::leer_inventario_ciudad() {
-	int n;
-	cin >> n;
+void Ciudad::leer_inventario_ciudad(Inventario inv) {
+	// Desinicializamos el peso, volumen y catálogo de la ciudad
+	map<int, pair<int,int>> m;
+	prods_ciudad = m;
+	peso_total = 0;
+	volumen_total = 0;
+	// Miramos cuantos productos nuevos entran en la ciudad
+	int nprods;
+	cin >> nprods;
 	int id, tengo, necesito;
-	for (int i = 0; i < n; ++i) {
-		cin >> id >> tengo >> necesito;
-		prods_ciudad[id] = make_pair(tengo, necesito);
+	for (int i = 0; i < nprods; ++i) {
+		// Lectura de los parámetros de entrada
+		cin >> id;
+		cin >> tengo >> necesito;
+		prods_ciudad.insert(make_pair(id, make_pair(tengo, necesito)));
+		bool error;
+		Producto p;
+		p = inv.consultar_producto(id, error);
+		if (error) cout << "error: no existe el producto" << endl;
+		// Actualización del peso y volumen total del p.i.
+		else {
+			peso_total += tengo * p.consultar_peso();
+			volumen_total += tengo * p.consultar_vol();
+		}
 	}
 }
 

@@ -18,7 +18,8 @@ void Rio::leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m) {
     }
 }
 
-void Rio::redistribuir_priv(BinTree<string>& t, Inventario inv) {
+/*
+void Rio::redistribuir_priv(BinTree<string>& t) {
 	if (t.empty()) {
 		if (not t.left().empty()) {
 			comerciar(t.value(), t.left().value(), inv);
@@ -30,6 +31,7 @@ void Rio::redistribuir_priv(BinTree<string>& t, Inventario inv) {
 		}
 	}
 }
+*/
 
 // Modificadoras
 
@@ -37,32 +39,11 @@ void Rio::actualizar_ciudad_rio(const string& id_ciudad, const Ciudad& c) {
     mapa_cuenca[id_ciudad] = c;
 }
 
-void Rio::comerciar(const string& s1, const string& s2, Inventario inv) {
-	if (inv.consultar_tamano_inventario() == 0) return;
-	
-	Ciudad c1 = mapa_cuenca[s1];
-	int reserva1, faltante1;
-	
-	Ciudad c2 = mapa_cuenca[s2];
-	int reserva2, faltante2;
-	
-	for (int i = 1 ; i < inv.consultar_tamano_inventario ; ++i) {
-		// Producto p = inv.devolver_producto(i);
-		reserva1 = c1.consultar_reserva(i);
-		faltante1 = c1.consultar_faltante(i);
-		
-		reserva2 = c2.consultar_reserva(i);
-		faltante2 = c2.consultar_faltante(i);
-		
-		if (not (reserva1 == 0 and reserva2 == 0)) {
-			// ...
-		}
-	}
-}
-
+/*
 void Rio::redistribuir(Inventario inv) {
 	redistribuir_priv(cuenca, inv);
 }
+*/
 
 // Consultoras
 
@@ -74,7 +55,8 @@ Ciudad Rio::buscar_ciudad(const string& id_ciudad, bool& error) {
     }
     else {
         error = true;
-        return Ciudad();
+        Ciudad c;
+        return c;
     }
 }
 
@@ -84,12 +66,13 @@ void Rio::leer_cuenca() {
     leer_cuenca_priv(cuenca, mapa_cuenca);
 }
 
-void Rio::leer_inventarios() {
+void Rio::leer_inventarios(Inventario inv) {
     string s;
     cin >> s;
     while (s != "#") {
 		Ciudad c = mapa_cuenca[s];
-		c.leer_inventario_ciudad();
+		c.leer_inventario_ciudad(inv);
+		mapa_cuenca[s] = c;
 		cin >> s;
 	}
 }
