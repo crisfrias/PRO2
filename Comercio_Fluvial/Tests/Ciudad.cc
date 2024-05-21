@@ -16,21 +16,23 @@ Ciudad::Ciudad(string id) {
 
 // Modificadoras
 
-void Ciudad::anadir_prod_reserva(const Producto& p) {
-    prods_ciudad[p.consultar_id()].first += 1;
-    peso_total += p.consultar_peso();
-    volumen_total += p.consultar_vol();
+void Ciudad::anadir_prod_reserva(const Producto& p, int unidades) {
+    prods_ciudad[p.consultar_id()].first += unidades;
+    peso_total += p.consultar_peso() * unidades;
+    volumen_total += p.consultar_vol() * unidades;
 }
 
-void Ciudad::quitar_prod_reserva(const Producto& p) {
+void Ciudad::quitar_prod_reserva(const Producto& p, int unidades) {
+	prods_ciudad[p.consultar_id()].first -= unidades;
+    peso_total -= p.consultar_peso() * unidades;
+    volumen_total -= p.consultar_vol() * unidades;
+}
+
+void Ciudad::eliminar_prod_reserva(const Producto& p) {
 	int id_prod = p.consultar_id();
 	peso_total -= prods_ciudad[id_prod].first * p.consultar_peso();
 	volumen_total -= prods_ciudad[id_prod].first * p.consultar_vol();
 	prods_ciudad.erase(id_prod);
-}
-
-void Ciudad::anadir_prod_faltante(const Producto& p) {
-    prods_ciudad[p.consultar_id()].second += 1;
 }
 
 void Ciudad::modificar_producto_reserva(const Producto& p, int reserva, int lista) {
@@ -62,23 +64,21 @@ void Ciudad::comerciar(Ciudad& c, Inventario inv) {
 		
 		if (unidades1 > 0 and unidades2 < 0) {
 			int venta = unidades1;
-			int nueva_reserva2 = c.consultar_reserva(id_prod) + venta;
 			
 			peso_total -= p.consultar_peso() * venta;
 			volumen_total -= p.consultar_vol() * venta;
 			prods_ciudad[id_prod].first -= venta;
 			
-			c.modificar_producto_reserva(p, nueva_reserva2, c.consultar_faltante(id_prod));
+			c.anadir_prod_reserva(p, venta);
 		}
 		else if (unidades1 < 0 and unidades2 > 0) {
 			int compra = unidades2;
-			int nueva_reserva2 = c.consultar_reserva(id_prod) - compra;
 			
 			peso_total += p.consultar_peso() * compra;
 			volumen_total += p.consultar_vol() * compra;
 			prods_ciudad[id_prod].first += compra;
 			
-			c.modificar_producto_reserva(p, nueva_reserva2, c.consultar_faltante(id_prod));
+			c.quitar_prod_reserva(p, compra);
 		}
 	}
 }

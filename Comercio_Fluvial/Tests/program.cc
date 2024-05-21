@@ -217,7 +217,7 @@ int main() {
 						cout << "error: la ciudad no tiene el producto" << endl;
 					}
 					else {
-						c.quitar_prod_reserva(p);
+						c.eliminar_prod_reserva(p);
 						r.actualizar_ciudad_rio(id_ciudad, c);
 						cout << c.consultar_peso_total() << " " << c.consultar_volumen_total() << endl;
 					}

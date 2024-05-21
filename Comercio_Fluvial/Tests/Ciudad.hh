@@ -48,27 +48,24 @@ public:
 
     // Modificadoras
 	
-	/** @brief Añadir producto a la reserva
-        Se añade p a la reserva de productos que tiene la ciudad
-        \pre p no está vacío
-        \post Se añade el identificador de p a los productos de la ciudad
+	/** @brief Añadir productos a la reserva
+        \pre "cierto"
+        \post Se añaden las unidades correspondientes de p a la ciudad
     */
-    void anadir_prod_reserva(const Producto& p);
+    void anadir_prod_reserva(const Producto& p, int unidades);
+    
+    /** @brief Quitar productos a la reserva
+        \pre "cierto"
+        \post Se borran las unidades correspondientes de p en la ciudad
+    */
+    void quitar_prod_reserva(const Producto& p, int unidades);
     
     /** @brief Quitar producto de la reserva
         p deja de estar en los productos de la ciudad
         \pre p no está vacío
         \post Se ha quitado p de los registros de la ciudad
     */
-    void quitar_prod_reserva(const Producto& p);
-	
-	/** @brief Añadir producto a la lista
-        Se añade p a la lista de productos que necesita comprar la ciudad
-        \pre p no está vacío
-        \post Se añade el identificador de p a los productos que el parámetro 
-			  implícito necesita comprar
-    */
-    void anadir_prod_faltante(const Producto& p);
+    void eliminar_prod_reserva(const Producto& p);
 
     /** @brief Modificar producto de la ciudad
         El producto p es modificador de las listas de unidades que la ciudad tiene
