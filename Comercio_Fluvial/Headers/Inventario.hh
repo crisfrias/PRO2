@@ -23,6 +23,8 @@ private:
     vector<Producto> catalogo;
     int ultimo_id;
     int tamano_inventario;
+    int peso_inventario;
+    int volumen_inventario;
 
     /** @brief Búsqueda dicotómica en el inventario
 
@@ -79,6 +81,18 @@ public:
         \post Devuelve el tamaño del p.i
     */
     int consultar_tamano_inventario() const;
+    
+    /** @brief Consultar peso inventario
+        \pre <em>cierto</em>
+        \post Devuelve el peso del p.i
+    */
+    int consultar_peso_inventario() const;
+    
+    /** @brief Consultar volumen inventario
+        \pre <em>cierto</em>
+        \post Devuelve el volumen del p.i
+    */
+    int consultar_vol_inventario() const;
 	
 	/** @brief Consultar producto 
         Busca si el producto con identificador id_prod existe, y si es así lo
@@ -88,6 +102,12 @@ public:
         sino retorna un producto vacío y error=true 
     */
     Producto consultar_producto(int id_prod, bool& error);
+    
+    /** @brief Devolver producto 
+        \pre id_prod representa a un producto del p.i
+        \post Retorna el producto asociado a id_prod
+    */
+    Producto devolver_producto(int id_prod);
 
     // Lectura y escritura
 	

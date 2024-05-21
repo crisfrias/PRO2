@@ -6,6 +6,7 @@
 #define _CIUDAD_HH_
 
 #include "Producto.hh"
+#include "Inventario.hh"
 
 #ifndef NO_DIAGRAM
 #include <iostream>
@@ -47,27 +48,24 @@ public:
 
     // Modificadoras
 	
-	/** @brief Añadir producto a la reserva
-        Se añade p a la reserva de productos que tiene la ciudad
-        \pre p no está vacío
-        \post Se añade el identificador de p a los productos de la ciudad
+	/** @brief Añadir productos a la reserva
+        \pre "cierto"
+        \post Se añaden las unidades correspondientes de p a la ciudad
     */
-    void anadir_prod_reserva(const Producto& p);
+    void anadir_prod_reserva(const Producto& p, int unidades);
+    
+    /** @brief Quitar productos a la reserva
+        \pre "cierto"
+        \post Se borran las unidades correspondientes de p en la ciudad
+    */
+    void quitar_prod_reserva(const Producto& p, int unidades);
     
     /** @brief Quitar producto de la reserva
         p deja de estar en los productos de la ciudad
         \pre p no está vacío
         \post Se ha quitado p de los registros de la ciudad
     */
-    void quitar_prod_reserva(const Producto& p);
-	
-	/** @brief Añadir producto a la lista
-        Se añade p a la lista de productos que necesita comprar la ciudad
-        \pre p no está vacío
-        \post Se añade el identificador de p a los productos que el parámetro 
-			  implícito necesita comprar
-    */
-    void anadir_prod_faltante(const Producto& p);
+    void eliminar_prod_reserva(const Producto& p);
 
     /** @brief Modificar producto de la ciudad
         El producto p es modificador de las listas de unidades que la ciudad tiene
@@ -77,6 +75,21 @@ public:
         \post Se han modificado los valores de prods_ciudad
     */
     void modificar_producto_reserva(const Producto& p, int reserva, int lista);
+    
+     /** @brief Actualizar ciudad
+		Elimina todos los productos que esten en reserva
+        \pre "cierto"
+        \post Se han borrado todos los productos inexistentes de prods_ciudad
+    */
+    void actualizar_ciudad();
+    
+     /** @brief Comerciar
+		Una ciudad le dara a la otra todos los productos que le sobren hasta alcanzar
+		si es posible los que la otra necesite, y viceversa
+        \pre s1 y s2 son ciudades inicializadas en el río
+        \post Se ha realizado el intercambio de productos entre las dos ciudades
+    */
+    void comerciar(Ciudad& c, Inventario inv);
 
     // Consultoras
 
@@ -100,6 +113,13 @@ public:
         \post Devuelve el volumen total del p.i.
     */
     int consultar_volumen_total() const;
+    
+    /** @brief Consultora de productos
+        Devuelve si el producto está en el catalogo de la ciudad
+        \pre <em>cierto</em>
+        \post Devuelve true si el producto está en la ciudad, y false si no está
+    */
+    bool consultar_producto(int id_prod);
 
     /** @brief Consultora de cantidad de productos en reserva
         \pre id_prod hace referencia a un producto que está en la ciudad
@@ -119,9 +139,10 @@ public:
         Entran por el canal de entrada el inventario del parámetro implícito
         \pre "cierto"
         \post Se ha actualizado el inventario de la ciudad con los identificadores
-        de los productos, la cantidad que tiene y necesita, respectivamente
+        de los productos, la cantidad que tiene y necesita, respectivamente, además 
+        de sustituir el peso y volumen totales con los nuevos productos
     */
-    void leer_inventario_ciudad();
+    void leer_inventario_ciudad(Inventario inv);
     
     /** @brief Escritura de la ciudad
         Sale por el canal de salida el inventario del parámetro implícito

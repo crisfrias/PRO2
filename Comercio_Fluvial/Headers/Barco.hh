@@ -52,8 +52,9 @@ public:
 		para comprar y vender. Seguirá la ruta donde pueda comprar y vender más productos
         \pre "cierto"
         \post Devuelve el número de productos que el barco ha comprado y vendido por la ruta
-    */
+    *
     int hacer_viaje();
+    */
 
     // Consultoras
 

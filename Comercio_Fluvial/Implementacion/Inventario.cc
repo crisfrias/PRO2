@@ -3,7 +3,7 @@
 // Constructoras
 
 Inventario::Inventario() {
-    ultimo_id = -1;
+    ultimo_id = 1;
     tamano_inventario = 0;
 }
 
@@ -40,21 +40,23 @@ int Inventario::consultar_tamano_inventario() const {
 }
 
 Producto Inventario::consultar_producto(int id_prod, bool& error) {
-    int esq = 0, dre = catalogo.size();
-    int i = busqueda_elemento(catalogo, esq, dre, id_prod);
-    if (id_prod == catalogo[i].consultar_id()) {
-        error = true;
-        return catalogo[i];
+    if (id_prod <= tamano_inventario) {
+        error = false;
+        return catalogo[id_prod-1];
     }
     else {
-        error = true;
-        return Producto();
-    }
+		error = true;
+		Producto p;
+        return p;
+	}
 }
 
+Producto Inventario::devolver_producto(int id_prod) {
+	return catalogo[id_prod-1];
+}
 
 int Inventario::busqueda_elemento(const vector<Producto>& v, int esq, int dre, int id_prod) {
-    int i;
+    int i = esq;
     bool found = false;
     while (esq <= dre and not found) {
         i = (esq+dre)/2;
@@ -63,16 +65,18 @@ int Inventario::busqueda_elemento(const vector<Producto>& v, int esq, int dre, i
         else found = true;
     }
     if (found) return i;
-    else return esq;
+    else return v.size();
 }
 
 // Lectura y escritura
 
 void Inventario::leer_inventario() {
-    for (int i = 0; i < tamano_inventario; ++i) {
-        Producto aux(ultimo_id);
+	cin >> tamano_inventario;
+	int i;
+    for (i = 0; i < tamano_inventario; ++i) {
+        Producto aux(i+1);
         aux.leer();
-        catalogo[i] = aux;
-        ++ultimo_id;
+        catalogo.push_back(aux);
     }
+    ultimo_id = tamano_inventario;
 }

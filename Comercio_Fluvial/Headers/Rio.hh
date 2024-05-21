@@ -6,9 +6,11 @@
 #define _RIO_HH_
 
 #include "Ciudad.hh"
+#include "Inventario.hh"
 
 #ifndef NO_DIAGRAM
 #include "BinTree.hh"
+#include <iostream>
 #include <string>
 #include <map>
 using namespace std;
@@ -31,6 +33,13 @@ private:
         \post El parámetro implícito ya no está vacío y "t" y "m" están sincronizados
     */
     static void leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m);
+    
+    /** @brief Redistribuir recursivamente
+        Es la implementación recursiva de la función redistribuir
+        \pre t no está vacío
+        \post Se ha realizado la acción de Redistribuir
+    */
+    static void redistribuir_priv(BinTree<string>& t, Inventario inv, map<string, Ciudad>& m);
 
 public:
 
@@ -50,7 +59,16 @@ public:
         \post Actualiza el nodo de la ciudad con id=id_ciudad a c
     */
     void actualizar_ciudad_rio(const string& id_ciudad, const Ciudad& c);
-
+	
+	/** @brief Redistribuir
+		A partir de la ciudad de la desembocadura, cada ciudad comerciará con las 
+		dos ciudades inmediatamente situadas río arriba, y así hasta llegar a las ciudades
+		de los nacimientos
+        \pre "cierto"
+        \post Se ha realizado el intercambio de productos entre las ciudades del río
+    */
+	void redistribuir(Inventario inv);
+	
     // Consultoras
 
     /** @brief Buscadora de ciudades
@@ -74,7 +92,7 @@ public:
         las ciudades
         \post Se han añadido los inventarios a las ciudades del p.i.
     */
-    void leer_inventarios();
+    void leer_inventarios(Inventario inv);
     
 };
 
