@@ -24,9 +24,9 @@ void Ciudad::anadir_prod_reserva(const Producto& p) {
 
 void Ciudad::quitar_prod_reserva(const Producto& p) {
 	int id_prod = p.consultar_id();
+	peso_total -= prods_ciudad[id_prod].first * p.consultar_peso();
+	volumen_total -= prods_ciudad[id_prod].first * p.consultar_vol();
 	prods_ciudad.erase(id_prod);
-	peso_total -= p.consultar_peso();
-	volumen_total -= p.consultar_vol();
 }
 
 void Ciudad::anadir_prod_faltante(const Producto& p) {
@@ -35,8 +35,10 @@ void Ciudad::anadir_prod_faltante(const Producto& p) {
 
 void Ciudad::modificar_producto_reserva(const Producto& p, int reserva, int lista) {
 	peso_total -= p.consultar_peso() * prods_ciudad[p.consultar_id()].first;
+	volumen_total -= p.consultar_vol() * prods_ciudad[p.consultar_id()].first;
     prods_ciudad[p.consultar_id()] = make_pair(reserva, lista);
     peso_total += reserva * p.consultar_peso();
+    volumen_total += reserva * p.consultar_vol();
 }
 
 /*
@@ -55,6 +57,11 @@ int Ciudad::consultar_peso_total() const {
 
 int Ciudad::consultar_volumen_total() const {
     return volumen_total;
+}
+
+bool Ciudad::consultar_producto(int id_prod) {
+	if (prods_ciudad.find(id_prod) == prods_ciudad.end()) return false;
+	else return true;
 }
 
 int Ciudad::consultar_reserva(int id_prod) {

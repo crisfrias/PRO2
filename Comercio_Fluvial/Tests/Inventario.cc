@@ -3,7 +3,7 @@
 // Constructoras
 
 Inventario::Inventario() {
-    ultimo_id = -1;
+    ultimo_id = 1;
     tamano_inventario = 0;
 }
 
@@ -40,27 +40,19 @@ int Inventario::consultar_tamano_inventario() const {
 }
 
 Producto Inventario::consultar_producto(int id_prod, bool& error) {
-	if (id_prod >= tamano_inventario) {
+    if (id_prod <= tamano_inventario) {
+        error = false;
+        return catalogo[id_prod-1];
+    }
+    else {
 		error = true;
 		Producto p;
         return p;
 	}
-	
-    int esq = 0, dre = catalogo.size() - 1;
-    int i = busqueda_elemento(catalogo, esq, dre, id_prod);
-    if (i < dre+1 and id_prod == catalogo[i].consultar_id()) {
-        error = false;
-        return catalogo[i];
-    }
-    else {
-        error = true;
-        Producto p;
-        return p;
-    }
 }
 
 Producto Inventario::devolver_producto(int id_prod) {
-	return catalogo[id_prod];
+	return catalogo[id_prod-1];
 }
 
 int Inventario::busqueda_elemento(const vector<Producto>& v, int esq, int dre, int id_prod) {
@@ -86,5 +78,5 @@ void Inventario::leer_inventario() {
         aux.leer();
         catalogo.push_back(aux);
     }
-    ultimo_id = i+1;
+    ultimo_id = tamano_inventario;
 }

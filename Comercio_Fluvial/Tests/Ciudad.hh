@@ -110,6 +110,13 @@ public:
         \post Devuelve el volumen total del p.i.
     */
     int consultar_volumen_total() const;
+    
+    /** @brief Consultora de productos
+        Devuelve si el producto está en el catalogo de la ciudad
+        \pre <em>cierto</em>
+        \post Devuelve true si el producto está en la ciudad, y false si no está
+    */
+    bool consultar_producto(int id_prod);
 
     /** @brief Consultora de cantidad de productos en reserva
         \pre id_prod hace referencia a un producto que está en la ciudad

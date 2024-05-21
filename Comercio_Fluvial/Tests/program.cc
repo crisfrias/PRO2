@@ -106,7 +106,8 @@ int main() {
             cin >> prod_nuevos;
             cout << "#" << instr << " " << prod_nuevos << endl;
             for (int i = 0; i < prod_nuevos; ++i) {
-                Producto p;
+				int id_prod = v.consultar_tamano_inventario()+1;
+                Producto p(id_prod);
                 p.leer();
                 v.anadir_producto_nuevo(p);
             }
@@ -116,13 +117,11 @@ int main() {
             cin >> id_prod;
             cout << "#" << instr << " " << id_prod << endl;
             
-            bool error;
-            Producto p;
-            p = v.consultar_producto(id_prod, error);
-            if (error or id_prod >= v.consultar_tamano_inventario()) {
+            if (id_prod > v.consultar_tamano_inventario()) {
 				cout << "error: no existe el producto" << endl;
 			}
 			else {
+				Producto p = v.devolver_producto(id_prod);
 				p.escribir();
 			}
         }
@@ -142,46 +141,57 @@ int main() {
         else if (instr == "poner_prod" or instr == "pp") {
             string id_ciudad;
             int id_prod, quiere, tiene;
-            cin >> id_ciudad >> id_prod >> quiere >> tiene;
+            cin >> id_ciudad >> id_prod >> tiene >> quiere;
             cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
             bool error;
-            Ciudad c = r.buscar_ciudad(id_ciudad, error);
-            if (error) {
-                cout << "error: no existe la ciudad" << endl;
-            }
-            else {
-                Producto p;
-                p = v.consultar_producto(id_prod, error);
-                if (error) {
-                    cout << "error: no existe el producto" << endl;
-                }
-                else {
-                    c.anadir_prod_reserva(p);
-                    r.actualizar_ciudad_rio(id_ciudad, c);
-                }
-            }
+            Producto p;
+			p = v.consultar_producto(id_prod, error);
+			if (error) {
+				cout << "error: no existe el producto" << endl;
+			}
+			else {
+				Ciudad c = r.buscar_ciudad(id_ciudad, error);
+				if (error) {
+					cout << "error: no existe la ciudad" << endl;
+				}
+				else {
+					if (c.consultar_producto(id_prod)) {
+						cout << "error: la ciudad ya tiene el producto" << endl;
+					}
+					else {
+						c.modificar_producto_reserva(p, tiene, quiere);
+						r.actualizar_ciudad_rio(id_ciudad, c);
+						cout << c.consultar_peso_total() << " " << c.consultar_volumen_total() << endl;
+					}
+				}
+			}
         }
         else if (instr == "modificar_prod" or instr == "mp") {
             string id_ciudad;
-            int id_prod;
-            cin >> id_ciudad >> id_prod;
+            int id_prod, tiene, quiere;
+            cin >> id_ciudad >> id_prod >> tiene >> quiere;
 			cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
 			
             bool error;
-            Ciudad c = r.buscar_ciudad(id_ciudad, error);
-            if (error) {
-				cout << "error: no existe la ciudad" << endl;
+            Producto p;
+			p = v.consultar_producto(id_prod, error);
+			if (error) {
+				cout << "error: no existe el producto" << endl;
 			}
 			else {
-				Producto p = v.consultar_producto(id_prod, error);
+				Ciudad c = r.buscar_ciudad(id_ciudad, error);
 				if (error) {
-					cout << "error: no existe el producto" << endl;
+					cout << "error: no existe la ciudad" << endl;
 				}
 				else {
-					int peso_nuevo, volumen_nuevo;
-					cin >> peso_nuevo >> volumen_nuevo;
-            		c.modificar_producto_reserva(p, peso_nuevo, volumen_nuevo);
-            		r.actualizar_ciudad_rio(id_ciudad, c);
+					if (not c.consultar_producto(id_prod)) {
+						cout << "error: la ciudad no tiene el producto" << endl;
+					}
+					else {
+						c.modificar_producto_reserva(p, tiene, quiere);
+						r.actualizar_ciudad_rio(id_ciudad, c);
+						cout << c.consultar_peso_total() << " " << c.consultar_volumen_total() << endl;
+					}
 				}
 			}
         }
@@ -192,19 +202,25 @@ int main() {
 			cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
 			
 			bool error;
-            Ciudad c = r.buscar_ciudad(id_ciudad, error);
-            if (error) {
-				cout << "error: no existe la ciudad" << endl;
+            Producto p;
+			p = v.consultar_producto(id_prod, error);
+			if (error) {
+				cout << "error: no existe el producto" << endl;
 			}
 			else {
-				Producto p = v.consultar_producto(id_prod, error);
+				Ciudad c = r.buscar_ciudad(id_ciudad, error);
 				if (error) {
-					cout << "error: no existe el producto" << endl;
+					cout << "error: no existe la ciudad" << endl;
 				}
 				else {
-					c.quitar_prod_reserva(p);
-            		r.actualizar_ciudad_rio(id_ciudad, c);
-            		cout << c.consultar_peso_total() << " " << c.consultar_volumen_total() << endl;
+					if (not c.consultar_producto(id_prod)) {
+						cout << "error: la ciudad no tiene el producto" << endl;
+					}
+					else {
+						c.quitar_prod_reserva(p);
+						r.actualizar_ciudad_rio(id_ciudad, c);
+						cout << c.consultar_peso_total() << " " << c.consultar_volumen_total() << endl;
+					}
 				}
 			}
         }
@@ -215,20 +231,25 @@ int main() {
 			cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
 			
             bool error;
-            Producto p;
-            p = v.consultar_producto(id_prod, error);
-            if (error) {
-				cout << "error: no existe el producto" << endl;
+            Ciudad c = r.buscar_ciudad(id_ciudad, error);
+			if (error) {
+				cout << "error: no existe la ciudad" << endl;
 			}
-            else {
-                Ciudad c = r.buscar_ciudad(id_ciudad, error);
-                if (error) {
-				    cout << "error: no existe la ciudad" << endl;
-			    }
-                else {
-                    cout << c.consultar_reserva(id_prod) << " " << c.consultar_faltante(id_prod) << endl;
-                }
-            }
+			else {
+				Producto p;
+				p = v.consultar_producto(id_prod, error);
+				if (error) {
+					cout << "error: no existe el producto" << endl;
+				}
+				else {
+					if (c.consultar_producto(id_prod)) {
+						cout << c.consultar_reserva(id_prod) << " " << c.consultar_faltante(id_prod) << endl;
+					}
+					else {
+						cout << "error: la ciudad no tiene el producto" << endl;
+					}
+				}
+			}
         }
         else if (instr == "comerciar" or instr == "co") {
 			/*
