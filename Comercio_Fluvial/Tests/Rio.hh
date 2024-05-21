@@ -38,9 +38,8 @@ private:
         Es la implementación recursiva de la función redistribuir
         \pre t no está vacío
         \post Se ha realizado la acción de Redistribuir
-    *
-    static void redistribuir_priv(BinTree<string>& t);
     */
+    static void redistribuir_priv(BinTree<string>& t, Inventario inv, map<string, Ciudad>& m);
 
 public:
 
@@ -67,9 +66,8 @@ public:
 		de los nacimientos
         \pre "cierto"
         \post Se ha realizado el intercambio de productos entre las ciudades del río
-    *
+    */
 	void redistribuir(Inventario inv);
-	*/
 	
     // Consultoras
 

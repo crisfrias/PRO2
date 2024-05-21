@@ -18,20 +18,23 @@ void Rio::leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m) {
     }
 }
 
-/*
-void Rio::redistribuir_priv(BinTree<string>& t) {
-	if (t.empty()) {
-		if (not t.left().empty()) {
-			comerciar(t.value(), t.left().value(), inv);
-			redistribuir_priv(t.left());
-		}
-		else if (not t.right().empty()) {
-			comerciar(t.value(), t.right().value(), inv);
-			redistribuir_priv(t.right());
-		}
+void Rio::redistribuir_priv(BinTree<string>& t, Inventario inv, map<string, Ciudad>& m) {
+	if (t.empty()) return;
+	string id_ciudad = t.value();
+	if (t.left().empty()) {
+		m[id_ciudad].actualizar_ciudad();
+		return;
 	}
+	BinTree<string> esq = t.left();
+	BinTree<string> dre = t.right();
+	m[id_ciudad].comerciar(m[t.left().value()], inv);
+	m[id_ciudad].comerciar(m[t.right().value()], inv);
+	m[id_ciudad].actualizar_ciudad();
+	redistribuir_priv(esq, inv, m);
+	redistribuir_priv(dre, inv, m);
+	
+	t = BinTree<string> (id_ciudad, esq, dre);
 }
-*/
 
 // Modificadoras
 
@@ -39,11 +42,9 @@ void Rio::actualizar_ciudad_rio(const string& id_ciudad, const Ciudad& c) {
     mapa_cuenca[id_ciudad] = c;
 }
 
-/*
 void Rio::redistribuir(Inventario inv) {
-	redistribuir_priv(cuenca, inv);
+	redistribuir_priv(cuenca, inv, mapa_cuenca);
 }
-*/
 
 // Consultoras
 

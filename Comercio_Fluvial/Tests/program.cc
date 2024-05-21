@@ -280,11 +280,8 @@ int main() {
 			}
         }
         else if (instr == "redistribuir" or instr == "re") {
-			/*
 			cout << "#" << instr << endl;
-			r.redistribuir();
-			*/
-			cout << "Vacio" << endl;
+			r.redistribuir(v);
         }
         else if (instr == "hacer_viaje" or instr == "hv") {
 			/*
