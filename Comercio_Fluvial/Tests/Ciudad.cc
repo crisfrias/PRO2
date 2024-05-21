@@ -41,9 +41,47 @@ void Ciudad::modificar_producto_reserva(const Producto& p, int reserva, int list
     volumen_total += reserva * p.consultar_vol();
 }
 
-/*
-void Ciudad::comerciar(Ciudad& c);
-*/
+void Ciudad::actualizar_ciudad() {
+	for (auto it = prods_ciudad.begin(); it != prods_ciudad.end(); ) {
+		if (prods_ciudad[it->first].first == 0) {
+            it = prods_ciudad.erase(it); 
+        } else {
+            ++it;
+        }
+	}
+}
+
+void Ciudad::comerciar(Ciudad& c, Inventario inv) {
+	for (auto it = prods_ciudad.begin(); it != prods_ciudad.end(); ++it) {
+		// Asignamos un id al producto que estamos tratando
+		int id_prod = it->first;
+		// Asignamos si a cada ciudad le falta o le sobra el producto
+		int unidades1 = prods_ciudad[id_prod].first - prods_ciudad[id_prod].second;
+		int unidades2 = c.consultar_reserva(id_prod) - c.consultar_faltante(id_prod);
+		Producto p = inv.devolver_producto(id_prod);
+		
+		if (unidades1 > 0 and unidades2 < 0) {
+			int venta = unidades1;
+			int nueva_reserva2 = c.consultar_reserva(id_prod) + venta;
+			
+			peso_total -= p.consultar_peso() * venta;
+			volumen_total -= p.consultar_vol() * venta;
+			prods_ciudad[id_prod].first -= venta;
+			
+			c.modificar_producto_reserva(p, nueva_reserva2, c.consultar_faltante(id_prod));
+		}
+		else if (unidades1 < 0 and unidades2 > 0) {
+			int compra = unidades2;
+			int nueva_reserva2 = c.consultar_reserva(id_prod) - compra;
+			
+			peso_total += p.consultar_peso() * compra;
+			volumen_total += p.consultar_vol() * compra;
+			prods_ciudad[id_prod].first += compra;
+			
+			c.modificar_producto_reserva(p, nueva_reserva2, c.consultar_faltante(id_prod));
+		}
+	}
+}
 
 // Consultoras
 

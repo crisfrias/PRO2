@@ -79,14 +79,20 @@ public:
     */
     void modificar_producto_reserva(const Producto& p, int reserva, int lista);
     
+     /** @brief Actualizar ciudad
+		Elimina todos los productos que esten en reserva
+        \pre "cierto"
+        \post Se han borrado todos los productos inexistentes de prods_ciudad
+    */
+    void actualizar_ciudad();
+    
      /** @brief Comerciar
 		Una ciudad le dara a la otra todos los productos que le sobren hasta alcanzar
 		si es posible los que la otra necesite, y viceversa
         \pre s1 y s2 son ciudades inicializadas en el río
         \post Se ha realizado el intercambio de productos entre las dos ciudades
-    *
-    void comerciar(Ciudad& c);
     */
+    void comerciar(Ciudad& c, Inventario inv);
 
     // Consultoras
 

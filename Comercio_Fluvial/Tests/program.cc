@@ -98,7 +98,7 @@ int main() {
             b.escribir();
         }
         else if (instr == "consultar_num" or instr == "cn") {
-            cout << "#" << instr << " " << endl;
+            cout << "#" << instr << endl;
             cout << v.consultar_tamano_inventario() << endl;
         }
         else if (instr == "agregar_productos" or instr == "ap") {
@@ -231,15 +231,15 @@ int main() {
 			cout << "#" << instr << " " << id_ciudad << " " << id_prod << endl;
 			
             bool error;
-            Ciudad c = r.buscar_ciudad(id_ciudad, error);
+            Producto p;
+			p = v.consultar_producto(id_prod, error);
 			if (error) {
-				cout << "error: no existe la ciudad" << endl;
+				cout << "error: no existe el producto" << endl;
 			}
 			else {
-				Producto p;
-				p = v.consultar_producto(id_prod, error);
+				Ciudad c = r.buscar_ciudad(id_ciudad, error);
 				if (error) {
-					cout << "error: no existe el producto" << endl;
+					cout << "error: no existe la ciudad" << endl;
 				}
 				else {
 					if (c.consultar_producto(id_prod)) {
@@ -252,19 +252,32 @@ int main() {
 			}
         }
         else if (instr == "comerciar" or instr == "co") {
-			/*
-			cout << "#" << instr << endl;
-			bool error;
-			int id_ciudad1, id_ciudad2;
-			Ciudad c1 = r.buscar_ciudad(id_ciudad1, error);
-			if (not error) {
-				Ciudad c2 = r.buscar_ciudad(id_ciudad2, error);
-				if (not error) {
-					r.comerciar(id_ciudad1, id_ciudad2, v);
+			string id_ciudad1, id_ciudad2;
+			cin >> id_ciudad1 >> id_ciudad2;
+			cout << "#" << instr << " " << id_ciudad1 << " " << id_ciudad2 << endl;
+			if (id_ciudad1 == id_ciudad2) {
+				cout << "error: ciudad repetida" << endl;
+			}
+			else {
+				bool error;
+				Ciudad c1 = r.buscar_ciudad(id_ciudad1, error);
+				if (error) {
+					cout << "error: no existe la ciudad" << endl;
+				}
+				else {
+					Ciudad c2 = r.buscar_ciudad(id_ciudad2, error);
+					if (error) {
+						cout << "error: no existe la ciudad" << endl;
+					}
+					else {
+						c1.comerciar(c2, v);
+						c1.actualizar_ciudad();
+						c2.actualizar_ciudad();
+						r.actualizar_ciudad_rio(id_ciudad1, c1);
+						r.actualizar_ciudad_rio(id_ciudad2, c2);
+					}
 				}
 			}
-			*/
-			cout << "Vacio" << endl;
         }
         else if (instr == "redistribuir" or instr == "re") {
 			/*
