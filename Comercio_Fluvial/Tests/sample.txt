@@ -174,14 +174,9 @@ error: ciudad repetida
 7 1 1
 8 25
 #hv
-Ciudad: berna queda por comprar esq: 10 && dre: 10
-Ciudad: berna queda por vender esq: 12 && dre: 12
-Ciudad: barna queda por comprar esq: 10 && dre: 10
-Ciudad: barna queda por vender esq: 12 && dre: 12
-3
+1
 #eb
 6 10 2 12
-birna
 #leer_rio
 #escribir_ciudad barna
 0 0
@@ -218,14 +213,9 @@ birna
 288 491
 #mb
 #hacer_viaje
-Ciudad: derna queda por comprar esq: 10 && dre: 10
-Ciudad: derna queda por vender esq: 10 && dre: 10
-Ciudad: darna queda por comprar esq: 10 && dre: 10
-Ciudad: darna queda por vender esq: 10 && dre: 10
-3
+8
 #eb
-3 10 4 0
-dirna
+3 10 4 10
 #escribir_ciudad darna
 1 15 8
 2 10 10
@@ -233,12 +223,11 @@ dirna
 #escribir_ciudad derna
 2 13 3
 3 13 20
-4 10 0
 130 182
 #escribir_ciudad dirna
 3 5 5
-4 2 10
-106 33
+4 10 10
+450 145
 #escribir_ciudad dorna
 4 10 10
 5 20 20
@@ -248,22 +237,14 @@ dirna
 7 19 3
 288 491
 #escribir_barco
-3 10 4 0
-dirna
+3 10 4 10
 #mb
 #eb
 8 10 9 10
-dirna
 #hv
-Ciudad: derna queda por comprar esq: 10 && dre: 10
-Ciudad: derna queda por vender esq: 10 && dre: 10
-Ciudad: darna queda por comprar esq: 10 && dre: 10
-Ciudad: darna queda por vender esq: 10 && dre: 10
-3
+0
 #eb
 8 10 9 10
-dirna
-dirna
 #escribir_ciudad darna
 1 15 8
 2 10 10
@@ -271,12 +252,11 @@ dirna
 #escribir_ciudad derna
 2 13 3
 3 13 20
-4 10 0
 130 182
 #escribir_ciudad dirna
 3 5 5
-4 2 10
-106 33
+4 10 10
+450 145
 #escribir_ciudad dorna
 4 10 10
 5 20 20
@@ -287,29 +267,21 @@ dirna
 288 491
 #mb
 #hacer_viaje
-Ciudad: derna queda por comprar esq: 10 && dre: 10
-Ciudad: derna queda por vender esq: 10 && dre: 10
-Ciudad: darna queda por comprar esq: 20 && dre: 10
-Ciudad: darna queda por vender esq: 10 && dre: 10
-3
+10
 #escribir_barco
-2 0 6 0
-dirna
-dirna
+2 10 6 10
 #escribir_ciudad darna
 1 15 8
 2 10 10
-6 10 0
 240 205
 #escribir_ciudad derna
 2 3 3
 3 13 20
-4 10 0
-130 182
+70 52
 #escribir_ciudad dirna
 3 5 5
-4 2 10
-106 33
+4 10 10
+450 145
 #escribir_ciudad dorna
 4 10 10
 5 20 20
@@ -318,3 +290,38 @@ dirna
 6 8 9
 7 19 3
 288 491
+#pp durna 2
+312 543
+#pp durna 1
+396 578
+#escribir_ciudad durna
+1 7 4
+2 4 7
+6 8 9
+7 19 3
+396 578
+#mb
+#hv
+7
+#escribir_ciudad darna
+1 8 8
+2 10 10
+156 170
+#escribir_ciudad derna
+2 3 3
+3 13 20
+70 52
+#escribir_ciudad dirna
+3 5 5
+4 10 10
+450 145
+#escribir_ciudad dorna
+4 10 10
+5 20 20
+850 200
+#escribir_ciudad durna
+1 7 4
+2 4 7
+6 8 9
+7 19 3
+396 578

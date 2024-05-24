@@ -121,7 +121,7 @@ pair<int,pair<int,int>> Rio::planear_viaje(const BinTree<string>& t, const Barco
 	return make_pair(0, make_pair(0,0));
 }
 
-int Rio::hacer_viaje_priv(Barco b, stack<string>& r, Inventario inv) {
+int Rio::hacer_viaje_priv(Barco& b, stack<string>& r, Inventario inv) {
 	// Parámetros iniciales
 	int unidades_compra = b.consultar_prod_compra();
 	int unidades_venta = b.consultar_prod_venta();
@@ -133,34 +133,23 @@ int Rio::hacer_viaje_priv(Barco b, stack<string>& r, Inventario inv) {
 	while (not r.empty() and (unidades_compra != 0 or unidades_venta != 0)) {
 		string id_ciudad = r.top();
 		Ciudad c = mapa_cuenca[id_ciudad];
-		cout << "Ciudad actual: " << id_ciudad << endl;
 		// Hacemos la compra
 		if (c.consultar_producto(id_compra) and unidades_compra > 0) {
 			Producto p1 = inv.devolver_producto(id_compra);
-			cout << id_ciudad << " puede comprar el producto " << id_compra << endl;
 			int sobrante = c.consultar_reserva(id_compra) - c.consultar_faltante(id_compra);
 			if (sobrante > 0) {
 				if (unidades_compra > sobrante) {
-					b.comprar_prod(sobrante);
 					c.quitar_prod_reserva(p1, sobrante);
 					unidades_compra -= sobrante;
 					suma_ops += sobrante;
-					// Debug
-					cout << "El barco ha comprado " << sobrante << " a " << id_ciudad << endl;
-					b.escribir();
 				}
 				else {
-					b.comprar_prod(unidades_compra);
 					c.quitar_prod_reserva(p1, unidades_compra);
 					suma_ops += unidades_compra;
-					
-					// Debug
-					cout << "El barco ha comprado " << unidades_compra << " a " << id_ciudad << endl;
-					b.escribir();
-					
 					unidades_compra = 0;
 				}
 			}
+			ultima_ciudad_visitada = id_ciudad;
 		}
 		// Hacemos la venta
 		if (c.consultar_producto(id_venta) and unidades_venta > 0) {
@@ -168,31 +157,22 @@ int Rio::hacer_viaje_priv(Barco b, stack<string>& r, Inventario inv) {
 			int falta = c.consultar_faltante(id_venta) - c.consultar_reserva(id_venta);
 			if (falta > 0) {
 				if (unidades_venta > falta) {
-					b.vender_prod(falta);
 					c.anadir_prod_reserva(p2, falta);
 					unidades_venta -= falta;
 					suma_ops += falta;
-					// Debug
-					cout << "El barco ha vendido " << falta << " a " << id_ciudad << endl;
-					b.escribir();
 				}
 				else {
-					b.vender_prod(unidades_venta);
 					c.anadir_prod_reserva(p2, unidades_venta);
 					unidades_venta = 0;
 					suma_ops += unidades_venta;
-					// Debug
-					cout << "El barco ha vendido " << unidades_venta << " a " << id_ciudad << endl;
-					b.escribir();
 				}
 			}
+			ultima_ciudad_visitada = id_ciudad;
 		}
 		// Actualizamos la ciudad
 		c.actualizar_ciudad();
 		mapa_cuenca[id_ciudad] = c;
-		ultima_ciudad_visitada = id_ciudad;
 		r.pop();
-		cout << "La ciudad " << id_ciudad << " ha terminado su viaje, pasa al siguiente" << endl;
 	}
 	// Si es la última ciudad visitada, la añadimos al historial
 	b.anadir_ciudad_historial(ultima_ciudad_visitada);
@@ -209,7 +189,7 @@ void Rio::redistribuir(Inventario inv) {
 	redistribuir_priv(cuenca, inv, mapa_cuenca);
 }
 
-int Rio::hacer_viaje(Barco b, Inventario inv) {
+int Rio::hacer_viaje(Barco& b, Inventario inv) {
 	// Reinicializamos la pila de la ruta
 	stack<string> vacio;
 	ruta = vacio;
@@ -224,15 +204,10 @@ int Rio::hacer_viaje(Barco b, Inventario inv) {
 			ruta.push(cuenca.value());
 		}
 	}
+	d.first = d.second.first + d.second.second;
 	// Calculamos los productos vendidos despueś de hacer el viaje y los devolvemos
 	int n = hacer_viaje_priv(b, ruta, inv);
-	int m = d.second.first + d.second.second;
-	// Filigrana :v
-	if (n > m) return n;
-	else {
-		m = n;
-		return m;
-	}
+	return n;
 }
 
 // Consultoras

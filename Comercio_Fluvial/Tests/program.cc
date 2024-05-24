@@ -286,8 +286,7 @@ int main() {
         }
         else if (instr == "hacer_viaje" or instr == "hv") {
 			cout << "#" << instr << endl;
-			int unidades = r.hacer_viaje(b, v);
-			cout << unidades << endl;
+			cout << r.hacer_viaje(b, v) << endl;
         }
         else if (instr == "//"){
             string s;

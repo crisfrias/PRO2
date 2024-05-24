@@ -56,7 +56,7 @@ private:
         \pre m y q no están vacíos, además los elementos de q están en m representando ciudades
         \post Se ha realizado la compra-venta entre el barco y las ciudades que forman parte de la ruta
     */
-    int hacer_viaje_priv(Barco b, stack<string>& r, Inventario inv);
+    int hacer_viaje_priv(Barco& b, stack<string>& r, Inventario inv);
 
 public:
 
@@ -92,7 +92,7 @@ public:
         \pre "cierto"
         \post Devuelve el número de productos que el barco ha comprado y vendido por la ruta
     */
-    int hacer_viaje(Barco b, Inventario inv);
+    int hacer_viaje(Barco& b, Inventario inv);
 	
     // Consultoras
 

@@ -27,12 +27,10 @@ void Barco::reiniciar_barco() {
 
 void Barco::anadir_ciudad_historial(const string& s) {
 	bool found = false;
-	list<string> aux = historial;
-	while (aux.size() != 0 and not found) {
-		if (*aux.begin() == s) found = true;
-		aux.pop_front();
+	for (auto it = historial.begin(); it != historial.end() and not found; ++it) {
+		if (*it == s) return;
 	}
-	if (not found) historial.push_back(s);
+	historial.push_back(s);
 }
 
 // Consultoras
@@ -71,6 +69,6 @@ void Barco::escribir() const {
 	cout << prod_compra.first << " " << prod_compra.second << " ";
 	cout << prod_vender.first << " " << prod_vender.second << endl;
 	for (auto it = historial.begin(); it != historial.end(); ++it) {
-		cout << *it << endl;
+		if (it->length()>0) cout << *it << endl;
 	}
 }
