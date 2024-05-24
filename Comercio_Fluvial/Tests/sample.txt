@@ -177,6 +177,7 @@ error: ciudad repetida
 1
 #eb
 6 10 2 12
+borna
 #leer_rio
 #escribir_ciudad barna
 0 0
@@ -216,6 +217,7 @@ error: ciudad repetida
 8
 #eb
 3 10 4 10
+dirna
 #escribir_ciudad darna
 1 15 8
 2 10 10
@@ -238,13 +240,16 @@ error: ciudad repetida
 288 491
 #escribir_barco
 3 10 4 10
+dirna
 #mb
 #eb
 8 10 9 10
+dirna
 #hv
 0
 #eb
 8 10 9 10
+dirna
 #escribir_ciudad darna
 1 15 8
 2 10 10
@@ -270,6 +275,8 @@ error: ciudad repetida
 10
 #escribir_barco
 2 10 6 10
+dirna
+derna
 #escribir_ciudad darna
 1 15 8
 2 10 10
@@ -302,7 +309,7 @@ error: ciudad repetida
 396 578
 #mb
 #hv
-7
+13
 #escribir_ciudad darna
 1 8 8
 2 10 10
@@ -320,8 +327,8 @@ error: ciudad repetida
 5 20 20
 850 200
 #escribir_ciudad durna
-1 7 4
-2 4 7
+1 4 4
+2 7 7
 6 8 9
 7 19 3
-396 578
+378 602
