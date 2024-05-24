@@ -5,7 +5,6 @@
 #ifndef _BARCO_HH_
 #define _BARCO_HH_
 
-#include "Rio.hh"
 #include "Ciudad.hh"
 
 #ifndef NO_DIAGRAM
@@ -39,24 +38,33 @@ public:
         siendo mínimo uno de ellos estrictamente positivo
         \post Se han actualizado los productos que el barco necesita comprar y vender
     */
-    void modificar_barco(int id_compra, int peso_compra, int id_venta, int peso_venta);
+    void modificar_barco(int id_compra, int unidades_compra, int id_venta, int unidades_venta);
+
+    void comprar_prod(int unidades_compra);
+
+    void vender_prod(int unidades_venta);
     
     /** @brief Reiniciar barco
         \pre <em>cierto</em>
         \post Se ha vaciado el historial, el resto de atributos no se han modificado
     */
     void reiniciar_barco();
-    
-    /** @brief Hacer viaje
-		El barco va desde la desembocadura hasta los nacimientos de los afluentes buscando rutas
-		para comprar y vender. Seguirá la ruta donde pueda comprar y vender más productos
-        \pre "cierto"
-        \post Devuelve el número de productos que el barco ha comprado y vendido por la ruta
-    *
-    int hacer_viaje();
+
+    /** @brief Añadir ciudad al historial de viajes
+        \pre <em>cierto</em>
+        \post s se ha añadido al final del historial de viajes del barco
     */
+    void anadir_ciudad_historial(const string& s);
 
     // Consultoras
+
+    int consultar_id_prod_compra() const;
+
+    int consultar_prod_compra() const;
+    
+    int consultar_id_prod_venta() const;
+
+    int consultar_prod_venta() const;
 
     // Lectura y escritura
 	

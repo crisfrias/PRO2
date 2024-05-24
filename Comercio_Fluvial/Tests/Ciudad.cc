@@ -63,7 +63,12 @@ void Ciudad::comerciar(Ciudad& c, Inventario inv) {
 		Producto p = inv.devolver_producto(id_prod);
 		
 		if (unidades1 > 0 and unidades2 < 0) {
-			int venta = unidades1;
+			// Multiplicamos por -1 para obtener el valor absoluto de las unidades
+			unidades2 = -1 * unidades2;
+			int venta;
+			// Si necesita más de las que puede dar, da todas las que puede, sino da todas las que necesita
+			if (unidades1 < unidades2) venta = unidades1;
+			else venta = unidades2;
 			
 			peso_total -= p.consultar_peso() * venta;
 			volumen_total -= p.consultar_vol() * venta;
@@ -72,7 +77,11 @@ void Ciudad::comerciar(Ciudad& c, Inventario inv) {
 			c.anadir_prod_reserva(p, venta);
 		}
 		else if (unidades1 < 0 and unidades2 > 0) {
-			int compra = unidades2;
+			// Repetimos el proceso anterior pero cambiando unidades1 por unidades2
+			unidades1 = -1 * unidades1;
+			int compra;
+			if (unidades2 < unidades1) compra = unidades2;
+			else compra = unidades1;
 			
 			peso_total += p.consultar_peso() * compra;
 			volumen_total += p.consultar_vol() * compra;
@@ -99,6 +108,10 @@ int Ciudad::consultar_volumen_total() const {
 
 bool Ciudad::consultar_producto(int id_prod) {
 	if (prods_ciudad.find(id_prod) == prods_ciudad.end()) return false;
+	else if (prods_ciudad[id_prod].first == 0 or prods_ciudad[id_prod].second == 0) {
+		actualizar_ciudad();
+		return false;
+	}
 	else return true;
 }
 
@@ -139,7 +152,9 @@ void Ciudad::leer_inventario_ciudad(Inventario inv) {
 
 void Ciudad::escribir() {
     for (auto it = prods_ciudad.begin(); it != prods_ciudad.end(); ++it) {
-        cout << it->first << " " << prods_ciudad[it->first].first << " " << prods_ciudad[it->first].second << endl;
+		//if (prods_ciudad[it->first].first != 0 and prods_ciudad[it->first].second != 0) {
+			cout << it->first << " " << prods_ciudad[it->first].first << " " << prods_ciudad[it->first].second << endl;
+		//}
     }
     cout << peso_total << " " << volumen_total << endl;
 }

@@ -7,9 +7,17 @@ Barco::Barco() {
 
 // Modificadoras
 
-void Barco::modificar_barco(int id_compra, int peso_compra, int id_venta, int peso_venta) {
-	prod_compra = make_pair(id_compra, peso_compra);
-	prod_vender = make_pair(id_venta, peso_venta);
+void Barco::modificar_barco(int id_compra, int unidades_compra, int id_venta, int unidades_venta) {
+	prod_compra = make_pair(id_compra, unidades_compra);
+	prod_vender = make_pair(id_venta, unidades_venta);
+}
+
+void Barco::comprar_prod(int unidades_compra) {
+	prod_compra.second -= unidades_compra;
+}
+
+void Barco::vender_prod(int unidades_venta) {
+	prod_vender.second -= unidades_venta;
 }
 
 void Barco::reiniciar_barco() {
@@ -17,29 +25,33 @@ void Barco::reiniciar_barco() {
 	historial = l;
 }
 
-/*
-	El barco busca la ruta a partir de la desembocadura que le per-
-	mita comprar y vender el mayor número posible de productos. En caso que haya
-	más de una ruta que lo cumpla, se queda con la más corta, y en caso de que ten-
-	gan la misma longitud, se queda con la que viene río arriba a mano derecha. Una
-	vez encontrada la ruta, se hace el viaje y se compran y venden los productos a lo
-	largo de la ruta, modificándose los inventarios de las ciudades. Se escribe el total
-	de unidades de productos compradas y vendidas por el barco.
-	*/
-
-	// hacer suma de cada prod los que tiene y los que necesita y hacer la diferencia, ej:
-	/*
-		Ruta_izq = x1+x3+x3+...xn - (y1+y2+y3+...+yn)
-		Ruta_derecha = x1'+x2'+x3'+...xn' - (y1'+y2'+y3'+...+ yn')
-
-		Si el peso o volumen max se alcanzan antes de acabar la rama, parar e ir a la siguiente
-		Comparar según lo que tiene y lo que le falta
-                
-*
-int hacer_viaje();
-*/
+void Barco::anadir_ciudad_historial(const string& s) {
+	bool found = false;
+	list<string> aux = historial;
+	while (aux.size() != 0 and not found) {
+		if (*aux.begin() == s) found = true;
+		aux.pop_front();
+	}
+	if (not found) historial.push_back(s);
+}
 
 // Consultoras
+
+int Barco::consultar_id_prod_compra() const {
+	return prod_compra.first;
+}
+
+int Barco::consultar_prod_compra() const {
+	return prod_compra.second;
+}
+    
+int Barco::consultar_id_prod_venta() const {
+	return prod_vender.first;
+}
+
+int Barco::consultar_prod_venta() const {
+	return prod_vender.second;
+}
 
 // Lectura y escritura
 
@@ -58,5 +70,7 @@ void Barco::leer() {
 void Barco::escribir() const {
 	cout << prod_compra.first << " " << prod_compra.second << " ";
 	cout << prod_vender.first << " " << prod_vender.second << endl;
-	// ... imprimir historial de viajes
+	for (auto it = historial.begin(); it != historial.end(); ++it) {
+		cout << *it << endl;
+	}
 }

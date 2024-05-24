@@ -7,11 +7,14 @@
 
 #include "Ciudad.hh"
 #include "Inventario.hh"
+#include "Producto.hh"
+#include "Barco.hh"
 
 #ifndef NO_DIAGRAM
 #include "BinTree.hh"
 #include <iostream>
 #include <string>
+#include <stack>
 #include <map>
 using namespace std;
 
@@ -24,8 +27,12 @@ using namespace std;
 class Rio 
 {
 private:
+
     BinTree<string> cuenca;
     map<string, Ciudad> mapa_cuenca;
+    stack<string> ruta;
+    stack<string> ruta_esq;
+    stack<string> ruta_dre;
 
     /** @brief Lector de ríos en formato de BinTree
         Se ejecuta cuando se lee un río de forma oculta
@@ -40,6 +47,18 @@ private:
         \post Se ha realizado la acción de Redistribuir
     */
     static void redistribuir_priv(BinTree<string>& t, Inventario inv, map<string, Ciudad>& m);
+
+    /** @brief Planear ruta sobre la cuenca
+        \pre t, b y r no están vacíos
+        \post Se ha actualizado q con todas las ciudades que forman la mejor ruta posible
+    */
+    pair<int,pair<int,int>> planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& r);
+
+    /** @brief Realización de compra-venta 
+        \pre m y q no están vacíos, además los elementos de q están en m representando ciudades
+        \post Se ha realizado la compra-venta entre el barco y las ciudades que forman parte de la ruta
+    */
+    int hacer_viaje_priv(Barco b, stack<string>& r, Inventario inv);
 
 public:
 
@@ -68,6 +87,14 @@ public:
         \post Se ha realizado el intercambio de productos entre las ciudades del río
     */
 	void redistribuir(Inventario inv);
+
+    /** @brief Hacer viaje
+		El barco va desde la desembocadura hasta los nacimientos de los afluentes buscando rutas
+		para comprar y vender. Seguirá la ruta donde pueda comprar y vender más productos
+        \pre "cierto"
+        \post Devuelve el número de productos que el barco ha comprado y vendido por la ruta
+    */
+    int hacer_viaje(Barco b, Inventario inv);
 	
     // Consultoras
 

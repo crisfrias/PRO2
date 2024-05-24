@@ -27,6 +27,7 @@ int main() {
     // Inicializar la cuenca
     Rio r;
     r.leer_cuenca();
+	
     // Inicializar barco
     Barco b;
     b.leer();
@@ -284,12 +285,9 @@ int main() {
 			r.redistribuir(v);
         }
         else if (instr == "hacer_viaje" or instr == "hv") {
-			/*
 			cout << "#" << instr << endl;
-			int unidades = b.hacer_viaje();
+			int unidades = r.hacer_viaje(b, v);
 			cout << unidades << endl;
-			*/
-			cout << "Vacio" << endl;
         }
         else if (instr == "//"){
             string s;
