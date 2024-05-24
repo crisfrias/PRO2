@@ -50,7 +50,8 @@ private:
         \pre t, b y r no están vacíos
         \post Se ha actualizado q con todas las ciudades que forman la mejor ruta posible
     */
-    pair<int,pair<int,int>> planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& r);
+    // pair<int,pair<int,int>> planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& r);
+    int planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& r, int& compra_barco, int& venta_barco);
 
     /** @brief Realización de compra-venta 
         \pre m y q no están vacíos, además los elementos de q están en m representando ciudades
