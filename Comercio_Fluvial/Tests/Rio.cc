@@ -36,6 +36,7 @@ void Rio::redistribuir_priv(BinTree<string>& t, Inventario inv, map<string, Ciud
 	t = BinTree<string> (id_ciudad, esq, dre);
 }
 
+
 pair<int,pair<int,int>> Rio::planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& r) {
     if (t.empty()) return make_pair(0, make_pair(0,0));
     // Asignamos parámetros iniciales
@@ -73,18 +74,18 @@ pair<int,pair<int,int>> Rio::planear_viaje(const BinTree<string>& t, const Barco
 	bool esq_bool = false;
 	// Actualizamos la cantidad de compra
 	int compra_esq = esq.second.first;
-	if (compra_esq < b.consultar_prod_compra()) compra_esq = b.consultar_prod_compra();
+	if (compra_esq > b.consultar_prod_compra()) compra_esq = b.consultar_prod_compra();
 	else if (compra_esq < 0) compra_esq = 0;
 	int compra_dre = dre.second.first;
-	if (compra_dre < b.consultar_prod_compra()) compra_dre = b.consultar_prod_compra();
+	if (compra_dre > b.consultar_prod_compra()) compra_dre = b.consultar_prod_compra();
 	else if (compra_dre < 0) compra_dre = 0;
 	
 	// Actualizamos la cantidad de venta
 	int venta_esq = esq.second.second;
-	if (venta_esq < b.consultar_prod_venta()) venta_esq = b.consultar_prod_venta();
+	if (venta_esq > b.consultar_prod_venta()) venta_esq = b.consultar_prod_venta();
 	else if (venta_esq < 0) venta_esq = 0;
 	int venta_dre = dre.second.second;
-	if (venta_dre < b.consultar_prod_venta()) venta_dre = b.consultar_prod_venta();
+	if (venta_dre > b.consultar_prod_venta()) venta_dre = b.consultar_prod_venta();
 	else if (venta_dre < 0) venta_dre = 0;
 	
 	// Comparamos para ver con que ruta quedarnos
@@ -101,7 +102,7 @@ pair<int,pair<int,int>> Rio::planear_viaje(const BinTree<string>& t, const Barco
 		aux1 = compra_esq + compra;
 		aux2 = venta_esq + venta;
 		if (aux1 < b.consultar_prod_compra()) aux1 = b.consultar_prod_compra();
-		if (aux2 < b.consultar_prod_compra()) aux2 = b.consultar_prod_compra();
+		if (aux2 < b.consultar_prod_venta()) aux2 = b.consultar_prod_venta();
 		pair<int,int> aux = make_pair(aux1, aux2); 
 		return make_pair(esq.first+1, aux);
 	}
@@ -111,7 +112,7 @@ pair<int,pair<int,int>> Rio::planear_viaje(const BinTree<string>& t, const Barco
 			int aux1, aux2;
 			aux1 = compra_dre + compra;
 			aux2 = venta_dre + venta;
-			if (aux1 < b.consultar_prod_venta()) aux1 = b.consultar_prod_venta();
+			if (aux1 < b.consultar_prod_compra()) aux1 = b.consultar_prod_compra();
 			if (aux2 < b.consultar_prod_venta()) aux2 = b.consultar_prod_venta(); 
 			pair<int,int> aux = make_pair(aux1, aux2); 
 			return make_pair(dre.first+1, aux);
@@ -128,6 +129,7 @@ int Rio::hacer_viaje_priv(Barco b, stack<string>& r, Inventario inv) {
 	int id_venta = b.consultar_id_prod_venta();
 	int suma_ops = 0;
 	string ultima_ciudad_visitada;
+	
 	while (not r.empty() and (unidades_compra != 0 or unidades_venta != 0)) {
 		string id_ciudad = r.top();
 		Ciudad c = mapa_cuenca[id_ciudad];
@@ -208,14 +210,13 @@ void Rio::redistribuir(Inventario inv) {
 }
 
 int Rio::hacer_viaje(Barco b, Inventario inv) {
-	// Debug
-	cout << "Barco antes del viaje: ";
-	b.escribir();
 	// Reinicializamos la pila de la ruta
 	stack<string> vacio;
 	ruta = vacio;
-	pair<int,pair<int,int>> d = planear_viaje(cuenca, b, ruta);
+	// Planeamos la ruta del viaje
+	pair<int,pair<int,int>> d = planear_viaje(cuenca, b, ruta); 
 	if (not cuenca.empty()) {
+		// Añadimos la cuenca a la ruta 
 		if (not cuenca.left().empty() and cuenca.left().value() == ruta.top()) {
 			ruta.push(cuenca.value());
 		}
@@ -223,8 +224,10 @@ int Rio::hacer_viaje(Barco b, Inventario inv) {
 			ruta.push(cuenca.value());
 		}
 	}
+	// Calculamos los productos vendidos despueś de hacer el viaje y los devolvemos
 	int n = hacer_viaje_priv(b, ruta, inv);
 	int m = d.second.first + d.second.second;
+	// Filigrana :v
 	if (n > m) return n;
 	else {
 		m = n;

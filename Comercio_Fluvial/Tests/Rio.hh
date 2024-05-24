@@ -31,8 +31,6 @@ private:
     BinTree<string> cuenca;
     map<string, Ciudad> mapa_cuenca;
     stack<string> ruta;
-    stack<string> ruta_esq;
-    stack<string> ruta_dre;
 
     /** @brief Lector de ríos en formato de BinTree
         Se ejecuta cuando se lee un río de forma oculta
