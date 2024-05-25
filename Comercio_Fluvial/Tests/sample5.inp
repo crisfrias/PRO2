@@ -1,0 +1,124 @@
+2
+3 6
+7 4
+J
+K
+M
+# #
+N
+# #
+L
+O
+# #
+P
+Q
+# #
+R
+# #
+1 10 2 15
+eb
+leer_inventarios
+K
+1
+1 9 5
+L
+1
+1 12 8
+#
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+hv
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+eb
+mp L 1 22 5
+mp K 1 31 24
+pp N 2 6 43
+pp Q 1 11 26
+pp Q 2 15 19
+pp P 2 3 11
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+hv
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+hv
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+hv
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+hv
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+hv
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+hv
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+eb
+fin

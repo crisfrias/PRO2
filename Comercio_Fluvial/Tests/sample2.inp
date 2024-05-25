@@ -1,0 +1,116 @@
+5
+2 4
+3 5
+4 6
+5 7
+6 8
+Madrid
+Valladolid
+Oencia
+#
+#
+Burgos
+#
+#
+Zaragoza
+Bilbao
+#
+#
+Lleida
+Girona
+#
+#
+Barcelona
+#
+#
+2 10
+4 20
+consultar_num
+ls
+Burgos
+1
+2 9 2
+Oencia
+2
+3 12 9
+1 6 20
+Madrid
+3
+3 3 3
+5 1 1
+2 7 4
+Barcelona
+0
+#
+ap 2
+3 4
+1 5
+// mb
+eb
+mb 8 10 8 60
+eb
+mb 3 10 8 60
+eb
+mb -1 10 5 60
+eb
+mb 3 10 3 60
+eb
+mb 7 10 3 20
+eb
+// cp
+cn
+ec Burgos
+consultar_prod Paris 8
+consultar_prod Barcelona 8
+consultar_prod Paris 3
+consultar_prod Burgos 3
+cp Burgos 2
+// pp
+poner_prod Paris 8 3 7
+poner_prod Barcelona 8 3 7
+poner_prod Paris 3 3 7
+poner_prod Burgos 2 3 7 
+poner_prod Burgos 6 3 7
+ec Burgos
+ec Madrid
+pp Madrid 7 2 9
+ec Madrid
+// mp
+modificar_prod Paris 8 3 7
+modificar_prod Barcelona 8 3 7
+modificar_prod Paris 3 3 7
+modificar_prod Burgos 3 3 7
+ec Burgos
+mp Burgos 2 3 7
+cp Burgos 2
+ec Burgos
+ec Madrid
+mp Madrid 5 8 3
+ec Madrid
+// qp
+quitar_prod Paris 8
+quitar_prod Barcelona 8
+quitar_prod Paris 3
+quitar_prod Burgos 3
+ec Burgos
+qp Burgos 2
+cp Burgos 2
+ec Burgos
+// lr
+leer_rio
+Madrid
+Barcelona
+# #
+Sevilla
+# #
+ec Oencia
+ec Sevilla
+ec Madrid
+ec Barcelona
+lr
+Palencia
+#
+#
+ec Palencia
+ec Oencia
+fin

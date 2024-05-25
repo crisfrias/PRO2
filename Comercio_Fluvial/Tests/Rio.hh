@@ -44,7 +44,7 @@ private:
         \pre t no está vacío
         \post Se ha realizado la acción de Redistribuir
     */
-    static void redistribuir_priv(BinTree<string>& t, Inventario inv, map<string, Ciudad>& m);
+    static void redistribuir_priv(BinTree<string>& t, const Inventario& inv, map<string, Ciudad>& m);
 
     /** @brief Planear ruta sobre la cuenca
         \pre t, b y r no están vacíos
@@ -57,7 +57,7 @@ private:
         \pre m y q no están vacíos, además los elementos de q están en m representando ciudades
         \post Se ha realizado la compra-venta entre el barco y las ciudades que forman parte de la ruta
     */
-    int hacer_viaje_priv(Barco& b, stack<string>& r, Inventario inv);
+    int hacer_viaje_priv(Barco& b, stack<string>& r, const Inventario& inv);
 
 public:
 
@@ -85,7 +85,7 @@ public:
         \pre "cierto"
         \post Se ha realizado el intercambio de productos entre las ciudades del río
     */
-	void redistribuir(Inventario inv);
+	void redistribuir(const Inventario& inv);
 
     /** @brief Hacer viaje
 		El barco va desde la desembocadura hasta los nacimientos de los afluentes buscando rutas
@@ -93,7 +93,7 @@ public:
         \pre "cierto"
         \post Devuelve el número de productos que el barco ha comprado y vendido por la ruta
     */
-    int hacer_viaje(Barco& b, Inventario inv);
+    int hacer_viaje(Barco& b, const Inventario& inv);
 	
     // Consultoras
 
@@ -118,7 +118,7 @@ public:
         las ciudades
         \post Se han añadido los inventarios a las ciudades del p.i.
     */
-    void leer_inventarios(Inventario inv);
+    void leer_inventarios(const Inventario& inv);
     
 };
 

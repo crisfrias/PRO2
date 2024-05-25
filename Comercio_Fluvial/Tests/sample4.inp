@@ -1,0 +1,189 @@
+2
+3 6
+7 4
+A
+B
+D
+# #
+E
+H
+# #
+I
+# #
+C
+F
+# #
+G
+# #
+1 10 2 15
+ls
+A
+2
+1 12 10
+2 0 1
+B
+2
+1 14 10
+2 0 1
+C
+2
+1 13 10
+2 0 6
+D
+1
+1 14 10
+E
+0
+F
+2
+1 12 10
+2 0 6
+G
+2
+1 15 10
+2 0 1
+H
+2
+1 13 10
+2 0 10
+I
+1
+2 0 8
+#
+ec A
+ec B
+ec C
+ec D
+ec E
+ec F
+ec G
+ec H
+ec I
+eb
+// primer viaje: A, B, E, H
+hv
+ec A
+ec B
+ec C
+ec D
+ec E
+ec F
+ec G
+ec H
+ec I
+// segundo viaje: A, C, F
+hacer_viaje
+ec A
+ec B
+ec C
+ec D
+ec E
+ec F
+ec G
+ec H
+ec I
+// tercer viaje: A, B, E, I
+hv
+ec A
+ec B
+ec C
+ec D
+ec E
+ec F
+ec G
+ec H
+ec I
+// cuarto viaje: A, C, G 
+hv
+ec A
+ec B
+ec C
+ec D
+ec E
+ec F
+ec G
+ec H
+ec I
+// quinto viaje: A, B, D
+hv
+ec A
+ec B
+ec C
+ec D
+ec E
+ec F
+ec G
+ec H
+ec I
+// sexto viaje: nada
+hv
+ec A
+ec B
+ec C
+ec D
+ec E
+ec F
+ec G
+ec H
+ec I
+// septimo viaje: compra y vende todo en A, B, E
+mp B 2 10 33
+pp E 1 50 10
+hv
+ec A
+ec B
+ec C
+ec D
+ec E
+ec F
+ec G
+ec H
+ec I
+eb
+leer_rio
+J
+K
+M
+# #
+N
+# #
+L
+O
+# #
+P
+Q
+# #
+R
+# #
+eb
+mb 1 4 2 7
+eb
+leer_inventarios
+K
+1
+1 9 5
+L
+1
+1 12 8
+#
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+hv
+ec J
+ec K
+ec L
+ec M
+ec N
+ec O
+ec P
+ec Q
+ec R
+eb
+fin

@@ -26,14 +26,6 @@ private:
     int peso_inventario;
     int volumen_inventario;
 
-    /** @brief Búsqueda dicotómica en el inventario
-
-        \pre v no está vacío y está ordenado crecientemente, esq <= 0 y dre <= tamaño de v,
-        id_prod no está vacío
-        \post Si id_prod está en el vector, devuelve la posición dondé está. Sino devuelve la
-        que tendría que ocupar
-    */
-    static int busqueda_elemento(const vector<Producto>& v, int esq, int dre, int id_prod);
 
 public:
 
@@ -69,12 +61,6 @@ public:
     void cambiar_producto(Producto p, int peso_nuevo, int volumen_nuevo);
 
     // Consultoras
-	
-	/** @brief Consultar identificador
-        \pre <em>cierto</em>
-        \post Devuelve el id del último producto añadido
-    */
-    int consultar_ultimo_id() const;
     
     /** @brief Consultar tamaño inventario
         \pre <em>cierto</em>
@@ -101,13 +87,13 @@ public:
         \post Retorna el producto si el id_prod está en el p.i y error=false, 
         sino retorna un producto vacío y error=true 
     */
-    Producto consultar_producto(int id_prod, bool& error);
+    Producto consultar_producto(int id_prod, bool& error) const;
     
     /** @brief Devolver producto 
         \pre id_prod representa a un producto del p.i
         \post Retorna el producto asociado a id_prod
     */
-    Producto devolver_producto(int id_prod);
+    Producto devolver_producto(int id_prod) const;
 
     // Lectura y escritura
 	

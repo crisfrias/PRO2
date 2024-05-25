@@ -49,8 +49,12 @@ int main() {
             Ciudad c = r.buscar_ciudad(id_ciudad, error);
             if (error) {
 				cout << "error: no existe la ciudad" << endl;
-				string s;
-				for (int i = 0; i < 3; ++i) getline(cin, s);
+				int n;
+				cin >> n;
+				if (n != 0) {
+					string s;
+					for (int i = 0; i < n; ++i) getline(cin, s);
+				}
 			}
             else {
 				c.leer_inventario_ciudad(v);
@@ -73,25 +77,19 @@ int main() {
             cin >> id_prod_venta >> peso_prod_venta;
             
             // Comprovacion de errores previa y/o ejecución de la función
-            if (id_prod_compra == id_prod_venta) {
+            if (id_prod_compra <= 0 or id_prod_venta <= 0) {
+				cout << "error: no existe el producto" << endl;
+			}
+			else if (id_prod_compra > v.consultar_tamano_inventario() or id_prod_venta > v.consultar_tamano_inventario()) {
+				cout << "error: no existe el producto" << endl;
+			}
+			else if (id_prod_compra == id_prod_venta) {
                 cout << "error: no se puede comprar y vender el mismo producto" << endl;
             }
             else {
-                bool error;
                 Producto aux;
-                aux = v.consultar_producto(id_prod_compra, error);
-                if (error) {
-					cout << "error: no existe el producto" << endl;
-				}
-				else {
-					aux = v.consultar_producto(id_prod_venta, error);
-					if (error) {
-						cout << "error: no existe el producto" << endl;
-					}
-					else {
-						b.modificar_barco(id_prod_compra, peso_prod_compra, id_prod_venta, peso_prod_venta);
-					}
-				}
+                aux = v.devolver_producto(id_prod_compra);
+                b.modificar_barco(id_prod_compra, peso_prod_compra, id_prod_venta, peso_prod_venta);
             }
         }
         else if (instr == "escribir_barco" or instr == "eb") {
@@ -118,7 +116,7 @@ int main() {
             cin >> id_prod;
             cout << "#" << instr << " " << id_prod << endl;
             
-            if (id_prod > v.consultar_tamano_inventario()) {
+            if (id_prod <= 0 or id_prod > v.consultar_tamano_inventario()) {
 				cout << "error: no existe el producto" << endl;
 			}
 			else {

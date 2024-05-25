@@ -22,24 +22,18 @@ void Inventario::anadir_producto_nuevo(const Producto& p) {
 
 void Inventario::cambiar_producto(Producto p, int peso_nuevo, int volumen_nuevo) {
     int id_prod = p.consultar_id();
-    int esq = 0, dre = catalogo.size();
-    int i = busqueda_elemento(catalogo, esq, dre, id_prod);
     p.cambiar_peso(peso_nuevo);
     p.cambiar_volumen(volumen_nuevo);
-    catalogo[i] = p;
+    catalogo[id_prod-1] = p;
 }
 
 // Consultoras
-
-int Inventario::consultar_ultimo_id() const {
-    return catalogo[tamano_inventario-1].consultar_id();
-}
 
 int Inventario::consultar_tamano_inventario() const {
 	return tamano_inventario;
 }
 
-Producto Inventario::consultar_producto(int id_prod, bool& error) {
+Producto Inventario::consultar_producto(int id_prod, bool& error) const {
     if (id_prod <= tamano_inventario) {
         error = false;
         return catalogo[id_prod-1];
@@ -51,26 +45,16 @@ Producto Inventario::consultar_producto(int id_prod, bool& error) {
 	}
 }
 
-Producto Inventario::devolver_producto(int id_prod) {
+Producto Inventario::devolver_producto(int id_prod) const {
 	return catalogo[id_prod-1];
-}
-
-int Inventario::busqueda_elemento(const vector<Producto>& v, int esq, int dre, int id_prod) {
-    int i = esq;
-    bool found = false;
-    while (esq <= dre and not found) {
-        i = (esq+dre)/2;
-        if (id_prod < v[i].consultar_id()) dre = i-1;
-        else if (id_prod > v[i].consultar_id()) esq = i+1;
-        else found = true;
-    }
-    if (found) return i;
-    else return v.size();
 }
 
 // Lectura y escritura
 
 void Inventario::leer_inventario() {
+	catalogo.clear();
+	peso_inventario = 0;
+	volumen_inventario = 0;
 	cin >> tamano_inventario;
 	int i;
     for (i = 0; i < tamano_inventario; ++i) {
@@ -78,5 +62,4 @@ void Inventario::leer_inventario() {
         aux.leer();
         catalogo.push_back(aux);
     }
-    ultimo_id = tamano_inventario;
 }

@@ -8,7 +8,7 @@ Ciudad::Ciudad() {
     volumen_total = 0;
 }
 
-Ciudad::Ciudad(string id) {
+Ciudad::Ciudad(const string& id) {
     id_ciudad = id;
     peso_total = 0;
     volumen_total = 0;
@@ -45,7 +45,7 @@ void Ciudad::modificar_producto_reserva(const Producto& p, int reserva, int list
 
 void Ciudad::actualizar_ciudad() {
 	for (auto it = prods_ciudad.begin(); it != prods_ciudad.end(); ) {
-		if (prods_ciudad[it->first].first == 0) {
+		if (prods_ciudad[it->first].first == 0 and prods_ciudad[it->first].second == 0) {
             it = prods_ciudad.erase(it); 
         } else {
             ++it;
@@ -53,7 +53,7 @@ void Ciudad::actualizar_ciudad() {
 	}
 }
 
-void Ciudad::comerciar(Ciudad& c, Inventario inv) {
+void Ciudad::comerciar(Ciudad& c, const Inventario& inv) {
 	for (auto it = prods_ciudad.begin(); it != prods_ciudad.end(); ++it) {
 		// Asignamos un id al producto que estamos tratando
 		int id_prod = it->first;
@@ -125,7 +125,7 @@ int Ciudad::consultar_faltante(int id_prod) {
 
 // Lectura y escritura
 
-void Ciudad::leer_inventario_ciudad(Inventario inv) {
+void Ciudad::leer_inventario_ciudad(const Inventario& inv) {
 	// Desinicializamos el peso, volumen y catálogo de la ciudad
 	prods_ciudad.clear();
 	peso_total = 0;
@@ -152,9 +152,7 @@ void Ciudad::leer_inventario_ciudad(Inventario inv) {
 
 void Ciudad::escribir() {
     for (auto it = prods_ciudad.begin(); it != prods_ciudad.end(); ++it) {
-		//if (prods_ciudad[it->first].first != 0 and prods_ciudad[it->first].second != 0) {
-			cout << it->first << " " << prods_ciudad[it->first].first << " " << prods_ciudad[it->first].second << endl;
-		//}
+		cout << it->first << " " << prods_ciudad[it->first].first << " " << prods_ciudad[it->first].second << endl;
     }
     cout << peso_total << " " << volumen_total << endl;
 }

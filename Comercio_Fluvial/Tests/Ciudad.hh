@@ -44,7 +44,7 @@ public:
         \pre id=NULL
         \post El resultado es una ciudad con identificador = id y con peso y volumen total = 0
     */
-    Ciudad(string id);
+    Ciudad(const string& id);
 
     // Modificadoras
 	
@@ -89,7 +89,7 @@ public:
         \pre s1 y s2 son ciudades inicializadas en el río
         \post Se ha realizado el intercambio de productos entre las dos ciudades
     */
-    void comerciar(Ciudad& c, Inventario inv);
+    void comerciar(Ciudad& c, const Inventario& inv);
 
     // Consultoras
 
@@ -142,7 +142,7 @@ public:
         de los productos, la cantidad que tiene y necesita, respectivamente, además 
         de sustituir el peso y volumen totales con los nuevos productos
     */
-    void leer_inventario_ciudad(Inventario inv);
+    void leer_inventario_ciudad(const Inventario& inv);
     
     /** @brief Escritura de la ciudad
         Sale por el canal de salida el inventario del parámetro implícito

@@ -1,0 +1,87 @@
+#escribir_barco
+2 10 4 20
+#escribir_producto 3
+3 4 6
+#consultar_num
+5
+#cn
+5
+#ep 6
+error: no existe el producto
+#escribir_producto 0
+error: no existe el producto
+#escribir_producto -3
+error: no existe el producto
+#ep 5
+5 6 8
+#ep 140
+error: no existe el producto
+#eb
+2 10 4 20
+#leer_inventario Barcelona
+#escribir_ciudad Paris
+error: no existe la ciudad
+#ec Barcelona
+1 2 4
+3 5 3
+4 2 2
+34 52
+#ec Oencia
+0 0
+#li Lugo
+error: no existe la ciudad
+#ec Lugo
+error: no existe la ciudad
+#li Madrid
+#ec Madrid
+1 8 3
+5 1 6
+22 40
+#ls
+#ec Oencia
+1 6 20
+3 12 9
+60 96
+#escribir_ciudad Madrid
+2 7 4
+3 3 3
+5 1 1
+39 61
+#ec Barcelona
+0 0
+#ec Burgos
+2 9 2
+27 45
+#ec Girona
+0 0
+#ap 2
+#consultar_num
+7
+#ep 6
+6 3 4
+#ep 7
+7 1 5
+#ep 5
+5 6 8
+#ap 1
+#ep 8
+8 8 8
+#ep 7
+7 1 5
+#cn
+8
+#leer_inventarios
+#leer_inventarios
+#ec Girona
+2 7 3
+6 6 9
+8 12 10
+135 155
+#ec Bilbao
+7 4 4
+4 20
+#ec Madrid
+2 7 4
+3 3 3
+5 1 1
+39 61

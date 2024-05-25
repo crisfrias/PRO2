@@ -18,7 +18,7 @@ void Rio::leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m) {
     }
 }
 
-void Rio::redistribuir_priv(BinTree<string>& t, Inventario inv, map<string, Ciudad>& m) {
+void Rio::redistribuir_priv(BinTree<string>& t, const Inventario& inv, map<string, Ciudad>& m) {
 	if (t.empty()) return;
 	string id_ciudad = t.value();
 	if (t.left().empty()) {
@@ -95,7 +95,7 @@ int Rio::planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& 
 	}
 }
 
-int Rio::hacer_viaje_priv(Barco& b, stack<string>& r, Inventario inv) {
+int Rio::hacer_viaje_priv(Barco& b, stack<string>& r, const Inventario& inv) {
 	// Parámetros iniciales
 	int unidades_compra = b.consultar_prod_compra();
 	int unidades_venta = b.consultar_prod_venta();
@@ -159,31 +159,18 @@ void Rio::actualizar_ciudad_rio(const string& id_ciudad, const Ciudad& c) {
     mapa_cuenca[id_ciudad] = c;
 }
 
-void Rio::redistribuir(Inventario inv) {
+void Rio::redistribuir(const Inventario& inv) {
 	redistribuir_priv(cuenca, inv, mapa_cuenca);
 }
 
-int Rio::hacer_viaje(Barco& b, Inventario inv) {
+int Rio::hacer_viaje(Barco& b, const Inventario& inv) {
 	// Reinicializamos la pila de la ruta
 	stack<string> vacio;
 	ruta = vacio;
 	// Planeamos la ruta del viaje
-	// pair<int,pair<int,int>> d = planear_viaje(cuenca, b, ruta);
 	int c1 = b.consultar_prod_compra();
 	int c2 = b.consultar_prod_venta();
 	int d = planear_viaje(cuenca, b, ruta, c1, c2);
-	/*
-	if (not cuenca.empty()) {
-		// Añadimos la cuenca a la ruta 
-		if (not cuenca.left().empty() and cuenca.left().value() == ruta.top()) {
-			ruta.push(cuenca.value());
-		}
-		else if (not cuenca.right().empty() and cuenca.right().value() == ruta.top()) {
-			ruta.push(cuenca.value());
-		}
-	}
-	*/
-	// d.first = d.second.first + d.second.second;
 	// Calculamos los productos vendidos despueś de hacer el viaje y los devolvemos
 	d = hacer_viaje_priv(b, ruta, inv);
 	return d;
@@ -208,10 +195,11 @@ Ciudad Rio::buscar_ciudad(const string& id_ciudad, bool& error) {
 
 void Rio::leer_cuenca() {
 	mapa_cuenca.clear();
+	cuenca = BinTree<string> ();
     leer_cuenca_priv(cuenca, mapa_cuenca);
 }
 
-void Rio::leer_inventarios(Inventario inv) {
+void Rio::leer_inventarios(const Inventario& inv) {
     string s;
     cin >> s;
     while (s != "#") {
