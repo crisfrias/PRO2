@@ -1,0 +1,105 @@
+5
+2 4
+3 5
+4 6
+5 7
+6 8
+Madrid
+Valladolid
+Oencia
+#
+#
+Burgos
+#
+#
+Zaragoza
+Bilbao
+#
+#
+Lleida
+Girona
+#
+#
+Barcelona
+#
+#
+2 10
+4 20
+// ep cn eb 
+escribir_barco 
+escribir_producto 3
+consultar_num
+cn
+ep 6
+escribir_producto 0
+escribir_producto -3
+ep 5
+ep 140
+eb
+// li ls ec
+leer_inventario Barcelona
+3 
+1 2 4
+3 5 3
+4 2 2
+escribir_ciudad Paris
+ec Barcelona
+ec Oencia
+li Lugo
+0
+ec Lugo
+li Madrid
+2
+1 8 3
+5 1 6
+ec Madrid
+ls
+Burgos
+1
+2 9 2
+Oencia
+2
+3 12 9
+1 6 20
+Madrid
+3
+3 3 3
+5 1 1
+2 7 4
+Barcelona
+0
+#
+ec Oencia
+escribir_ciudad Madrid
+ec Barcelona
+ec Burgos
+ec Girona
+// ap
+ap 2
+3 4
+1 5
+consultar_num
+ep 6
+ep 7
+ep 5
+ap 1
+8 8
+ep 8
+ep 7
+cn
+leer_inventarios
+#
+leer_inventarios
+Bilbao
+1
+7 4 4
+Girona
+3
+2 7 3
+6 6 9
+8 12 10
+#
+ec Girona
+ec Bilbao
+ec Madrid
+fin

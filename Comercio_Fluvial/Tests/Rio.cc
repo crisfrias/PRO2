@@ -46,8 +46,7 @@ int Rio::planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& 
     int id_prod_venta = b.consultar_id_prod_venta();
     int sobrante_ciudad = mapa_cuenca[id_ciudad].consultar_reserva(id_prod_compra) - mapa_cuenca[id_ciudad].consultar_faltante(id_prod_compra);
 	int necesidad_ciudad = mapa_cuenca[id_ciudad].consultar_faltante(id_prod_venta) - mapa_cuenca[id_ciudad].consultar_reserva(id_prod_venta);
-	
-	
+	// Calculo lo que tiene que comprar y vender el nodo actual	
 	int compra = 0;
     if (mapa_cuenca[id_ciudad].consultar_producto(id_prod_compra) and compra_barco > 0){
         if (sobrante_ciudad > 0 ) {
@@ -70,7 +69,7 @@ int Rio::planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& 
 			else venta_barco = 0;
 		}
     }
-    
+    // Miro cuantas unidades me entran de la ciudad izquiera y derecha por recursion
     BinTree<string> tree_esq = t.left();
 	BinTree<string> tree_dre = t.right();
 	int compra_esq = compra_barco, compra_dre = compra_barco;
@@ -78,12 +77,16 @@ int Rio::planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& 
 	stack<string> aux_esq, aux_dre;
 	int prods_esq = planear_viaje(tree_esq, b, aux_esq, compra_esq, venta_esq);
 	int prods_dre = planear_viaje(tree_dre, b, aux_dre, compra_dre, venta_dre);
+	// Defino la variable unidades que se encargará de devolver cuántos nodos han sido visitados
 	int unidades;
+	// Si hay más productos en la izquierda guardo la recursion izquierda
 	if (prods_esq > prods_dre) unidades = planear_viaje(tree_esq, b, r, compra_barco, venta_barco);
+	// Si hay más en la derecha se guarda la recursion derecha
 	else if (prods_esq < prods_dre) unidades = planear_viaje(tree_dre, b, r, compra_barco, venta_barco);
+	// Si hay el mismo numero se queda el camino mas corto, que en caso de empate es el izquierdo
 	else if (aux_esq.size() > aux_dre.size()) unidades = planear_viaje(tree_dre, b, r, compra_barco, venta_barco);
 	else unidades = planear_viaje(tree_esq, b, r, compra_barco, venta_barco);
-	
+	// Si el nodo actual no compra ni vende unidades se retorna las unidades de la recursion
 	if (compra+venta == 0) return unidades;
 	else {
 		++unidades;

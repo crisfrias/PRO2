@@ -1,0 +1,134 @@
+#consultar_num
+5
+#ls
+#ap 2
+#eb
+2 10 4 20 
+#mb
+error: no existe el producto
+#eb
+2 10 4 20 
+#mb
+error: no existe el producto
+#eb
+2 10 4 20 
+#mb
+error: no existe el producto
+#eb
+2 10 4 20 
+#mb
+error: no se puede comprar y vender el mismo producto
+#eb
+2 10 4 20 
+#mb
+#eb
+7 10 3 20 
+#cn
+7
+#ec Burgos
+2 9 2
+27 45
+#consultar_prod Paris 8
+error: no existe el producto
+#consultar_prod Barcelona 8
+error: no existe el producto
+#consultar_prod Paris 3
+error: no existe la ciudad
+#consultar_prod Burgos 3
+error: la ciudad no tiene el producto
+#cp Burgos 2
+9 2
+#poner_prod Paris 8
+error: no existe el producto
+#poner_prod Barcelona 8
+error: no existe el producto
+#poner_prod Paris 3
+error: no existe la ciudad
+#poner_prod Burgos 2
+error: la ciudad ya tiene el producto
+#poner_prod Burgos 6
+36 57
+#ec Burgos
+2 9 2
+6 3 7
+36 57
+#ec Madrid
+2 7 4
+3 3 3
+5 1 1
+39 61
+#pp Madrid 7
+41 71
+#ec Madrid
+2 7 4
+3 3 3
+5 1 1
+7 2 9
+41 71
+#modificar_prod Paris 8
+error: no existe el producto
+#modificar_prod Barcelona 8
+error: no existe el producto
+#modificar_prod Paris 3
+error: no existe la ciudad
+#modificar_prod Burgos 3
+error: la ciudad no tiene el producto
+#ec Burgos
+2 9 2
+6 3 7
+36 57
+#mp Burgos 2
+18 27
+#cp Burgos 2
+3 7
+#ec Burgos
+2 3 7
+6 3 7
+18 27
+#ec Madrid
+2 7 4
+3 3 3
+5 1 1
+7 2 9
+41 71
+#mp Madrid 5
+83 127
+#ec Madrid
+2 7 4
+3 3 3
+5 8 3
+7 2 9
+83 127
+#quitar_prod Paris 8
+error: no existe el producto
+#quitar_prod Barcelona 8
+error: no existe el producto
+#quitar_prod Paris 3
+error: no existe la ciudad
+#quitar_prod Burgos 3
+error: la ciudad no tiene el producto
+#ec Burgos
+2 3 7
+6 3 7
+18 27
+#qp Burgos 2
+9 12
+#cp Burgos 2
+error: la ciudad no tiene el producto
+#ec Burgos
+6 3 7
+9 12
+#leer_rio
+#ec Oencia
+error: no existe la ciudad
+#ec Sevilla
+0 0
+#ec Madrid
+0 0
+#ec Barcelona
+0 0
+#lr
+#ec Palencia
+0 0
+#ec Oencia
+error: no existe la ciudad
