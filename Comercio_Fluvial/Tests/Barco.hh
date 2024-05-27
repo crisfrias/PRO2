@@ -40,14 +40,10 @@ public:
         \post Se han actualizado los productos que el barco necesita comprar y vender
     */
     void modificar_barco(int id_compra, int unidades_compra, int id_venta, int unidades_venta);
-
-    void comprar_prod(int unidades_compra);
-
-    void vender_prod(int unidades_venta);
     
     /** @brief Reiniciar barco
         \pre <em>cierto</em>
-        \post Se ha vaciado el historial, el resto de atributos no se han modificado
+        \post Se ha vaciado el historial
     */
     void reiniciar_barco();
 
@@ -58,25 +54,41 @@ public:
     void anadir_ciudad_historial(const string& s);
 
     // Consultoras
-
+	
+	/** @brief Consultar identificador del producto de compra
+        \pre <em>cierto</em>
+        \post Devuelve el identificador del producto que el barco quiere comprar
+    */
     int consultar_id_prod_compra() const;
-
+	
+	/** @brief Consultar cantidad de productos para comprar
+        \pre <em>cierto</em>
+        \post Devuelve cuantos productos quiere comprar el barco
+    */
     int consultar_prod_compra() const;
     
+    /** @brief Consultar identificador del producto de venta
+        \pre <em>cierto</em>
+        \post Devuelve el identificador del producto que el barco quiere vender
+    */
     int consultar_id_prod_venta() const;
-
+	
+	/** @brief Consultar cantidad de productos para vender
+        \pre <em>cierto</em>
+        \post Devuelve cuantos productos quiere vender el barco
+    */
     int consultar_prod_venta() const;
 
     // Lectura y escritura
 	
 	/** @brief Lectura del p.i
-        \pre El p.i. no está inicializado 
+        \pre El p.i. no está inicializado y entran por el canal estándar de entrada los datos del barco
         \post El p.i. está inicializado con un producto para comprar y otro para vender
     */
 	void leer();
 	
 	/** @brief Escritura del p.i
-        \pre "cert"
+        \pre <em>cierto</em>
         \post Sale por el canal estándar de salida el id del producto que se quiere comprar, el id
         del producto que se quiere vender y el historial de viajes realizados
     */

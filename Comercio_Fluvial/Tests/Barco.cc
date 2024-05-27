@@ -12,14 +12,6 @@ void Barco::modificar_barco(int id_compra, int unidades_compra, int id_venta, in
 	prod_vender = make_pair(id_venta, unidades_venta);
 }
 
-void Barco::comprar_prod(int unidades_compra) {
-	prod_compra.second -= unidades_compra;
-}
-
-void Barco::vender_prod(int unidades_venta) {
-	prod_vender.second -= unidades_venta;
-}
-
 void Barco::reiniciar_barco() {
 	list<string> l;
 	historial = l;

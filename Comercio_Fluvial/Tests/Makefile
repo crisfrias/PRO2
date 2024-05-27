@@ -6,10 +6,10 @@ program.exe: program.o Ciudad.o Rio.o Barco.o Producto.o Inventario.o
 program.o: program.cc Rio.hh Ciudad.hh Inventario.hh Producto.hh Barco.hh
 	g++ -c program.cc $(OPCIONS)
 
-Rio.o: Rio.cc Rio.hh BinTree.hh Ciudad.hh Inventario.hh
+Rio.o: Rio.cc Rio.hh BinTree.hh Ciudad.hh Inventario.hh Producto.hh Barco.hh
 	g++ -c Rio.cc $(OPCIONS)
 	
-Barco.o: Barco.cc Barco.hh
+Barco.o: Barco.cc Barco.hh Ciudad.hh
 	g++ -c Barco.cc $(OPCIONS)
 
 Ciudad.o: Ciudad.cc Ciudad.hh Producto.hh Inventario.hh

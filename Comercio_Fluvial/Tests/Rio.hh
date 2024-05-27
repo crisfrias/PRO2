@@ -50,8 +50,13 @@ private:
         \pre t, b y r no están vacíos
         \post Se ha actualizado q con todas las ciudades que forman la mejor ruta posible
     */
-    // pair<int,pair<int,int>> planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& r);
-    int planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& r, int& compra_barco, int& venta_barco);
+    pair<pair<int, int>, int > buscar_ruta(const BinTree<string>& t, const Barco& b, stack<string>& r);
+    
+    /** @brief Mínimo de dos números
+        \pre "cierto"
+        \post Devuelve el número más grande
+    */
+    static int min(int a, int b);
 
     /** @brief Realización de compra-venta 
         \pre m y q no están vacíos, además los elementos de q están en m representando ciudades
@@ -94,6 +99,13 @@ public:
         \post Devuelve el número de productos que el barco ha comprado y vendido por la ruta
     */
     int hacer_viaje(Barco& b, const Inventario& inv);
+    
+    /** @brief Comerciar en el rio
+        \pre c1 y c2 existen en el rio, inv tiene productos de c1 y c2
+        \post Realiza el método "comerciar" siendo el p.i. c1 o c2 dependiendo
+			  de qué ciudad tiene el inventario con menos productos
+    */
+    void comerciar_rio(Ciudad& c1, Ciudad& c2, const Inventario& inv);
 	
     // Consultoras
 

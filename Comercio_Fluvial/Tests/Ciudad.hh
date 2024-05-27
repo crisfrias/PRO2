@@ -27,6 +27,7 @@ private:
     string id_ciudad;
     int peso_total;
     int volumen_total;
+    int tamano_inv_ciudad;
     map<int,pair<int,int>> prods_ciudad;
 
 public:
@@ -50,20 +51,23 @@ public:
 	
 	/** @brief Añadir productos a la reserva
         \pre "cierto"
-        \post Se añaden las unidades correspondientes de p a la ciudad
+        \post Se añaden las unidades correspondientes del producto "p" al inventario de la ciudad, 
+			  añadiéndoles el peso y volumen respectivos al p.i
     */
     void anadir_prod_reserva(const Producto& p, int unidades);
     
     /** @brief Quitar productos a la reserva
-        \pre "cierto"
-        \post Se borran las unidades correspondientes de p en la ciudad
+        \pre p existe dentro del inventario del p.i y unidades > 0
+        \post Se borran las unidades correspondientes del producto p en la ciudad, quitándoles el peso y 
+			  volúmen respectivos
     */
     void quitar_prod_reserva(const Producto& p, int unidades);
     
-    /** @brief Quitar producto de la reserva
+    /** @brief Eliminar producto de la reserva
         p deja de estar en los productos de la ciudad
-        \pre p no está vacío
-        \post Se ha quitado p de los registros de la ciudad
+        \pre p existe en el inventario del p.i.
+        \post Se ha quitado p del inventario de la ciudad, además del peso y volúmen que ocupaba éste 
+			  en la ciudad
     */
     void eliminar_prod_reserva(const Producto& p);
 
@@ -72,22 +76,23 @@ public:
         y también de las que la ciudad quiere
         \pre p no está vacío y existe, reserva y lista son positivos y al menos uno de ellos es 
         estrictamente positivo
-        \post Se han modificado los valores de prods_ciudad
+        \post Se han modificado los valores del inventario de la ciudad
     */
     void modificar_producto_reserva(const Producto& p, int reserva, int lista);
     
      /** @brief Actualizar ciudad
-		Elimina todos los productos que esten en reserva
+		Elimina todos los productos que esten en el inventario del p.i. que no tengan 
+		valores válidos, como por ejemplo que la reserva y los que faltan sean 0 los dos
         \pre "cierto"
-        \post Se han borrado todos los productos inexistentes de prods_ciudad
+        \post Se han borrado todos los productos inexistentes o inválidos del p.i.
     */
     void actualizar_ciudad();
     
      /** @brief Comerciar
 		Una ciudad le dara a la otra todos los productos que le sobren hasta alcanzar
 		si es posible los que la otra necesite, y viceversa
-        \pre s1 y s2 son ciudades inicializadas en el río
-        \post Se ha realizado el intercambio de productos entre las dos ciudades
+        \pre c es una ciudad válida e inicializada, inv tiene al menos 1 elemento
+        \post Se ha realizado el intercambio de productos entre el p.i. y c
     */
     void comerciar(Ciudad& c, const Inventario& inv);
 
@@ -96,7 +101,7 @@ public:
     /** @brief Consultora de identificador
         Devuelve el identificador del parámetro implícitos
         \pre <em>cierto</em>
-        \post Devuelve en formato string el identificador del parámetro implícito
+        \post Devuelve en formato string el identificador del p.i.
     */
     string consultar_id_ciudad() const;
 	
@@ -122,16 +127,23 @@ public:
     bool consultar_producto(int id_prod);
 
     /** @brief Consultora de cantidad de productos en reserva
-        \pre id_prod hace referencia a un producto que está en la ciudad
+        \pre id_prod hace referencia a un producto que tiene el p.i.
         \post Devuelve la cantidad de ese producto en reserva
     */
     int consultar_reserva(int id_prod);
 
     /** @brief Consultora de la cantidad de productos necesitados
-        \pre id_prod hace referencia a un producto que está en la ciudad
+        \pre id_prod hace referencia a un producto que tiene el p.i.
         \post Devuelve la cantidad de producto que necesita
     */
     int consultar_faltante(int id_prod);
+    
+    /** @brief Consultora del tamaño del inventario de la ciudad
+        \pre "Cierto"
+        \post Devuelve la cantidad de productos diferentes válidos que tiene el 
+			  p.i. en su inventario
+    */
+    int consultar_tamano_inv_ciudad() const;
 
     // Lectura y escritura
 	
