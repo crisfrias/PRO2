@@ -180,9 +180,9 @@ Atributos privados</h2></td></tr>
 <p>Actualiza el río. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>"id_ciudad" es el identificador único de "c" </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Borra del inventario de c todos los productos que no se necesiten ni estén en reserva </dd></dl>
-<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                                                                        {</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[id_ciudad] = c;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                                                                        {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[id_ciudad] = c;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
 <div class="ttc" id="aclassRio_html_ab548ea18d2901d5a8d077980eff1ad3f"><div class="ttname"><a href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">Rio::mapa_cuenca</a></div><div class="ttdeci">map&lt; string, Ciudad &gt; mapa_cuenca</div><div class="ttdef"><b>Definition:</b> Rio.hh:32</div></div>
 </div><!-- fragment -->
 </div>
@@ -216,18 +216,18 @@ Atributos privados</h2></td></tr>
 <p>Buscadora de ciudades Busca si el identificador de la ciudad representa una ciudad existente. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>"id_ciudad" no está vacío </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El resultado es un booleano que es cierto si la ciudad existe, y es falso si es lo contrario. Si error=false devuelve una ciudad vacía, sino devuelve la ciudad con identificador=id_ciudad </dd></dl>
-<div class="fragment"><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                                                              {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">auto</span> it = <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>.find(id_ciudad);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">if</span> (it != <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>.end()) {</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        error = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[id_ciudad];</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    }</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        error = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <a class="code" href="classCiudad.html">Ciudad</a> c;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">return</span> c;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                                                              {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">auto</span> it = <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>.find(id_ciudad);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">if</span> (it != <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>.end()) {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        error = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[id_ciudad];</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    }</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        error = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <a class="code" href="classCiudad.html">Ciudad</a> c;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">return</span> c;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;}</div>
 <div class="ttc" id="aclassCiudad_html"><div class="ttname"><a href="classCiudad.html">Ciudad</a></div><div class="ttdoc">Representa una ciudad situada en la unión de dos afluentes del río.</div><div class="ttdef"><b>Definition:</b> Ciudad.hh:24</div></div>
 </div><!-- fragment -->
 </div>
@@ -261,23 +261,23 @@ Atributos privados</h2></td></tr>
 <p>Hacer viaje El barco va desde la desembocadura hasta los nacimientos de los afluentes buscando rutas para comprar y vender. Seguirá la ruta donde pueda comprar y vender más productos. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>"cierto" </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve el número de productos que el barco ha comprado y vendido por la ruta </dd></dl>
-<div class="fragment"><div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                                                    {</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="comment">// Reinicializamos la pila de la ruta</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  stack&lt;string&gt; vacio;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <a class="code" href="classRio.html#a76548dc637f03012f1dfd5aa6c689329">ruta</a> = vacio;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="comment">// Planeamos la ruta del viaje</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordtype">int</span> c1 = b.<a class="code" href="classBarco.html#a29b09b9b2ca1dbdc7e01f012354dc994">consultar_prod_compra</a>();</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keywordtype">int</span> c2 = b.<a class="code" href="classBarco.html#a8568d229b593f5f36b2a4afa8fc9f972">consultar_prod_venta</a>();</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keywordtype">int</span> d = <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(<a class="code" href="classRio.html#afcc3bba9247769e4856f65c09f4fa933">cuenca</a>, b, <a class="code" href="classRio.html#a76548dc637f03012f1dfd5aa6c689329">ruta</a>, c1, c2);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="comment">// Calculamos los productos vendidos despueś de hacer el viaje y los devolvemos</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  d = <a class="code" href="classRio.html#a8cf1dbced931c4284a78d5963b8cbdfe">hacer_viaje_priv</a>(b, <a class="code" href="classRio.html#a76548dc637f03012f1dfd5aa6c689329">ruta</a>, inv);</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <span class="keywordflow">return</span> d;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                                    {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="comment">// Reinicializamos la pila de la ruta</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  stack&lt;string&gt; vacio;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <a class="code" href="classRio.html#a76548dc637f03012f1dfd5aa6c689329">ruta</a> = vacio;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="comment">// Planeamos la ruta del viaje</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="keywordtype">int</span> c1 = b.<a class="code" href="classBarco.html#a29b09b9b2ca1dbdc7e01f012354dc994">consultar_prod_compra</a>();</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="keywordtype">int</span> c2 = b.<a class="code" href="classBarco.html#a8568d229b593f5f36b2a4afa8fc9f972">consultar_prod_venta</a>();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <span class="keywordtype">int</span> d = <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(<a class="code" href="classRio.html#afcc3bba9247769e4856f65c09f4fa933">cuenca</a>, b, <a class="code" href="classRio.html#a76548dc637f03012f1dfd5aa6c689329">ruta</a>, c1, c2);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="comment">// Calculamos los productos vendidos despueś de hacer el viaje y los devolvemos</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  d = <a class="code" href="classRio.html#a8cf1dbced931c4284a78d5963b8cbdfe">hacer_viaje_priv</a>(b, <a class="code" href="classRio.html#a76548dc637f03012f1dfd5aa6c689329">ruta</a>, inv);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keywordflow">return</span> d;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;}</div>
 <div class="ttc" id="aclassBarco_html_a29b09b9b2ca1dbdc7e01f012354dc994"><div class="ttname"><a href="classBarco.html#a29b09b9b2ca1dbdc7e01f012354dc994">Barco::consultar_prod_compra</a></div><div class="ttdeci">int consultar_prod_compra() const</div><div class="ttdoc">Consultar cantidad de productos para comprar.</div><div class="ttdef"><b>Definition:</b> Barco.cc:34</div></div>
 <div class="ttc" id="aclassBarco_html_a8568d229b593f5f36b2a4afa8fc9f972"><div class="ttname"><a href="classBarco.html#a8568d229b593f5f36b2a4afa8fc9f972">Barco::consultar_prod_venta</a></div><div class="ttdeci">int consultar_prod_venta() const</div><div class="ttdoc">Consultar cantidad de productos para vender.</div><div class="ttdef"><b>Definition:</b> Barco.cc:42</div></div>
 <div class="ttc" id="aclassRio_html_a10b2ebf2ee567f9bbd5ed448d9b4f834"><div class="ttname"><a href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">Rio::planear_viaje</a></div><div class="ttdeci">int planear_viaje(const BinTree&lt; string &gt; &amp;t, const Barco &amp;b, stack&lt; string &gt; &amp;r, int &amp;compra_barco, int &amp;venta_barco)</div><div class="ttdoc">Planear ruta sobre la cuenca.</div><div class="ttdef"><b>Definition:</b> Rio.cc:46</div></div>
 <div class="ttc" id="aclassRio_html_a76548dc637f03012f1dfd5aa6c689329"><div class="ttname"><a href="classRio.html#a76548dc637f03012f1dfd5aa6c689329">Rio::ruta</a></div><div class="ttdeci">stack&lt; string &gt; ruta</div><div class="ttdef"><b>Definition:</b> Rio.hh:33</div></div>
-<div class="ttc" id="aclassRio_html_a8cf1dbced931c4284a78d5963b8cbdfe"><div class="ttname"><a href="classRio.html#a8cf1dbced931c4284a78d5963b8cbdfe">Rio::hacer_viaje_priv</a></div><div class="ttdeci">int hacer_viaje_priv(Barco &amp;b, stack&lt; string &gt; &amp;r, const Inventario &amp;inv)</div><div class="ttdoc">Realización de compraventa.</div><div class="ttdef"><b>Definition:</b> Rio.cc:110</div></div>
+<div class="ttc" id="aclassRio_html_a8cf1dbced931c4284a78d5963b8cbdfe"><div class="ttname"><a href="classRio.html#a8cf1dbced931c4284a78d5963b8cbdfe">Rio::hacer_viaje_priv</a></div><div class="ttdeci">int hacer_viaje_priv(Barco &amp;b, stack&lt; string &gt; &amp;r, const Inventario &amp;inv)</div><div class="ttdoc">Realización de compraventa.</div><div class="ttdef"><b>Definition:</b> Rio.cc:107</div></div>
 <div class="ttc" id="aclassRio_html_afcc3bba9247769e4856f65c09f4fa933"><div class="ttname"><a href="classRio.html#afcc3bba9247769e4856f65c09f4fa933">Rio::cuenca</a></div><div class="ttdeci">BinTree&lt; string &gt; cuenca</div><div class="ttdef"><b>Definition:</b> Rio.hh:31</div></div>
 </div><!-- fragment -->
 </div>
@@ -325,64 +325,63 @@ Atributos privados</h2></td></tr>
 <p>Realización de compraventa. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>"b" está inicializado y "r" contiene la ruta por la que ha de comprar y vender con el barco </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se han añadido o eliminado unidades de los productos que compra o vende el barco si ha sido posible, "r" se ha quedado vacío </dd></dl>
-<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                                                           {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">// Parámetros iniciales</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordtype">int</span> unidades_compra = b.<a class="code" href="classBarco.html#a29b09b9b2ca1dbdc7e01f012354dc994">consultar_prod_compra</a>();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordtype">int</span> unidades_venta = b.<a class="code" href="classBarco.html#a8568d229b593f5f36b2a4afa8fc9f972">consultar_prod_venta</a>();</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">int</span> id_compra = b.<a class="code" href="classBarco.html#acf1560f4f87f9a91c470769fe1dc3a90">consultar_id_prod_compra</a>();</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordtype">int</span> id_venta = b.<a class="code" href="classBarco.html#a0d3f687e542aac75703233682e9bd294">consultar_id_prod_venta</a>();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keywordtype">int</span> suma_ops = 0;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordtype">string</span> ultima_ciudad_visitada;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">// El bucle se ejecuta mientras haya ciudades en la ruta o se pueda comprar y vender al barco</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keywordflow">while</span> (not r.empty() and (unidades_compra != 0 or unidades_venta != 0)) {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">string</span> id_ciudad = r.top();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="classCiudad.html">Ciudad</a> c = <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[id_ciudad];</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">// Hacemos la compra</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">if</span> (c.<a class="code" href="classCiudad.html#af6ea4eb0ba6a88aef26e75ef08b83808">consultar_producto</a>(id_compra) and unidades_compra &gt; 0) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <a class="code" href="classProducto.html">Producto</a> p1 = inv.<a class="code" href="classInventario.html#adff99f95b49b6913b04faae4298f211d">devolver_producto</a>(id_compra);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keywordtype">int</span> sobrante = c.<a class="code" href="classCiudad.html#a6391792b91e0e1b70d1bf9f0e449f375">consultar_reserva</a>(id_compra) - c.<a class="code" href="classCiudad.html#af39cf0d7a62b925d15e2b782cb9699cd">consultar_faltante</a>(id_compra);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="keywordflow">if</span> (sobrante &gt; 0) {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">if</span> (unidades_compra &gt; sobrante) {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;          c.<a class="code" href="classCiudad.html#ad267e8c1fcbb4f622339ea54bf5a87cd">quitar_prod_reserva</a>(p1, sobrante);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;          unidades_compra -= sobrante;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;          suma_ops += sobrante;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;          c.<a class="code" href="classCiudad.html#ad267e8c1fcbb4f622339ea54bf5a87cd">quitar_prod_reserva</a>(p1, unidades_compra);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;          suma_ops += unidades_compra;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;          unidades_compra = 0;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        }</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      }</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      ultima_ciudad_visitada = id_ciudad;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment">// Hacemos la venta</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">if</span> (c.<a class="code" href="classCiudad.html#af6ea4eb0ba6a88aef26e75ef08b83808">consultar_producto</a>(id_venta) and unidades_venta &gt; 0) {</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <a class="code" href="classProducto.html">Producto</a> p2 = inv.<a class="code" href="classInventario.html#adff99f95b49b6913b04faae4298f211d">devolver_producto</a>(id_venta);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <span class="keywordtype">int</span> falta = c.<a class="code" href="classCiudad.html#af39cf0d7a62b925d15e2b782cb9699cd">consultar_faltante</a>(id_venta) - c.<a class="code" href="classCiudad.html#a6391792b91e0e1b70d1bf9f0e449f375">consultar_reserva</a>(id_venta);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      <span class="keywordflow">if</span> (falta &gt; 0) {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">if</span> (unidades_venta &gt; falta) {</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;          c.<a class="code" href="classCiudad.html#aa70a816f4c3cce379803be49ee3ef979">anadir_prod_reserva</a>(p2, falta);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;          unidades_venta -= falta;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;          suma_ops += falta;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;          c.<a class="code" href="classCiudad.html#aa70a816f4c3cce379803be49ee3ef979">anadir_prod_reserva</a>(p2, unidades_venta);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;          suma_ops += unidades_venta;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;          unidades_venta = 0;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        }</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      }</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      ultima_ciudad_visitada = id_ciudad;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment">// Actualizamos la ciudad</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    c.<a class="code" href="classCiudad.html#aa37e49c8bc515f4765110d44a2aa6eff">actualizar_ciudad</a>();</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[id_ciudad] = c;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    r.pop();</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  }</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <span class="comment">// Si es la última ciudad visitada, la añadimos al historial</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  b.<a class="code" href="classBarco.html#a322f6fa5a83108234120ff74122f54ba">anadir_ciudad_historial</a>(ultima_ciudad_visitada);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keywordflow">return</span> suma_ops;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                                                           {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="comment">// Parámetros iniciales</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordtype">int</span> unidades_compra = b.<a class="code" href="classBarco.html#a29b09b9b2ca1dbdc7e01f012354dc994">consultar_prod_compra</a>();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keywordtype">int</span> unidades_venta = b.<a class="code" href="classBarco.html#a8568d229b593f5f36b2a4afa8fc9f972">consultar_prod_venta</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keywordtype">int</span> id_compra = b.<a class="code" href="classBarco.html#acf1560f4f87f9a91c470769fe1dc3a90">consultar_id_prod_compra</a>();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordtype">int</span> id_venta = b.<a class="code" href="classBarco.html#a0d3f687e542aac75703233682e9bd294">consultar_id_prod_venta</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordtype">int</span> suma_ops = 0;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">string</span> ultima_ciudad_visitada;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keywordflow">while</span> (not r.empty() and (unidades_compra != 0 or unidades_venta != 0)) {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">string</span> id_ciudad = r.top();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="classCiudad.html">Ciudad</a> c = <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[id_ciudad];</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">// Hacemos la compra</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> (c.<a class="code" href="classCiudad.html#af6ea4eb0ba6a88aef26e75ef08b83808">consultar_producto</a>(id_compra) and unidades_compra &gt; 0) {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <a class="code" href="classProducto.html">Producto</a> p1 = inv.<a class="code" href="classInventario.html#adff99f95b49b6913b04faae4298f211d">devolver_producto</a>(id_compra);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keywordtype">int</span> sobrante = c.<a class="code" href="classCiudad.html#a6391792b91e0e1b70d1bf9f0e449f375">consultar_reserva</a>(id_compra) - c.<a class="code" href="classCiudad.html#af39cf0d7a62b925d15e2b782cb9699cd">consultar_faltante</a>(id_compra);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <span class="keywordflow">if</span> (sobrante &gt; 0) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span> (unidades_compra &gt; sobrante) {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;          c.<a class="code" href="classCiudad.html#ad267e8c1fcbb4f622339ea54bf5a87cd">quitar_prod_reserva</a>(p1, sobrante);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;          unidades_compra -= sobrante;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          suma_ops += sobrante;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;          c.<a class="code" href="classCiudad.html#ad267e8c1fcbb4f622339ea54bf5a87cd">quitar_prod_reserva</a>(p1, unidades_compra);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;          suma_ops += unidades_compra;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;          unidades_compra = 0;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      ultima_ciudad_visitada = id_ciudad;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="comment">// Hacemos la venta</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">if</span> (c.<a class="code" href="classCiudad.html#af6ea4eb0ba6a88aef26e75ef08b83808">consultar_producto</a>(id_venta) and unidades_venta &gt; 0) {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <a class="code" href="classProducto.html">Producto</a> p2 = inv.<a class="code" href="classInventario.html#adff99f95b49b6913b04faae4298f211d">devolver_producto</a>(id_venta);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keywordtype">int</span> falta = c.<a class="code" href="classCiudad.html#af39cf0d7a62b925d15e2b782cb9699cd">consultar_faltante</a>(id_venta) - c.<a class="code" href="classCiudad.html#a6391792b91e0e1b70d1bf9f0e449f375">consultar_reserva</a>(id_venta);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      <span class="keywordflow">if</span> (falta &gt; 0) {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">if</span> (unidades_venta &gt; falta) {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;          c.<a class="code" href="classCiudad.html#aa70a816f4c3cce379803be49ee3ef979">anadir_prod_reserva</a>(p2, falta);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;          unidades_venta -= falta;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;          suma_ops += falta;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;          c.<a class="code" href="classCiudad.html#aa70a816f4c3cce379803be49ee3ef979">anadir_prod_reserva</a>(p2, unidades_venta);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;          suma_ops += unidades_venta;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;          unidades_venta = 0;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      ultima_ciudad_visitada = id_ciudad;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">// Actualizamos la ciudad</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    c.<a class="code" href="classCiudad.html#aa37e49c8bc515f4765110d44a2aa6eff">actualizar_ciudad</a>();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[id_ciudad] = c;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    r.pop();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="comment">// Si es la última ciudad visitada, la añadimos al historial</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  b.<a class="code" href="classBarco.html#a322f6fa5a83108234120ff74122f54ba">anadir_ciudad_historial</a>(ultima_ciudad_visitada);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keywordflow">return</span> suma_ops;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
 <div class="ttc" id="aclassBarco_html_a0d3f687e542aac75703233682e9bd294"><div class="ttname"><a href="classBarco.html#a0d3f687e542aac75703233682e9bd294">Barco::consultar_id_prod_venta</a></div><div class="ttdeci">int consultar_id_prod_venta() const</div><div class="ttdoc">Consultar identificador del producto de venta.</div><div class="ttdef"><b>Definition:</b> Barco.cc:38</div></div>
 <div class="ttc" id="aclassBarco_html_a322f6fa5a83108234120ff74122f54ba"><div class="ttname"><a href="classBarco.html#a322f6fa5a83108234120ff74122f54ba">Barco::anadir_ciudad_historial</a></div><div class="ttdeci">void anadir_ciudad_historial(const string &amp;s)</div><div class="ttdoc">Añadir ciudad al historial de viajes.</div><div class="ttdef"><b>Definition:</b> Barco.cc:20</div></div>
 <div class="ttc" id="aclassBarco_html_acf1560f4f87f9a91c470769fe1dc3a90"><div class="ttname"><a href="classBarco.html#acf1560f4f87f9a91c470769fe1dc3a90">Barco::consultar_id_prod_compra</a></div><div class="ttdeci">int consultar_id_prod_compra() const</div><div class="ttdoc">Consultar identificador del producto de compra.</div><div class="ttdef"><b>Definition:</b> Barco.cc:30</div></div>
@@ -415,11 +414,11 @@ Atributos privados</h2></td></tr>
 <p>Lectura del río. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>Entran por el canal de entrada strings con el nombre de las ciudades, siendo '#' el carácter utilizado para indicar que no tiene más ciudades río arriba </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se han añadido correctamente las ciudades introducidas en el río </dd></dl>
-<div class="fragment"><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                      {</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>.clear();</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <a class="code" href="classRio.html#afcc3bba9247769e4856f65c09f4fa933">cuenca</a> = BinTree&lt;string&gt; ();</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="classRio.html#abb4346d57692428e85c37c46610b23a6">leer_cuenca_priv</a>(<a class="code" href="classRio.html#afcc3bba9247769e4856f65c09f4fa933">cuenca</a>, <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                      {</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>.clear();</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <a class="code" href="classRio.html#afcc3bba9247769e4856f65c09f4fa933">cuenca</a> = BinTree&lt;string&gt; ();</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <a class="code" href="classRio.html#abb4346d57692428e85c37c46610b23a6">leer_cuenca_priv</a>(<a class="code" href="classRio.html#afcc3bba9247769e4856f65c09f4fa933">cuenca</a>, <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}</div>
 <div class="ttc" id="aclassRio_html_abb4346d57692428e85c37c46610b23a6"><div class="ttname"><a href="classRio.html#abb4346d57692428e85c37c46610b23a6">Rio::leer_cuenca_priv</a></div><div class="ttdeci">static void leer_cuenca_priv(BinTree&lt; string &gt; &amp;t, map&lt; string, Ciudad &gt; &amp;m)</div><div class="ttdoc">Lector de ríos en formato de BinTree Se ejecuta cuando se lee un río de forma oculta.</div><div class="ttdef"><b>Definition:</b> Rio.cc:8</div></div>
 </div><!-- fragment -->
 </div>
@@ -495,17 +494,17 @@ Atributos privados</h2></td></tr>
 <p>Lectura de inventarios de las ciudades del río. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>Está preparado el canal de entrada para los inventarios de las ciudades </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se han añadido los inventarios a las ciudades del p.i. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                                                {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">string</span> s;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    cin &gt;&gt; s;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">while</span> (s != <span class="stringliteral">&quot;#&quot;</span>) {</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <a class="code" href="classCiudad.html">Ciudad</a> c;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    c = <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[s];</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    c.<a class="code" href="classCiudad.html#a897a683f6f544e0fe2d9f7ddece835ad">leer_inventario_ciudad</a>(inv);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[s] = c;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    cin &gt;&gt; s;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  }</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                                                {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">string</span> s;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    cin &gt;&gt; s;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">while</span> (s != <span class="stringliteral">&quot;#&quot;</span>) {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <a class="code" href="classCiudad.html">Ciudad</a> c;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    c = <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[s];</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    c.<a class="code" href="classCiudad.html#a897a683f6f544e0fe2d9f7ddece835ad">leer_inventario_ciudad</a>(inv);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>[s] = c;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    cin &gt;&gt; s;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div>
 <div class="ttc" id="aclassCiudad_html_a897a683f6f544e0fe2d9f7ddece835ad"><div class="ttname"><a href="classCiudad.html#a897a683f6f544e0fe2d9f7ddece835ad">Ciudad::leer_inventario_ciudad</a></div><div class="ttdeci">void leer_inventario_ciudad(const Inventario &amp;inv)</div><div class="ttdoc">Lectura del inventario Entra por el canal de entrada el inventario del parámetro implícito.</div><div class="ttdef"><b>Definition:</b> Ciudad.cc:133</div></div>
 </div><!-- fragment -->
 </div>
@@ -607,27 +606,24 @@ Atributos privados</h2></td></tr>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">int</span> prods_esq = <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(tree_esq, b, aux_esq, compra_esq, venta_esq);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">int</span> prods_dre = <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(tree_dre, b, aux_dre, compra_dre, venta_dre);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment">// Defino la variable unidades que se encargará de devolver cuántos nodos han sido visitados</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment">// Defino la variable unidades que almacena cuantos productos se compran y se venden</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordtype">int</span> unidades = compra+venta;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">// Si hay más productos en la izquierda guardo la recursion izquierda</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span> (prods_esq &gt; prods_dre) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    unidades += <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(tree_esq, b, r, compra_barco, venta_barco);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="comment">// Si hay más en la derecha se guarda la recursion derecha</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (prods_dre == 0 or prods_esq &gt; prods_dre or (prods_esq == prods_dre and</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      aux_esq.size() &lt;= aux_dre.size())) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    unidades += <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(tree_dre, b, r, compra_barco, venta_barco);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="comment">// Si hay el mismo numero se queda el camino mas corto, que en caso de empate es el izquierdo</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span> (prods_esq &gt; prods_dre) unidades += <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(tree_esq, b, r, compra_barco, venta_barco);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="comment">// Si hay más en la derecha se guarda la recursion derecha</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (prods_esq &lt; prods_dre) unidades += <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(tree_dre, b, r, compra_barco, venta_barco);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="comment">// Si hay el mismo numero se queda el camino mas corto, que en caso de empate es el izquierdo</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (aux_esq.size() &gt; aux_dre.size()) unidades += <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(tree_dre, b, r, compra_barco, venta_barco);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordflow">else</span> unidades += <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(tree_esq, b, r, compra_barco, venta_barco);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="comment">// Si el nodo actual no compra ni vende unidades se retorna las unidades de la recursion</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">if</span> (compra+venta == 0 and unidades == 0) <span class="keywordflow">return</span> unidades;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    unidades += <a class="code" href="classRio.html#a10b2ebf2ee567f9bbd5ed448d9b4f834">planear_viaje</a>(tree_dre, b, r, compra_barco, venta_barco);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordflow">if</span> (compra+venta != 0) {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    r.push(id_ciudad);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordflow">return</span> unidades;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    ++unidades;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    r.push(t.value());</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> unidades;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -650,9 +646,9 @@ Atributos privados</h2></td></tr>
 <p>Redistribuir A partir de la ciudad de la desembocadura, cada ciudad comerciará con las dos ciudades inmediatamente situadas río arriba, y así hasta llegar a las ciudades de los nacimientos. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>"cierto" </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha realizado el intercambio de productos entre las ciudades del río </dd></dl>
-<div class="fragment"><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                            {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <a class="code" href="classRio.html#af5e24407c6b3f93b1a35006586bd1b09">redistribuir_priv</a>(<a class="code" href="classRio.html#afcc3bba9247769e4856f65c09f4fa933">cuenca</a>, inv, <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                                            {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <a class="code" href="classRio.html#af5e24407c6b3f93b1a35006586bd1b09">redistribuir_priv</a>(<a class="code" href="classRio.html#afcc3bba9247769e4856f65c09f4fa933">cuenca</a>, inv, <a class="code" href="classRio.html#ab548ea18d2901d5a8d077980eff1ad3f">mapa_cuenca</a>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
 <div class="ttc" id="aclassRio_html_af5e24407c6b3f93b1a35006586bd1b09"><div class="ttname"><a href="classRio.html#af5e24407c6b3f93b1a35006586bd1b09">Rio::redistribuir_priv</a></div><div class="ttdeci">static void redistribuir_priv(BinTree&lt; string &gt; &amp;t, const Inventario &amp;inv, map&lt; string, Ciudad &gt; &amp;m)</div><div class="ttdoc">Redistribuir recursivamente Es la implementación recursiva de la función redistribuir.</div><div class="ttdef"><b>Definition:</b> Rio.cc:21</div></div>
 </div><!-- fragment -->
 </div>

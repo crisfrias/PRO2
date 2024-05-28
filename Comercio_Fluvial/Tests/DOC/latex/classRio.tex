@@ -90,9 +90,9 @@ Borra del inventario de c todos los productos que no se necesiten ni estén en r
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{171                                                                         \{}
-\DoxyCodeLine{172     \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad] = c;}
-\DoxyCodeLine{173 \}}
+\DoxyCodeLine{167                                                                         \{}
+\DoxyCodeLine{168     \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad] = c;}
+\DoxyCodeLine{169 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classRio_a1f8ec6e61d8d7200a20581913829891d}\label{classRio_a1f8ec6e61d8d7200a20581913829891d}} 
@@ -113,18 +113,18 @@ El resultado es un booleano que es cierto si la ciudad existe, y es falso si es 
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{194                                                               \{}
-\DoxyCodeLine{195     \textcolor{keyword}{auto} it = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}.find(id\_ciudad);}
-\DoxyCodeLine{196     \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}.end()) \{}
-\DoxyCodeLine{197         error = \textcolor{keyword}{false};}
-\DoxyCodeLine{198         \textcolor{keywordflow}{return} \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad];}
-\DoxyCodeLine{199     \}}
-\DoxyCodeLine{200     \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{201         error = \textcolor{keyword}{true};}
-\DoxyCodeLine{202         \mbox{\hyperlink{classCiudad}{Ciudad}} c;}
-\DoxyCodeLine{203         \textcolor{keywordflow}{return} c;}
-\DoxyCodeLine{204     \}}
-\DoxyCodeLine{205 \}}
+\DoxyCodeLine{190                                                               \{}
+\DoxyCodeLine{191     \textcolor{keyword}{auto} it = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}.find(id\_ciudad);}
+\DoxyCodeLine{192     \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}.end()) \{}
+\DoxyCodeLine{193         error = \textcolor{keyword}{false};}
+\DoxyCodeLine{194         \textcolor{keywordflow}{return} \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad];}
+\DoxyCodeLine{195     \}}
+\DoxyCodeLine{196     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{197         error = \textcolor{keyword}{true};}
+\DoxyCodeLine{198         \mbox{\hyperlink{classCiudad}{Ciudad}} c;}
+\DoxyCodeLine{199         \textcolor{keywordflow}{return} c;}
+\DoxyCodeLine{200     \}}
+\DoxyCodeLine{201 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classRio_a67a10c7e89ea00c401cd1285a2830d55}\label{classRio_a67a10c7e89ea00c401cd1285a2830d55}} 
@@ -145,18 +145,18 @@ Devuelve el número de productos que el barco ha comprado y vendido por la ruta
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{179                                                     \{}
-\DoxyCodeLine{180   \textcolor{comment}{// Reinicializamos la pila de la ruta}}
-\DoxyCodeLine{181   stack<string> vacio;}
-\DoxyCodeLine{182   \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}} = vacio;}
-\DoxyCodeLine{183   \textcolor{comment}{// Planeamos la ruta del viaje}}
-\DoxyCodeLine{184   \textcolor{keywordtype}{int} c1 = b.\mbox{\hyperlink{classBarco_a29b09b9b2ca1dbdc7e01f012354dc994}{consultar\_prod\_compra}}();}
-\DoxyCodeLine{185   \textcolor{keywordtype}{int} c2 = b.\mbox{\hyperlink{classBarco_a8568d229b593f5f36b2a4afa8fc9f972}{consultar\_prod\_venta}}();}
-\DoxyCodeLine{186   \textcolor{keywordtype}{int} d = \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(\mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}, b, \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}}, c1, c2);}
-\DoxyCodeLine{187   \textcolor{comment}{// Calculamos los productos vendidos despueś de hacer el viaje y los devolvemos}}
-\DoxyCodeLine{188   d = \mbox{\hyperlink{classRio_a8cf1dbced931c4284a78d5963b8cbdfe}{hacer\_viaje\_priv}}(b, \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}}, inv);}
-\DoxyCodeLine{189   \textcolor{keywordflow}{return} d;}
-\DoxyCodeLine{190 \}}
+\DoxyCodeLine{175                                                     \{}
+\DoxyCodeLine{176   \textcolor{comment}{// Reinicializamos la pila de la ruta}}
+\DoxyCodeLine{177   stack<string> vacio;}
+\DoxyCodeLine{178   \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}} = vacio;}
+\DoxyCodeLine{179   \textcolor{comment}{// Planeamos la ruta del viaje}}
+\DoxyCodeLine{180   \textcolor{keywordtype}{int} c1 = b.\mbox{\hyperlink{classBarco_a29b09b9b2ca1dbdc7e01f012354dc994}{consultar\_prod\_compra}}();}
+\DoxyCodeLine{181   \textcolor{keywordtype}{int} c2 = b.\mbox{\hyperlink{classBarco_a8568d229b593f5f36b2a4afa8fc9f972}{consultar\_prod\_venta}}();}
+\DoxyCodeLine{182   \textcolor{keywordtype}{int} d = \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(\mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}, b, \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}}, c1, c2);}
+\DoxyCodeLine{183   \textcolor{comment}{// Calculamos los productos vendidos despueś de hacer el viaje y los devolvemos}}
+\DoxyCodeLine{184   d = \mbox{\hyperlink{classRio_a8cf1dbced931c4284a78d5963b8cbdfe}{hacer\_viaje\_priv}}(b, \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}}, inv);}
+\DoxyCodeLine{185   \textcolor{keywordflow}{return} d;}
+\DoxyCodeLine{186 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classRio_a8cf1dbced931c4284a78d5963b8cbdfe}\label{classRio_a8cf1dbced931c4284a78d5963b8cbdfe}} 
@@ -177,64 +177,63 @@ Se han añadido o eliminado unidades de los productos que compra o vende el barc
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{110                                                                            \{}
-\DoxyCodeLine{111   \textcolor{comment}{// Parámetros iniciales}}
-\DoxyCodeLine{112   \textcolor{keywordtype}{int} unidades\_compra = b.\mbox{\hyperlink{classBarco_a29b09b9b2ca1dbdc7e01f012354dc994}{consultar\_prod\_compra}}();}
-\DoxyCodeLine{113   \textcolor{keywordtype}{int} unidades\_venta = b.\mbox{\hyperlink{classBarco_a8568d229b593f5f36b2a4afa8fc9f972}{consultar\_prod\_venta}}();}
-\DoxyCodeLine{114   \textcolor{keywordtype}{int} id\_compra = b.\mbox{\hyperlink{classBarco_acf1560f4f87f9a91c470769fe1dc3a90}{consultar\_id\_prod\_compra}}();}
-\DoxyCodeLine{115   \textcolor{keywordtype}{int} id\_venta = b.\mbox{\hyperlink{classBarco_a0d3f687e542aac75703233682e9bd294}{consultar\_id\_prod\_venta}}();}
-\DoxyCodeLine{116   \textcolor{keywordtype}{int} suma\_ops = 0;}
-\DoxyCodeLine{117   \textcolor{keywordtype}{string} ultima\_ciudad\_visitada;}
-\DoxyCodeLine{118   }
-\DoxyCodeLine{119   \textcolor{comment}{// El bucle se ejecuta mientras haya ciudades en la ruta o se pueda comprar y vender al barco}}
-\DoxyCodeLine{120   \textcolor{keywordflow}{while} (not r.empty() and (unidades\_compra != 0 or unidades\_venta != 0)) \{}
-\DoxyCodeLine{121     \textcolor{keywordtype}{string} id\_ciudad = r.top();}
-\DoxyCodeLine{122     \mbox{\hyperlink{classCiudad}{Ciudad}} c = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad];}
-\DoxyCodeLine{123     \textcolor{comment}{// Hacemos la compra}}
-\DoxyCodeLine{124     \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{classCiudad_af6ea4eb0ba6a88aef26e75ef08b83808}{consultar\_producto}}(id\_compra) and unidades\_compra > 0) \{}
-\DoxyCodeLine{125       \mbox{\hyperlink{classProducto}{Producto}} p1 = inv.\mbox{\hyperlink{classInventario_adff99f95b49b6913b04faae4298f211d}{devolver\_producto}}(id\_compra);}
-\DoxyCodeLine{126       \textcolor{keywordtype}{int} sobrante = c.\mbox{\hyperlink{classCiudad_a6391792b91e0e1b70d1bf9f0e449f375}{consultar\_reserva}}(id\_compra) -\/ c.\mbox{\hyperlink{classCiudad_af39cf0d7a62b925d15e2b782cb9699cd}{consultar\_faltante}}(id\_compra);}
-\DoxyCodeLine{127       \textcolor{keywordflow}{if} (sobrante > 0) \{}
-\DoxyCodeLine{128         \textcolor{keywordflow}{if} (unidades\_compra > sobrante) \{}
-\DoxyCodeLine{129           c.\mbox{\hyperlink{classCiudad_ad267e8c1fcbb4f622339ea54bf5a87cd}{quitar\_prod\_reserva}}(p1, sobrante);}
-\DoxyCodeLine{130           unidades\_compra -\/= sobrante;}
-\DoxyCodeLine{131           suma\_ops += sobrante;}
-\DoxyCodeLine{132         \}}
-\DoxyCodeLine{133         \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{134           c.\mbox{\hyperlink{classCiudad_ad267e8c1fcbb4f622339ea54bf5a87cd}{quitar\_prod\_reserva}}(p1, unidades\_compra);}
-\DoxyCodeLine{135           suma\_ops += unidades\_compra;}
-\DoxyCodeLine{136           unidades\_compra = 0;}
-\DoxyCodeLine{137         \}}
-\DoxyCodeLine{138       \}}
-\DoxyCodeLine{139       ultima\_ciudad\_visitada = id\_ciudad;}
-\DoxyCodeLine{140     \}}
-\DoxyCodeLine{141     \textcolor{comment}{// Hacemos la venta}}
-\DoxyCodeLine{142     \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{classCiudad_af6ea4eb0ba6a88aef26e75ef08b83808}{consultar\_producto}}(id\_venta) and unidades\_venta > 0) \{}
-\DoxyCodeLine{143       \mbox{\hyperlink{classProducto}{Producto}} p2 = inv.\mbox{\hyperlink{classInventario_adff99f95b49b6913b04faae4298f211d}{devolver\_producto}}(id\_venta);}
-\DoxyCodeLine{144       \textcolor{keywordtype}{int} falta = c.\mbox{\hyperlink{classCiudad_af39cf0d7a62b925d15e2b782cb9699cd}{consultar\_faltante}}(id\_venta) -\/ c.\mbox{\hyperlink{classCiudad_a6391792b91e0e1b70d1bf9f0e449f375}{consultar\_reserva}}(id\_venta);}
-\DoxyCodeLine{145       \textcolor{keywordflow}{if} (falta > 0) \{}
-\DoxyCodeLine{146         \textcolor{keywordflow}{if} (unidades\_venta > falta) \{}
-\DoxyCodeLine{147           c.\mbox{\hyperlink{classCiudad_aa70a816f4c3cce379803be49ee3ef979}{anadir\_prod\_reserva}}(p2, falta);}
-\DoxyCodeLine{148           unidades\_venta -\/= falta;}
-\DoxyCodeLine{149           suma\_ops += falta;}
-\DoxyCodeLine{150         \}}
-\DoxyCodeLine{151         \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{152           c.\mbox{\hyperlink{classCiudad_aa70a816f4c3cce379803be49ee3ef979}{anadir\_prod\_reserva}}(p2, unidades\_venta);}
-\DoxyCodeLine{153           suma\_ops += unidades\_venta;}
-\DoxyCodeLine{154           unidades\_venta = 0;}
-\DoxyCodeLine{155         \}}
-\DoxyCodeLine{156       \}}
-\DoxyCodeLine{157       ultima\_ciudad\_visitada = id\_ciudad;}
-\DoxyCodeLine{158     \}}
-\DoxyCodeLine{159     \textcolor{comment}{// Actualizamos la ciudad}}
-\DoxyCodeLine{160     c.\mbox{\hyperlink{classCiudad_aa37e49c8bc515f4765110d44a2aa6eff}{actualizar\_ciudad}}();}
-\DoxyCodeLine{161     \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad] = c;}
-\DoxyCodeLine{162     r.pop();}
-\DoxyCodeLine{163   \}}
-\DoxyCodeLine{164   \textcolor{comment}{// Si es la última ciudad visitada, la añadimos al historial}}
-\DoxyCodeLine{165   b.\mbox{\hyperlink{classBarco_a322f6fa5a83108234120ff74122f54ba}{anadir\_ciudad\_historial}}(ultima\_ciudad\_visitada);}
-\DoxyCodeLine{166   \textcolor{keywordflow}{return} suma\_ops;}
-\DoxyCodeLine{167 \}}
+\DoxyCodeLine{107                                                                            \{}
+\DoxyCodeLine{108   \textcolor{comment}{// Parámetros iniciales}}
+\DoxyCodeLine{109   \textcolor{keywordtype}{int} unidades\_compra = b.\mbox{\hyperlink{classBarco_a29b09b9b2ca1dbdc7e01f012354dc994}{consultar\_prod\_compra}}();}
+\DoxyCodeLine{110   \textcolor{keywordtype}{int} unidades\_venta = b.\mbox{\hyperlink{classBarco_a8568d229b593f5f36b2a4afa8fc9f972}{consultar\_prod\_venta}}();}
+\DoxyCodeLine{111   \textcolor{keywordtype}{int} id\_compra = b.\mbox{\hyperlink{classBarco_acf1560f4f87f9a91c470769fe1dc3a90}{consultar\_id\_prod\_compra}}();}
+\DoxyCodeLine{112   \textcolor{keywordtype}{int} id\_venta = b.\mbox{\hyperlink{classBarco_a0d3f687e542aac75703233682e9bd294}{consultar\_id\_prod\_venta}}();}
+\DoxyCodeLine{113   \textcolor{keywordtype}{int} suma\_ops = 0;}
+\DoxyCodeLine{114   \textcolor{keywordtype}{string} ultima\_ciudad\_visitada;}
+\DoxyCodeLine{115   }
+\DoxyCodeLine{116   \textcolor{keywordflow}{while} (not r.empty() and (unidades\_compra != 0 or unidades\_venta != 0)) \{}
+\DoxyCodeLine{117     \textcolor{keywordtype}{string} id\_ciudad = r.top();}
+\DoxyCodeLine{118     \mbox{\hyperlink{classCiudad}{Ciudad}} c = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad];}
+\DoxyCodeLine{119     \textcolor{comment}{// Hacemos la compra}}
+\DoxyCodeLine{120     \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{classCiudad_af6ea4eb0ba6a88aef26e75ef08b83808}{consultar\_producto}}(id\_compra) and unidades\_compra > 0) \{}
+\DoxyCodeLine{121       \mbox{\hyperlink{classProducto}{Producto}} p1 = inv.\mbox{\hyperlink{classInventario_adff99f95b49b6913b04faae4298f211d}{devolver\_producto}}(id\_compra);}
+\DoxyCodeLine{122       \textcolor{keywordtype}{int} sobrante = c.\mbox{\hyperlink{classCiudad_a6391792b91e0e1b70d1bf9f0e449f375}{consultar\_reserva}}(id\_compra) -\/ c.\mbox{\hyperlink{classCiudad_af39cf0d7a62b925d15e2b782cb9699cd}{consultar\_faltante}}(id\_compra);}
+\DoxyCodeLine{123       \textcolor{keywordflow}{if} (sobrante > 0) \{}
+\DoxyCodeLine{124         \textcolor{keywordflow}{if} (unidades\_compra > sobrante) \{}
+\DoxyCodeLine{125           c.\mbox{\hyperlink{classCiudad_ad267e8c1fcbb4f622339ea54bf5a87cd}{quitar\_prod\_reserva}}(p1, sobrante);}
+\DoxyCodeLine{126           unidades\_compra -\/= sobrante;}
+\DoxyCodeLine{127           suma\_ops += sobrante;}
+\DoxyCodeLine{128         \}}
+\DoxyCodeLine{129         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{130           c.\mbox{\hyperlink{classCiudad_ad267e8c1fcbb4f622339ea54bf5a87cd}{quitar\_prod\_reserva}}(p1, unidades\_compra);}
+\DoxyCodeLine{131           suma\_ops += unidades\_compra;}
+\DoxyCodeLine{132           unidades\_compra = 0;}
+\DoxyCodeLine{133         \}}
+\DoxyCodeLine{134       \}}
+\DoxyCodeLine{135       ultima\_ciudad\_visitada = id\_ciudad;}
+\DoxyCodeLine{136     \}}
+\DoxyCodeLine{137     \textcolor{comment}{// Hacemos la venta}}
+\DoxyCodeLine{138     \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{classCiudad_af6ea4eb0ba6a88aef26e75ef08b83808}{consultar\_producto}}(id\_venta) and unidades\_venta > 0) \{}
+\DoxyCodeLine{139       \mbox{\hyperlink{classProducto}{Producto}} p2 = inv.\mbox{\hyperlink{classInventario_adff99f95b49b6913b04faae4298f211d}{devolver\_producto}}(id\_venta);}
+\DoxyCodeLine{140       \textcolor{keywordtype}{int} falta = c.\mbox{\hyperlink{classCiudad_af39cf0d7a62b925d15e2b782cb9699cd}{consultar\_faltante}}(id\_venta) -\/ c.\mbox{\hyperlink{classCiudad_a6391792b91e0e1b70d1bf9f0e449f375}{consultar\_reserva}}(id\_venta);}
+\DoxyCodeLine{141       \textcolor{keywordflow}{if} (falta > 0) \{}
+\DoxyCodeLine{142         \textcolor{keywordflow}{if} (unidades\_venta > falta) \{}
+\DoxyCodeLine{143           c.\mbox{\hyperlink{classCiudad_aa70a816f4c3cce379803be49ee3ef979}{anadir\_prod\_reserva}}(p2, falta);}
+\DoxyCodeLine{144           unidades\_venta -\/= falta;}
+\DoxyCodeLine{145           suma\_ops += falta;}
+\DoxyCodeLine{146         \}}
+\DoxyCodeLine{147         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{148           c.\mbox{\hyperlink{classCiudad_aa70a816f4c3cce379803be49ee3ef979}{anadir\_prod\_reserva}}(p2, unidades\_venta);}
+\DoxyCodeLine{149           suma\_ops += unidades\_venta;}
+\DoxyCodeLine{150           unidades\_venta = 0;}
+\DoxyCodeLine{151         \}}
+\DoxyCodeLine{152       \}}
+\DoxyCodeLine{153       ultima\_ciudad\_visitada = id\_ciudad;}
+\DoxyCodeLine{154     \}}
+\DoxyCodeLine{155     \textcolor{comment}{// Actualizamos la ciudad}}
+\DoxyCodeLine{156     c.\mbox{\hyperlink{classCiudad_aa37e49c8bc515f4765110d44a2aa6eff}{actualizar\_ciudad}}();}
+\DoxyCodeLine{157     \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad] = c;}
+\DoxyCodeLine{158     r.pop();}
+\DoxyCodeLine{159   \}}
+\DoxyCodeLine{160   \textcolor{comment}{// Si es la última ciudad visitada, la añadimos al historial}}
+\DoxyCodeLine{161   b.\mbox{\hyperlink{classBarco_a322f6fa5a83108234120ff74122f54ba}{anadir\_ciudad\_historial}}(ultima\_ciudad\_visitada);}
+\DoxyCodeLine{162   \textcolor{keywordflow}{return} suma\_ops;}
+\DoxyCodeLine{163 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classRio_a89db23b53e3e808826dfd74bb1678a33}\label{classRio_a89db23b53e3e808826dfd74bb1678a33}} 
@@ -255,11 +254,11 @@ Se han añadido correctamente las ciudades introducidas en el río
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{209                       \{}
-\DoxyCodeLine{210   \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}.clear();}
-\DoxyCodeLine{211   \mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}} = BinTree<string> ();}
-\DoxyCodeLine{212     \mbox{\hyperlink{classRio_abb4346d57692428e85c37c46610b23a6}{leer\_cuenca\_priv}}(\mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}, \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}});}
-\DoxyCodeLine{213 \}}
+\DoxyCodeLine{205                       \{}
+\DoxyCodeLine{206   \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}.clear();}
+\DoxyCodeLine{207   \mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}} = BinTree<string> ();}
+\DoxyCodeLine{208     \mbox{\hyperlink{classRio_abb4346d57692428e85c37c46610b23a6}{leer\_cuenca\_priv}}(\mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}, \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}});}
+\DoxyCodeLine{209 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classRio_abb4346d57692428e85c37c46610b23a6}\label{classRio_abb4346d57692428e85c37c46610b23a6}} 
@@ -312,17 +311,17 @@ Se han añadido los inventarios a las ciudades del p.\+i.
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{215                                                 \{}
-\DoxyCodeLine{216     \textcolor{keywordtype}{string} s;}
-\DoxyCodeLine{217     cin >> s;}
-\DoxyCodeLine{218     \textcolor{keywordflow}{while} (s != \textcolor{stringliteral}{"{}\#"{}}) \{}
-\DoxyCodeLine{219     \mbox{\hyperlink{classCiudad}{Ciudad}} c;}
-\DoxyCodeLine{220     c = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[s];}
-\DoxyCodeLine{221     c.\mbox{\hyperlink{classCiudad_a897a683f6f544e0fe2d9f7ddece835ad}{leer\_inventario\_ciudad}}(inv);}
-\DoxyCodeLine{222     \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[s] = c;}
-\DoxyCodeLine{223     cin >> s;}
-\DoxyCodeLine{224   \}}
-\DoxyCodeLine{225 \}}
+\DoxyCodeLine{211                                                 \{}
+\DoxyCodeLine{212     \textcolor{keywordtype}{string} s;}
+\DoxyCodeLine{213     cin >> s;}
+\DoxyCodeLine{214     \textcolor{keywordflow}{while} (s != \textcolor{stringliteral}{"{}\#"{}}) \{}
+\DoxyCodeLine{215     \mbox{\hyperlink{classCiudad}{Ciudad}} c;}
+\DoxyCodeLine{216     c = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[s];}
+\DoxyCodeLine{217     c.\mbox{\hyperlink{classCiudad_a897a683f6f544e0fe2d9f7ddece835ad}{leer\_inventario\_ciudad}}(inv);}
+\DoxyCodeLine{218     \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[s] = c;}
+\DoxyCodeLine{219     cin >> s;}
+\DoxyCodeLine{220   \}}
+\DoxyCodeLine{221 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}\label{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}} 
@@ -385,27 +384,24 @@ Se han añadido a \char`\"{}r\char`\"{} el nombre de las ciudades con las que el
 \DoxyCodeLine{85   \textcolor{keywordtype}{int} prods\_esq = \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_esq, b, aux\_esq, compra\_esq, venta\_esq);}
 \DoxyCodeLine{86   \textcolor{keywordtype}{int} prods\_dre = \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_dre, b, aux\_dre, compra\_dre, venta\_dre);}
 \DoxyCodeLine{87   }
-\DoxyCodeLine{88   \textcolor{comment}{// Defino la variable unidades que se encargará de devolver cuántos nodos han sido visitados}}
+\DoxyCodeLine{88   \textcolor{comment}{// Defino la variable unidades que almacena cuantos productos se compran y se venden}}
 \DoxyCodeLine{89   \textcolor{keywordtype}{int} unidades = compra+venta;}
 \DoxyCodeLine{90   \textcolor{comment}{// Si hay más productos en la izquierda guardo la recursion izquierda}}
-\DoxyCodeLine{91   \textcolor{keywordflow}{if} (prods\_esq > prods\_dre) \{}
-\DoxyCodeLine{92     unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_esq, b, r, compra\_barco, venta\_barco);}
-\DoxyCodeLine{93   \}}
-\DoxyCodeLine{94   \textcolor{comment}{// Si hay más en la derecha se guarda la recursion derecha}}
-\DoxyCodeLine{95   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (prods\_dre == 0 or prods\_esq > prods\_dre or (prods\_esq == prods\_dre and}
-\DoxyCodeLine{96       aux\_esq.size() <= aux\_dre.size())) \{}
-\DoxyCodeLine{97     unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_dre, b, r, compra\_barco, venta\_barco);}
-\DoxyCodeLine{98   \}}
-\DoxyCodeLine{99   \textcolor{comment}{// Si hay el mismo numero se queda el camino mas corto, que en caso de empate es el izquierdo}}
+\DoxyCodeLine{91   \textcolor{keywordflow}{if} (prods\_esq > prods\_dre) unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_esq, b, r, compra\_barco, venta\_barco);}
+\DoxyCodeLine{92   \textcolor{comment}{// Si hay más en la derecha se guarda la recursion derecha}}
+\DoxyCodeLine{93   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (prods\_esq < prods\_dre) unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_dre, b, r, compra\_barco, venta\_barco);}
+\DoxyCodeLine{94   \textcolor{comment}{// Si hay el mismo numero se queda el camino mas corto, que en caso de empate es el izquierdo}}
+\DoxyCodeLine{95   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (aux\_esq.size() > aux\_dre.size()) unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_dre, b, r, compra\_barco, venta\_barco);}
+\DoxyCodeLine{96   \textcolor{keywordflow}{else} unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_esq, b, r, compra\_barco, venta\_barco);}
+\DoxyCodeLine{97   }
+\DoxyCodeLine{98   \textcolor{comment}{// Si el nodo actual no compra ni vende unidades se retorna las unidades de la recursion}}
+\DoxyCodeLine{99   \textcolor{keywordflow}{if} (compra+venta == 0 and unidades == 0) \textcolor{keywordflow}{return} unidades;}
 \DoxyCodeLine{100   \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{101     unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_dre, b, r, compra\_barco, venta\_barco);}
-\DoxyCodeLine{102   \}}
-\DoxyCodeLine{103   }
-\DoxyCodeLine{104   \textcolor{keywordflow}{if} (compra+venta != 0) \{}
-\DoxyCodeLine{105     r.push(id\_ciudad);}
-\DoxyCodeLine{106   \}}
-\DoxyCodeLine{107   \textcolor{keywordflow}{return} unidades;}
-\DoxyCodeLine{108 \}}
+\DoxyCodeLine{101     ++unidades;}
+\DoxyCodeLine{102     r.push(t.value());}
+\DoxyCodeLine{103     \textcolor{keywordflow}{return} unidades;}
+\DoxyCodeLine{104   \}}
+\DoxyCodeLine{105 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classRio_a20b87de3f14bbd25194882b7f123233e}\label{classRio_a20b87de3f14bbd25194882b7f123233e}} 
@@ -426,9 +422,9 @@ Se ha realizado el intercambio de productos entre las ciudades del río
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{175                                             \{}
-\DoxyCodeLine{176   \mbox{\hyperlink{classRio_af5e24407c6b3f93b1a35006586bd1b09}{redistribuir\_priv}}(\mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}, inv, \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}});}
-\DoxyCodeLine{177 \}}
+\DoxyCodeLine{171                                             \{}
+\DoxyCodeLine{172   \mbox{\hyperlink{classRio_af5e24407c6b3f93b1a35006586bd1b09}{redistribuir\_priv}}(\mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}, inv, \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}});}
+\DoxyCodeLine{173 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classRio_af5e24407c6b3f93b1a35006586bd1b09}\label{classRio_af5e24407c6b3f93b1a35006586bd1b09}} 

@@ -85,26 +85,23 @@ int Rio::planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& 
 	int prods_esq = planear_viaje(tree_esq, b, aux_esq, compra_esq, venta_esq);
 	int prods_dre = planear_viaje(tree_dre, b, aux_dre, compra_dre, venta_dre);
 	
-	// Defino la variable unidades que se encargará de devolver cuántos nodos han sido visitados
+	// Defino la variable unidades que almacena cuantos productos se compran y se venden
 	int unidades = compra+venta;
 	// Si hay más productos en la izquierda guardo la recursion izquierda
-	if (prods_esq > prods_dre) {
-		unidades += planear_viaje(tree_esq, b, r, compra_barco, venta_barco);
-	}
+	if (prods_esq > prods_dre) unidades += planear_viaje(tree_esq, b, r, compra_barco, venta_barco);
 	// Si hay más en la derecha se guarda la recursion derecha
-	else if (prods_dre == 0 or prods_esq > prods_dre or (prods_esq == prods_dre and
-			aux_esq.size() <= aux_dre.size())) {
-		unidades += planear_viaje(tree_dre, b, r, compra_barco, venta_barco);
-	}
+	else if (prods_esq < prods_dre) unidades += planear_viaje(tree_dre, b, r, compra_barco, venta_barco);
 	// Si hay el mismo numero se queda el camino mas corto, que en caso de empate es el izquierdo
-	else {
-		unidades += planear_viaje(tree_dre, b, r, compra_barco, venta_barco);
-	}
+	else if (aux_esq.size() > aux_dre.size()) unidades += planear_viaje(tree_dre, b, r, compra_barco, venta_barco);
+	else unidades += planear_viaje(tree_esq, b, r, compra_barco, venta_barco);
 	
-	if (compra+venta != 0) {
-		r.push(id_ciudad);
+	// Si el nodo actual no compra ni vende unidades se retorna las unidades de la recursion
+	if (compra+venta == 0 and unidades == 0) return unidades;
+	else {
+		++unidades;
+		r.push(t.value());
+		return unidades;
 	}
-	return unidades;
 }
 
 int Rio::hacer_viaje_priv(Barco& b, stack<string>& r, const Inventario& inv) {
@@ -116,7 +113,6 @@ int Rio::hacer_viaje_priv(Barco& b, stack<string>& r, const Inventario& inv) {
 	int suma_ops = 0;
 	string ultima_ciudad_visitada;
 	
-	// El bucle se ejecuta mientras haya ciudades en la ruta o se pueda comprar y vender al barco
 	while (not r.empty() and (unidades_compra != 0 or unidades_venta != 0)) {
 		string id_ciudad = r.top();
 		Ciudad c = mapa_cuenca[id_ciudad];
