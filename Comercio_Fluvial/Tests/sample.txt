@@ -174,3 +174,161 @@ error: ciudad repetida
 7 1 1
 8 25
 #hv
+1
+#eb
+6 10 2 12
+borna
+#leer_rio
+#escribir_ciudad barna
+0 0
+#escribir_ciudad cerna
+0 0
+#escribir_ciudad birna
+0 0
+#escribir_barco
+6 10 2 12
+#lr
+#ec darna
+0 0
+#ls
+#re
+#escribir_ciudad darna
+1 15 8
+2 10 10
+240 205
+#escribir_ciudad derna
+2 13 3
+3 13 20
+130 182
+#escribir_ciudad dirna
+3 5 5
+4 2 10
+106 33
+#escribir_ciudad dorna
+4 10 10
+5 20 20
+850 200
+#escribir_ciudad durna
+6 8 9
+7 19 3
+288 491
+#mb
+#hacer_viaje
+8
+#eb
+3 10 4 10
+dirna
+#escribir_ciudad darna
+1 15 8
+2 10 10
+240 205
+#escribir_ciudad derna
+2 13 3
+3 13 20
+130 182
+#escribir_ciudad dirna
+3 5 5
+4 10 10
+450 145
+#escribir_ciudad dorna
+4 10 10
+5 20 20
+850 200
+#escribir_ciudad durna
+6 8 9
+7 19 3
+288 491
+#escribir_barco
+3 10 4 10
+dirna
+#mb
+#eb
+8 10 9 10
+dirna
+#hv
+0
+#eb
+8 10 9 10
+dirna
+#escribir_ciudad darna
+1 15 8
+2 10 10
+240 205
+#escribir_ciudad derna
+2 13 3
+3 13 20
+130 182
+#escribir_ciudad dirna
+3 5 5
+4 10 10
+450 145
+#escribir_ciudad dorna
+4 10 10
+5 20 20
+850 200
+#escribir_ciudad durna
+6 8 9
+7 19 3
+288 491
+#mb
+#hacer_viaje
+10
+#escribir_barco
+2 10 6 10
+dirna
+derna
+#escribir_ciudad darna
+1 15 8
+2 10 10
+240 205
+#escribir_ciudad derna
+2 3 3
+3 13 20
+70 52
+#escribir_ciudad dirna
+3 5 5
+4 10 10
+450 145
+#escribir_ciudad dorna
+4 10 10
+5 20 20
+850 200
+#escribir_ciudad durna
+6 8 9
+7 19 3
+288 491
+#pp durna 2
+312 543
+#pp durna 1
+396 578
+#escribir_ciudad durna
+1 7 4
+2 4 7
+6 8 9
+7 19 3
+396 578
+#mb
+#hv
+13
+#escribir_ciudad darna
+1 8 8
+2 10 10
+156 170
+#escribir_ciudad derna
+2 3 3
+3 13 20
+70 52
+#escribir_ciudad dirna
+3 5 5
+4 10 10
+450 145
+#escribir_ciudad dorna
+4 10 10
+5 20 20
+850 200
+#escribir_ciudad durna
+1 4 4
+2 7 7
+6 8 9
+7 19 3
+378 602

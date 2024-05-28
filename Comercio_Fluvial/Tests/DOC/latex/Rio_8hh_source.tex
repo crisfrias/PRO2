@@ -1,0 +1,71 @@
+\hypertarget{Rio_8hh_source}{}\doxysection{Rio.\+hh}
+\mbox{\hyperlink{Rio_8hh}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef \_RIO\_HH\_}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define \_RIO\_HH\_}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Ciudad_8hh}{Ciudad.hh}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Inventario_8hh}{Inventario.hh}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Producto_8hh}{Producto.hh}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Barco_8hh}{Barco.hh}}"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef NO\_DIAGRAM}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}BinTree.hh"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{19 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classRio}{Rio}} }
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{keyword}{private}:}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     BinTree<string> \mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}};}
+\DoxyCodeLine{32     map<string, Ciudad> \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}};}
+\DoxyCodeLine{33     stack<string> \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRio_abb4346d57692428e85c37c46610b23a6}{leer\_cuenca\_priv}}(BinTree<string>\& t, map<string, Ciudad>\& m);}
+\DoxyCodeLine{41     }
+\DoxyCodeLine{47     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRio_af5e24407c6b3f93b1a35006586bd1b09}{redistribuir\_priv}}(BinTree<string>\& t, \textcolor{keyword}{const} \mbox{\hyperlink{classInventario}{Inventario}}\& inv, map<string, Ciudad>\& m);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(\textcolor{keyword}{const} BinTree<string>\& t, \textcolor{keyword}{const} \mbox{\hyperlink{classBarco}{Barco}}\& b, stack<string>\& r, \textcolor{keywordtype}{int}\& compra\_barco, \textcolor{keywordtype}{int}\& venta\_barco);}
+\DoxyCodeLine{54     }
+\DoxyCodeLine{59     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classRio_a085df4717c4bb631f116dd1573abf126}{min}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{int} \mbox{\hyperlink{classRio_a8cf1dbced931c4284a78d5963b8cbdfe}{hacer\_viaje\_priv}}(\mbox{\hyperlink{classBarco}{Barco}}\& b, stack<string>\& r, \textcolor{keyword}{const} \mbox{\hyperlink{classInventario}{Inventario}}\& inv);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keyword}{public}:}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{comment}{// Constructora}}
+\DoxyCodeLine{70   }
+\DoxyCodeLine{75     \mbox{\hyperlink{classRio_a1dc8b1e6f2e4d7087575bf051abb28f4}{Rio}}();}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{comment}{// Modificadoras}}
+\DoxyCodeLine{78     }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRio_a4871b8e782988947c31a1ab653eba2b7}{actualizar\_ciudad\_rio}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& id\_ciudad, \textcolor{keyword}{const} \mbox{\hyperlink{classCiudad}{Ciudad}}\& c);}
+\DoxyCodeLine{85   }
+\DoxyCodeLine{93   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRio_a20b87de3f14bbd25194882b7f123233e}{redistribuir}}(\textcolor{keyword}{const} \mbox{\hyperlink{classInventario}{Inventario}}\& inv);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{101     \textcolor{keywordtype}{int} \mbox{\hyperlink{classRio_a67a10c7e89ea00c401cd1285a2830d55}{hacer\_viaje}}(\mbox{\hyperlink{classBarco}{Barco}}\& b, \textcolor{keyword}{const} \mbox{\hyperlink{classInventario}{Inventario}}\& inv);}
+\DoxyCodeLine{102     }
+\DoxyCodeLine{108     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRio_ac6fa47c113888d4453c792e480737272}{comerciar\_rio}}(\mbox{\hyperlink{classCiudad}{Ciudad}}\& c1, \mbox{\hyperlink{classCiudad}{Ciudad}}\& c2, \textcolor{keyword}{const} \mbox{\hyperlink{classInventario}{Inventario}}\& inv);}
+\DoxyCodeLine{109   }
+\DoxyCodeLine{110     \textcolor{comment}{// Consultoras}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{117     \mbox{\hyperlink{classCiudad}{Ciudad}} \mbox{\hyperlink{classRio_a1f8ec6e61d8d7200a20581913829891d}{buscar\_ciudad}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& id\_ciudad, \textcolor{keywordtype}{bool}\& error);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     \textcolor{comment}{// Lectura y escritura}}
+\DoxyCodeLine{120   }
+\DoxyCodeLine{126     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRio_a89db23b53e3e808826dfd74bb1678a33}{leer\_cuenca}}();}
+\DoxyCodeLine{127     }
+\DoxyCodeLine{133     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRio_ac10dbff81c33cd5010b7c070d2ca6555}{leer\_inventarios}}(\textcolor{keyword}{const} \mbox{\hyperlink{classInventario}{Inventario}}\& inv);}
+\DoxyCodeLine{134     }
+\DoxyCodeLine{135 \};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

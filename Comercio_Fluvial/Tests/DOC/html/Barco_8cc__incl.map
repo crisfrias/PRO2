@@ -1,0 +1,7 @@
+<map id="Barco.cc" name="Barco.cc">
+<area shape="rect" id="node1" title=" " alt="" coords="14,5,89,32"/>
+<area shape="rect" id="node2" href="$Barco_8hh.html" title="Especificación de la clase Barco." alt="" coords="14,80,89,107"/>
+<area shape="rect" id="node3" href="$Ciudad_8hh.html" title="Especificación de la clase Ciudad." alt="" coords="11,155,92,181"/>
+<area shape="rect" id="node4" href="$Producto_8hh.html" title="Especificación de la clase Producto." alt="" coords="5,304,97,331"/>
+<area shape="rect" id="node5" href="$Inventario_8hh.html" title="Especificación de la clase Inventario." alt="" coords="46,229,142,256"/>
+</map>

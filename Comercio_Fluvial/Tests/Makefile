@@ -26,5 +26,5 @@ clean:
 	rm *.exe
 	rm *.tar
 
-tar: program.cc Ciudad.cc Ciudad.hh Barco.cc Barco.hh Rio.cc Rio.hh Producto.cc Producto.hh Inventario.cc Inventario.hh Makefile
-	tar -cvf practica.tar program.cc Makefile Ciudad.cc Ciudad.hh Barco.cc Barco.hh Rio.cc Rio.hh Producto.cc Producto.hh Inventario.cc Inventario.hh
+tar: program.cc Ciudad.cc Ciudad.hh Barco.cc Barco.hh Rio.cc Rio.hh Producto.cc Producto.hh Inventario.cc Inventario.hh Makefile html.zip justificacionPractica.pdf
+	tar -cvf practica.tar program.cc Makefile Ciudad.cc Ciudad.hh Barco.cc Barco.hh Rio.cc Rio.hh Producto.cc Producto.hh Inventario.cc Inventario.hh html.zip justificacionPractica.pdf

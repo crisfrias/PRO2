@@ -1,0 +1,46 @@
+\hypertarget{index_autotoc_md0}{}\doxysubsection{Introducción}\label{index_autotoc_md0}
+Se trata de simular el comercio en una cuenca fluvial con varias ciudades ubicadas en las fuentes y en las uniones de los afluentes de un río. Las ciudades comercian productos identificados por números, cada uno con atributos de peso y volumen.\hypertarget{index_autotoc_md1}{}\doxysubsection{Formato de Entrada/\+Salida}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item La entrada puede incluir comentarios que comienzan con \char`\"{}//\char`\"{}.
+\item Las operaciones verifican y gestionan posibles errores, imprimiendo mensajes cuando corresponda.
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysubsection{Estructura de la Cuenca}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Las aguas fluyen de sur a norte.
+\item La desembocadura está al norte y las fuentes al sur.
+\item Las ciudades en la cuenca están en las fuentes y en las uniones de los afluentes.
+\item Cada ciudad tiene dos ciudades \char`\"{}siguientes\char`\"{} río arriba.
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsection{Comercio}\label{index_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Cada ciudad tiene un inventario de productos con cantidades disponibles y necesarias.
+\item Un barco comercial realiza viajes para vender y comprar productos entre las ciudades.
+\item El barco no puede vender y comprar el mismo producto en un viaje.
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{Operaciones Principales}\label{index_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{leer\+\_\+rio}}\+: Leer la estructura de la cuenca.
+\item {\bfseries{leer\+\_\+inventario}}\+: Leer el inventario de una ciudad específica.
+\item {\bfseries{leer\+\_\+inventarios}}\+: Leer los inventarios de varias ciudades.
+\item {\bfseries{modificar\+\_\+barco}}\+: Modificar los datos del barco (productos a comprar y vender).
+\item {\bfseries{escribir\+\_\+barco}}\+: Escribir los datos del barco y los viajes realizados.
+\item {\bfseries{consultar\+\_\+num}}\+: Consultar la cantidad de productos diferentes.
+\item {\bfseries{agregar\+\_\+productos}}\+: Añadir nuevos productos al sistema.
+\item {\bfseries{escribir\+\_\+producto}}\+: Escribir los datos de un producto específico.
+\item {\bfseries{escribir\+\_\+ciudad}}\+: Escribir los datos de una ciudad.
+\item {\bfseries{poner\+\_\+prod}}\+: Añadir un producto al inventario de una ciudad.
+\item {\bfseries{modificar\+\_\+prod}}\+: Modificar los datos de un producto en una ciudad.
+\item {\bfseries{quitar\+\_\+prod}}\+: Eliminar un producto del inventario de una ciudad.
+\item {\bfseries{consultar\+\_\+prod}}\+: Consultar los datos de un producto en una ciudad.
+\item {\bfseries{comerciar}}\+: Dos ciudades intercambian productos.
+\item {\bfseries{redistribuir}}\+: Redistribuir productos a lo largo del río desde la desembocadura.
+\item {\bfseries{hacer\+\_\+viaje}}\+: El barco realiza un viaje para comprar y vender productos.
+\item {\bfseries{fin}}\+: Finaliza la ejecución del programa.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md5}{}\doxysubsection{Operaciones Complejas}\label{index_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{Comerciar}}\+: Dos ciudades intercambian productos que les sobran para satisfacer necesidades mutuas.
+\item {\bfseries{Redistribuir}}\+: Comercio entre ciudades consecutivas desde la desembocadura hacia las fuentes.
+\item {\bfseries{Viajar}}\+: El barco realiza un viaje para comprar y vender productos por la ruta donde maximice el beneficio. 
+\end{DoxyItemize}

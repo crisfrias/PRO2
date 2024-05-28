@@ -19,130 +19,93 @@ void Rio::leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m) {
 }
 
 void Rio::redistribuir_priv(BinTree<string>& t, const Inventario& inv, map<string, Ciudad>& m) {
+	// Caso base
 	if (t.empty()) return;
 	string id_ciudad = t.value();
 	if (t.left().empty()) {
 		m[id_ciudad].actualizar_ciudad();
 		return;
 	}
+	// Creo arboles auxiliares derecho y izquierdo para la recursion
 	BinTree<string> esq = t.left();
 	BinTree<string> dre = t.right();
-	m[id_ciudad].comerciar(m[t.left().value()], inv);
-	m[id_ciudad].comerciar(m[t.right().value()], inv);
+	
+	// Comercio con la ciudad de la izquierda y con la de la derecha, respectivamente
+	m[id_ciudad].comerciar(m[esq.value()], inv);
+	m[id_ciudad].comerciar(m[dre.value()], inv);
+	// Actualizo la ciudad raíz para no haber errores en el inventario
 	m[id_ciudad].actualizar_ciudad();
+	
+	// Redistribuyo en izquierda y derecha
 	redistribuir_priv(esq, inv, m);
 	redistribuir_priv(dre, inv, m);
-	
+	// Vuelvo a juntar el arbol izquierdo y derecho con el nodo raiz en t
 	t = BinTree<string> (id_ciudad, esq, dre);
 }
 
-pair<pair<int, int>, int > Rio::buscar_ruta(const BinTree<string>& t, const Barco& b, stack<string>& r) {
+int Rio::planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& r, int& compra_barco, int& venta_barco) {
 	// Caso base
-    if (t.empty()) return make_pair(make_pair(0, 0),0);
-
+	if (t.empty()) return 0;
+	if (compra_barco == 0 and venta_barco == 0) return 0;
 	// Caso general
 	string id_ciudad = t.value();
     int id_prod_compra = b.consultar_id_prod_compra();
     int id_prod_venta = b.consultar_id_prod_venta();
-    
-  
-
-    // Unidades que la ciudad puede comprar al barco
-    int sobrante_ciudad = mapa_cuenca[id_ciudad].consultar_reserva(id_prod_compra)-mapa_cuenca[id_ciudad].consultar_faltante(id_prod_compra);
-    if (sobrante_ciudad>b.consultar_prod_compra()) sobrante_ciudad=b.consultar_prod_compra();
-    if (sobrante_ciudad<0) sobrante_ciudad=0;
-    
-    // Unidades que la ciudad puede vender al barco
-    
-    int necesidad_ciudad = mapa_cuenca[id_ciudad].consultar_faltante(id_prod_venta) - mapa_cuenca[id_ciudad].consultar_reserva(id_prod_venta);
-    if (necesidad_ciudad>b.consultar_prod_venta()) necesidad_ciudad=b.consultar_prod_venta();
-    if (necesidad_ciudad<0) necesidad_ciudad=0;
-    
-    // Es hoja? Esto nos ayuda a poder asumir que si no se cumple, o t.left() o t.righ() no son vacíos
-    if (t.left().empty() and t.right().empty()){
-        r.push(id_ciudad);
-        return make_pair(make_pair(sobrante_ciudad, necesidad_ciudad), 0 );
+    int sobrante_ciudad = mapa_cuenca[id_ciudad].consultar_reserva(id_prod_compra) - mapa_cuenca[id_ciudad].consultar_faltante(id_prod_compra);
+	int necesidad_ciudad = mapa_cuenca[id_ciudad].consultar_faltante(id_prod_venta) - mapa_cuenca[id_ciudad].consultar_reserva(id_prod_venta);
+	// Calculo lo que tiene que comprar y vender el nodo actual	
+	int compra = 0;
+    if (mapa_cuenca[id_ciudad].consultar_producto(id_prod_compra) and compra_barco > 0){
+        if (sobrante_ciudad > 0 ) {
+			compra = compra_barco; 
+			if (sobrante_ciudad < compra) {
+				compra = sobrante_ciudad;
+				compra_barco -= compra;
+			}
+			else compra_barco = 0;
+		}
     }
-    
-    // Creamos dos pilas diferentes para conseguir la mejor ruta de t.left() y t.righ()
-    stack<string> ruta_l;
-    stack<string> ruta_r;
-    
-    // Conseguimos la mejor ruta (función recursiva)
-    pair<pair<int, int>,int > buscar_ruta_l= buscar_ruta(t.left(),b,ruta_l);
-    pair<pair<int, int>,int > buscar_ruta_r= buscar_ruta(t.right(),b,ruta_r);
-    
-    //Casos donde hayamos hecho una ruta vacía
-    bool ruta_vacia;
-    ruta_vacia= ruta_l.empty() and ruta_r.empty();
-    if (not ruta_vacia){
-        ruta_vacia= ruta_l.size()<=1 and ruta_r.size()<=1;
-        ruta_vacia= ruta_vacia and (buscar_ruta_l.first.first+ buscar_ruta_l.first.second)==0 and (buscar_ruta_r.first.first+ buscar_ruta_r.first.second)==0;
+    int venta=0;
+    if (mapa_cuenca[id_ciudad].consultar_producto(id_prod_venta) and venta_barco > 0){
+        if (necesidad_ciudad > 0) {
+			venta = venta_barco;
+			if (necesidad_ciudad < venta) {
+				venta = necesidad_ciudad;
+				venta_barco -= venta;
+			}
+			else venta_barco = 0;
+		}
     }
-    
-    //Es ruta vacía?
-    if (ruta_vacia){
-        ruta.push(t.value());
-        return make_pair(make_pair(sobrante_ciudad, necesidad_ciudad), 0);
-    }
-
-    //No es ruta vacía -> tenemos que comprobar cual es mejor
-    int sobrantes_l=buscar_ruta_l.first.first;
-    int necesidad_l=buscar_ruta_l.first.second;
-    int distancia_l=buscar_ruta_l.second;
-    int sobrantes_r=buscar_ruta_r.first.first;
-    int necesidad_r=buscar_ruta_r.first.second;
-    int distancia_r=buscar_ruta_r.second;
-    
-    
-    //Comparamos rutas
-    
-    bool option_l;
-    if ((sobrantes_l+necesidad_l > sobrantes_r+necesidad_r)  or  (sobrantes_l+necesidad_l == sobrantes_r+necesidad_r and distancia_l<=distancia_r)){
-        option_l=true;
-    }
-    else if (sobrantes_l+necesidad_l == sobrantes_r+necesidad_r and distancia_l==distancia_r and ruta_l.size() <= ruta_r.size()){
-        option_l=true;
-    }
-    else option_l=false;
-    
-    
-    //Una vez tenemos la ruta eliminamos las ciudades que no pertenecen a la ruta
-    
-    int sobrantes_t;
-    int faltantes_t;
-    int distancia_t;
-    
-    r.push(t.value());
-    if (option_l) {
-        while (not ruta_l.empty()) {
-            r.push(ruta_l.top());
-            r.pop();
-        }
-        sobrantes_t=min(b.consultar_prod_compra(),(sobrantes_l + sobrante_ciudad));
-        faltantes_t=min(b.consultar_prod_venta(),(necesidad_l + necesidad_ciudad));
-        distancia_t=distancia_l + 1 ;
-    }
-    else{
-        while (not ruta_r.empty()) {
-            r.push(ruta_r.top());
-            r.pop();
-        }
-        sobrantes_t=min(b.consultar_prod_compra(),(sobrantes_r + sobrante_ciudad));
-        faltantes_t=min(b.consultar_prod_venta(),(necesidad_r + necesidad_ciudad));
-        distancia_t=distancia_r + 1;
-    }
-    
-    // Devolvemos los valores
-    return make_pair( make_pair(sobrantes_t , faltantes_t) , distancia_t );
+    // Miro cuantas unidades me entran de la ciudad izquiera y derecha por recursion
+    BinTree<string> tree_esq = t.left();
+	BinTree<string> tree_dre = t.right();
+	int compra_esq = compra_barco, compra_dre = compra_barco;
+	int venta_esq = venta_barco, venta_dre = venta_barco;
+	stack<string> aux_esq, aux_dre;
+	int prods_esq = planear_viaje(tree_esq, b, aux_esq, compra_esq, venta_esq);
+	int prods_dre = planear_viaje(tree_dre, b, aux_dre, compra_dre, venta_dre);
+	
+	// Defino la variable unidades que se encargará de devolver cuántos nodos han sido visitados
+	int unidades = compra+venta;
+	// Si hay más productos en la izquierda guardo la recursion izquierda
+	if (prods_esq > prods_dre) {
+		unidades += planear_viaje(tree_esq, b, r, compra_barco, venta_barco);
+	}
+	// Si hay más en la derecha se guarda la recursion derecha
+	else if (prods_dre == 0 or prods_esq > prods_dre or (prods_esq == prods_dre and
+			aux_esq.size() <= aux_dre.size())) {
+		unidades += planear_viaje(tree_dre, b, r, compra_barco, venta_barco);
+	}
+	// Si hay el mismo numero se queda el camino mas corto, que en caso de empate es el izquierdo
+	else {
+		unidades += planear_viaje(tree_dre, b, r, compra_barco, venta_barco);
+	}
+	
+	if (compra+venta != 0) {
+		r.push(id_ciudad);
+	}
+	return unidades;
 }
-
-
-int Rio::min(int a, int b){
-    if (a<b) return a;
-    else return b;
-}
-
 
 int Rio::hacer_viaje_priv(Barco& b, stack<string>& r, const Inventario& inv) {
 	// Parámetros iniciales
@@ -153,6 +116,7 @@ int Rio::hacer_viaje_priv(Barco& b, stack<string>& r, const Inventario& inv) {
 	int suma_ops = 0;
 	string ultima_ciudad_visitada;
 	
+	// El bucle se ejecuta mientras haya ciudades en la ruta o se pueda comprar y vender al barco
 	while (not r.empty() and (unidades_compra != 0 or unidades_venta != 0)) {
 		string id_ciudad = r.top();
 		Ciudad c = mapa_cuenca[id_ciudad];
@@ -217,16 +181,11 @@ int Rio::hacer_viaje(Barco& b, const Inventario& inv) {
 	stack<string> vacio;
 	ruta = vacio;
 	// Planeamos la ruta del viaje
-	pair<pair<int,int>, int> f = buscar_ruta(cuenca, b, ruta);
-	f.first.first = f.first.second;
-	
-	if (not cuenca.empty()){
-        if (not cuenca.left().empty() and cuenca.left().value()==ruta.top()) ruta.push(cuenca.value());
-        else if (not cuenca.right().empty() and cuenca.right().value()==ruta.top()) ruta.push(cuenca.value());
-    }
-
+	int c1 = b.consultar_prod_compra();
+	int c2 = b.consultar_prod_venta();
+	int d = planear_viaje(cuenca, b, ruta, c1, c2);
 	// Calculamos los productos vendidos despueś de hacer el viaje y los devolvemos
-	int d = hacer_viaje_priv(b, ruta, inv);
+	d = hacer_viaje_priv(b, ruta, inv);
 	return d;
 }
 

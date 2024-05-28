@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Comercio Fluvial: Comercio Fluvial - Práctica PRO2 - Primavera 2024</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Comercio Fluvial
+   &#160;<span id="projectnumber">version primavera 2023</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Comercio Fluvial - Práctica PRO2 - Primavera 2024 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h2><a class="anchor" id="autotoc_md0"></a>
+Introducción</h2>
+<p>Se trata de simular el comercio en una cuenca fluvial con varias ciudades ubicadas en las fuentes y en las uniones de los afluentes de un río. Las ciudades comercian productos identificados por números, cada uno con atributos de peso y volumen.</p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Formato de Entrada/Salida</h2>
+<ul>
+<li>La entrada puede incluir comentarios que comienzan con "//".</li>
+<li>Las operaciones verifican y gestionan posibles errores, imprimiendo mensajes cuando corresponda.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Estructura de la Cuenca</h2>
+<ul>
+<li>Las aguas fluyen de sur a norte.</li>
+<li>La desembocadura está al norte y las fuentes al sur.</li>
+<li>Las ciudades en la cuenca están en las fuentes y en las uniones de los afluentes.</li>
+<li>Cada ciudad tiene dos ciudades "siguientes" río arriba.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Comercio</h2>
+<ul>
+<li>Cada ciudad tiene un inventario de productos con cantidades disponibles y necesarias.</li>
+<li>Un barco comercial realiza viajes para vender y comprar productos entre las ciudades.</li>
+<li>El barco no puede vender y comprar el mismo producto en un viaje.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Operaciones Principales</h2>
+<ol type="1">
+<li><b>leer_rio</b>: Leer la estructura de la cuenca.</li>
+<li><b>leer_inventario</b>: Leer el inventario de una ciudad específica.</li>
+<li><b>leer_inventarios</b>: Leer los inventarios de varias ciudades.</li>
+<li><b>modificar_barco</b>: Modificar los datos del barco (productos a comprar y vender).</li>
+<li><b>escribir_barco</b>: Escribir los datos del barco y los viajes realizados.</li>
+<li><b>consultar_num</b>: Consultar la cantidad de productos diferentes.</li>
+<li><b>agregar_productos</b>: Añadir nuevos productos al sistema.</li>
+<li><b>escribir_producto</b>: Escribir los datos de un producto específico.</li>
+<li><b>escribir_ciudad</b>: Escribir los datos de una ciudad.</li>
+<li><b>poner_prod</b>: Añadir un producto al inventario de una ciudad.</li>
+<li><b>modificar_prod</b>: Modificar los datos de un producto en una ciudad.</li>
+<li><b>quitar_prod</b>: Eliminar un producto del inventario de una ciudad.</li>
+<li><b>consultar_prod</b>: Consultar los datos de un producto en una ciudad.</li>
+<li><b>comerciar</b>: Dos ciudades intercambian productos.</li>
+<li><b>redistribuir</b>: Redistribuir productos a lo largo del río desde la desembocadura.</li>
+<li><b>hacer_viaje</b>: El barco realiza un viaje para comprar y vender productos.</li>
+<li><b>fin</b>: Finaliza la ejecución del programa.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Operaciones Complejas</h2>
+<ul>
+<li><b>Comerciar</b>: Dos ciudades intercambian productos que les sobran para satisfacer necesidades mutuas.</li>
+<li><b>Redistribuir</b>: Comercio entre ciudades consecutivas desde la desembocadura hacia las fuentes.</li>
+<li><b>Viajar</b>: El barco realiza un viaje para comprar y vender productos por la ruta donde maximice el beneficio. </li>
+</ul>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,335 @@
+\hypertarget{classInventario}{}\doxysection{Referencia de la Clase Inventario}
+\label{classInventario}\index{Inventario@{Inventario}}
+
+
+Representa un conjunto de productos.  
+
+
+
+
+{\ttfamily \#include $<$Inventario.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classInventario_ab7ca21da6822bc59fa236f7238e20fd3}{Inventario}} ()
+\begin{DoxyCompactList}\small\item\em Creadora de un inventario Se ejecuta al declarar un inventario vacío. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInventario_abadfdbda752f37aa672b8db9e5a773a0}{Inventario}} (int n)
+\begin{DoxyCompactList}\small\item\em Creadora de un inventario Se ejecuta al declarar un inventario de n elementos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventario_aa514ff579837edc724e0d3287c6a7261}{anadir\+\_\+producto\+\_\+nuevo}} (const \mbox{\hyperlink{classProducto}{Producto}} \&p)
+\begin{DoxyCompactList}\small\item\em Añade un producto al inventario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventario_a11117879cff41b98a886cb9be99b18a1}{cambiar\+\_\+producto}} (\mbox{\hyperlink{classProducto}{Producto}} p, int peso\+\_\+nuevo, int volumen\+\_\+nuevo)
+\begin{DoxyCompactList}\small\item\em Modifica un producto del inventario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classInventario_a5c8612c17896d83a5d80e026deebf74d}{consultar\+\_\+tamano\+\_\+inventario}} () const
+\begin{DoxyCompactList}\small\item\em Consultar tamaño inventario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classInventario_a1173c9f30046fb1a26661a3e5edd279c}{consultar\+\_\+peso\+\_\+inventario}} () const
+\begin{DoxyCompactList}\small\item\em Consultar peso inventario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classInventario_a434087f25b7e45d8e4e797a7178779dc}{consultar\+\_\+vol\+\_\+inventario}} () const
+\begin{DoxyCompactList}\small\item\em Consultar volumen inventario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProducto}{Producto}} \mbox{\hyperlink{classInventario_a5aeaf0a01b5fd207e539946342d23e7b}{consultar\+\_\+producto}} (int id\+\_\+prod, bool \&error) const
+\begin{DoxyCompactList}\small\item\em Consultar producto Busca si el producto con identificador id\+\_\+prod existe, y si es así lo devuelve, sino devuelve un producto vacío. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProducto}{Producto}} \mbox{\hyperlink{classInventario_adff99f95b49b6913b04faae4298f211d}{devolver\+\_\+producto}} (int id\+\_\+prod) const
+\begin{DoxyCompactList}\small\item\em Devolver producto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventario_ad516b5d54f90c925b643f44e655947c1}{leer\+\_\+inventario}} ()
+\begin{DoxyCompactList}\small\item\em Leer inventario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{classProducto}{Producto}} $>$ \mbox{\hyperlink{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}{catalogo}}
+\item 
+int \mbox{\hyperlink{classInventario_aa215d7c5bcb50549a5a534db9a75b82c}{ultimo\+\_\+id}}
+\item 
+int \mbox{\hyperlink{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}{tamano\+\_\+inventario}}
+\item 
+int \mbox{\hyperlink{classInventario_a27df68723c79b7a3face763c356878af}{peso\+\_\+inventario}}
+\item 
+int \mbox{\hyperlink{classInventario_a1187a254e994e8507aaff450d150ee91}{volumen\+\_\+inventario}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Representa un conjunto de productos. 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classInventario_ab7ca21da6822bc59fa236f7238e20fd3}\label{classInventario_ab7ca21da6822bc59fa236f7238e20fd3}} 
+\index{Inventario@{Inventario}!Inventario@{Inventario}}
+\index{Inventario@{Inventario}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{Inventario()}{Inventario()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Inventario\+::\+Inventario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creadora de un inventario Se ejecuta al declarar un inventario vacío. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se crea un inventario con ultimo\+\_\+id = 1 y tamaño = 0 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                        \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{classInventario_aa215d7c5bcb50549a5a534db9a75b82c}{ultimo\_id}} = 1;}
+\DoxyCodeLine{7     \mbox{\hyperlink{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}{tamano\_inventario}} = 0;}
+\DoxyCodeLine{8 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classInventario_abadfdbda752f37aa672b8db9e5a773a0}\label{classInventario_abadfdbda752f37aa672b8db9e5a773a0}} 
+\index{Inventario@{Inventario}!Inventario@{Inventario}}
+\index{Inventario@{Inventario}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{Inventario()}{Inventario()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Inventario\+::\+Inventario (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Creadora de un inventario Se ejecuta al declarar un inventario de n elementos. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es una inventario de tamaño = n 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10                             \{}
+\DoxyCodeLine{11     \mbox{\hyperlink{classInventario_aa215d7c5bcb50549a5a534db9a75b82c}{ultimo\_id}} = 1;}
+\DoxyCodeLine{12     \mbox{\hyperlink{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}{tamano\_inventario}} = n;}
+\DoxyCodeLine{13 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classInventario_aa514ff579837edc724e0d3287c6a7261}\label{classInventario_aa514ff579837edc724e0d3287c6a7261}} 
+\index{Inventario@{Inventario}!anadir\_producto\_nuevo@{anadir\_producto\_nuevo}}
+\index{anadir\_producto\_nuevo@{anadir\_producto\_nuevo}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{anadir\_producto\_nuevo()}{anadir\_producto\_nuevo()}}
+{\footnotesize\ttfamily void Inventario\+::anadir\+\_\+producto\+\_\+nuevo (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p }\end{DoxyParamCaption})}
+
+
+
+Añade un producto al inventario. 
+
+\begin{DoxyPrecond}{Precondición}
+p no está vacío 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se añade p al p.\+i actualizando el último id y incrementando en 1 el tamaño del inventario 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                                         \{}
+\DoxyCodeLine{18     \mbox{\hyperlink{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}{catalogo}}.push\_back(p);}
+\DoxyCodeLine{19     ++\mbox{\hyperlink{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}{tamano\_inventario}};}
+\DoxyCodeLine{20     ++\mbox{\hyperlink{classInventario_aa215d7c5bcb50549a5a534db9a75b82c}{ultimo\_id}};}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classInventario_a11117879cff41b98a886cb9be99b18a1}\label{classInventario_a11117879cff41b98a886cb9be99b18a1}} 
+\index{Inventario@{Inventario}!cambiar\_producto@{cambiar\_producto}}
+\index{cambiar\_producto@{cambiar\_producto}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{cambiar\_producto()}{cambiar\_producto()}}
+{\footnotesize\ttfamily void Inventario\+::cambiar\+\_\+producto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProducto}{Producto}}}]{p,  }\item[{int}]{peso\+\_\+nuevo,  }\item[{int}]{volumen\+\_\+nuevo }\end{DoxyParamCaption})}
+
+
+
+Modifica un producto del inventario. 
+
+\begin{DoxyPrecond}{Precondición}
+p está inicializado y existe dentro del p.\+i y peso\+\_\+nuevo y volumen\+\_\+nuevo $>$= 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se actualiza el inventario con los nuevos atributos de p 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                                                                                \{}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} id\_prod = p.\mbox{\hyperlink{classProducto_a7ceb0b0d1cd44139ffb7101911818f24}{consultar\_id}}();}
+\DoxyCodeLine{25     p.\mbox{\hyperlink{classProducto_a3b7b706b1fb1e817baf3d3a172b4bb88}{cambiar\_peso}}(peso\_nuevo);}
+\DoxyCodeLine{26     p.\mbox{\hyperlink{classProducto_a448d8f281e70d7b640d603ccdf3d61b8}{cambiar\_volumen}}(volumen\_nuevo);}
+\DoxyCodeLine{27     \mbox{\hyperlink{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}{catalogo}}[id\_prod-\/1] = p;}
+\DoxyCodeLine{28 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classInventario_a1173c9f30046fb1a26661a3e5edd279c}\label{classInventario_a1173c9f30046fb1a26661a3e5edd279c}} 
+\index{Inventario@{Inventario}!consultar\_peso\_inventario@{consultar\_peso\_inventario}}
+\index{consultar\_peso\_inventario@{consultar\_peso\_inventario}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{consultar\_peso\_inventario()}{consultar\_peso\_inventario()}}
+{\footnotesize\ttfamily int Inventario\+::consultar\+\_\+peso\+\_\+inventario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultar peso inventario. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el peso del p.\+i 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classInventario_a5aeaf0a01b5fd207e539946342d23e7b}\label{classInventario_a5aeaf0a01b5fd207e539946342d23e7b}} 
+\index{Inventario@{Inventario}!consultar\_producto@{consultar\_producto}}
+\index{consultar\_producto@{consultar\_producto}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{consultar\_producto()}{consultar\_producto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProducto}{Producto}} Inventario\+::consultar\+\_\+producto (\begin{DoxyParamCaption}\item[{int}]{id\+\_\+prod,  }\item[{bool \&}]{error }\end{DoxyParamCaption}) const}
+
+
+
+Consultar producto Busca si el producto con identificador id\+\_\+prod existe, y si es así lo devuelve, sino devuelve un producto vacío. 
+
+\begin{DoxyPrecond}{Precondición}
+id\+\_\+prod $>$= 1 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Retorna el producto si el id\+\_\+prod está en el p.\+i y error=false, sino retorna un producto vacío y error=true 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36                                                                       \{}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} (id\_prod <= \mbox{\hyperlink{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}{tamano\_inventario}}) \{}
+\DoxyCodeLine{38         error = \textcolor{keyword}{false};}
+\DoxyCodeLine{39         \textcolor{keywordflow}{return} \mbox{\hyperlink{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}{catalogo}}[id\_prod-\/1];}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{42     error = \textcolor{keyword}{true};}
+\DoxyCodeLine{43     \mbox{\hyperlink{classProducto}{Producto}} p;}
+\DoxyCodeLine{44         \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{45   \}}
+\DoxyCodeLine{46 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classInventario_a5c8612c17896d83a5d80e026deebf74d}\label{classInventario_a5c8612c17896d83a5d80e026deebf74d}} 
+\index{Inventario@{Inventario}!consultar\_tamano\_inventario@{consultar\_tamano\_inventario}}
+\index{consultar\_tamano\_inventario@{consultar\_tamano\_inventario}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{consultar\_tamano\_inventario()}{consultar\_tamano\_inventario()}}
+{\footnotesize\ttfamily int Inventario\+::consultar\+\_\+tamano\+\_\+inventario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultar tamaño inventario. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el tamaño del p.\+i 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                                                   \{}
+\DoxyCodeLine{33   \textcolor{keywordflow}{return} \mbox{\hyperlink{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}{tamano\_inventario}};}
+\DoxyCodeLine{34 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classInventario_a434087f25b7e45d8e4e797a7178779dc}\label{classInventario_a434087f25b7e45d8e4e797a7178779dc}} 
+\index{Inventario@{Inventario}!consultar\_vol\_inventario@{consultar\_vol\_inventario}}
+\index{consultar\_vol\_inventario@{consultar\_vol\_inventario}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{consultar\_vol\_inventario()}{consultar\_vol\_inventario()}}
+{\footnotesize\ttfamily int Inventario\+::consultar\+\_\+vol\+\_\+inventario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultar volumen inventario. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el volumen del p.\+i 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classInventario_adff99f95b49b6913b04faae4298f211d}\label{classInventario_adff99f95b49b6913b04faae4298f211d}} 
+\index{Inventario@{Inventario}!devolver\_producto@{devolver\_producto}}
+\index{devolver\_producto@{devolver\_producto}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{devolver\_producto()}{devolver\_producto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProducto}{Producto}} Inventario\+::devolver\+\_\+producto (\begin{DoxyParamCaption}\item[{int}]{id\+\_\+prod }\end{DoxyParamCaption}) const}
+
+
+
+Devolver producto. 
+
+\begin{DoxyPrecond}{Precondición}
+id\+\_\+prod representa a un producto del p.\+i 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Retorna el producto asociado a id\+\_\+prod 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                                                         \{}
+\DoxyCodeLine{49   \textcolor{keywordflow}{return} \mbox{\hyperlink{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}{catalogo}}[id\_prod-\/1];}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classInventario_ad516b5d54f90c925b643f44e655947c1}\label{classInventario_ad516b5d54f90c925b643f44e655947c1}} 
+\index{Inventario@{Inventario}!leer\_inventario@{leer\_inventario}}
+\index{leer\_inventario@{leer\_inventario}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{leer\_inventario()}{leer\_inventario()}}
+{\footnotesize\ttfamily void Inventario\+::leer\+\_\+inventario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Leer inventario. 
+
+\begin{DoxyPrecond}{Precondición}
+El canal de entrada espera n productos con su peso y volúmen respectivo 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se actualiza el p.\+i. con el peso y volúmen de n productos 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                                  \{}
+\DoxyCodeLine{55   \mbox{\hyperlink{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}{catalogo}}.clear();}
+\DoxyCodeLine{56   \mbox{\hyperlink{classInventario_a27df68723c79b7a3face763c356878af}{peso\_inventario}} = 0;}
+\DoxyCodeLine{57   \mbox{\hyperlink{classInventario_a1187a254e994e8507aaff450d150ee91}{volumen\_inventario}} = 0;}
+\DoxyCodeLine{58   cin >> \mbox{\hyperlink{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}{tamano\_inventario}};}
+\DoxyCodeLine{59   \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{60     \textcolor{keywordflow}{for} (i = 0; i < \mbox{\hyperlink{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}{tamano\_inventario}}; ++i) \{}
+\DoxyCodeLine{61         \mbox{\hyperlink{classProducto}{Producto}} aux(i+1);}
+\DoxyCodeLine{62         aux.leer();}
+\DoxyCodeLine{63         \mbox{\hyperlink{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}{catalogo}}.push\_back(aux);}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}\label{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}} 
+\index{Inventario@{Inventario}!catalogo@{catalogo}}
+\index{catalogo@{catalogo}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{catalogo}{catalogo}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classProducto}{Producto}}$>$ Inventario\+::catalogo\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classInventario_a27df68723c79b7a3face763c356878af}\label{classInventario_a27df68723c79b7a3face763c356878af}} 
+\index{Inventario@{Inventario}!peso\_inventario@{peso\_inventario}}
+\index{peso\_inventario@{peso\_inventario}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{peso\_inventario}{peso\_inventario}}
+{\footnotesize\ttfamily int Inventario\+::peso\+\_\+inventario\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}\label{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}} 
+\index{Inventario@{Inventario}!tamano\_inventario@{tamano\_inventario}}
+\index{tamano\_inventario@{tamano\_inventario}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{tamano\_inventario}{tamano\_inventario}}
+{\footnotesize\ttfamily int Inventario\+::tamano\+\_\+inventario\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classInventario_aa215d7c5bcb50549a5a534db9a75b82c}\label{classInventario_aa215d7c5bcb50549a5a534db9a75b82c}} 
+\index{Inventario@{Inventario}!ultimo\_id@{ultimo\_id}}
+\index{ultimo\_id@{ultimo\_id}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{ultimo\_id}{ultimo\_id}}
+{\footnotesize\ttfamily int Inventario\+::ultimo\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classInventario_a1187a254e994e8507aaff450d150ee91}\label{classInventario_a1187a254e994e8507aaff450d150ee91}} 
+\index{Inventario@{Inventario}!volumen\_inventario@{volumen\_inventario}}
+\index{volumen\_inventario@{volumen\_inventario}!Inventario@{Inventario}}
+\doxysubsubsection{\texorpdfstring{volumen\_inventario}{volumen\_inventario}}
+{\footnotesize\ttfamily int Inventario\+::volumen\+\_\+inventario\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Inventario_8hh}{Inventario.\+hh}}\item 
+\mbox{\hyperlink{Inventario_8cc}{Inventario.\+cc}}\end{DoxyCompactItemize}

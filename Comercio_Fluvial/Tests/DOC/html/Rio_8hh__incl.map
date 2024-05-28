@@ -1,0 +1,7 @@
+<map id="Rio.hh" name="Rio.hh">
+<area shape="rect" id="node1" title="Especificación de la clase Rio." alt="" coords="37,5,99,32"/>
+<area shape="rect" id="node2" href="$Ciudad_8hh.html" title="Especificación de la clase Ciudad." alt="" coords="38,155,125,181"/>
+<area shape="rect" id="node3" href="$Producto_8hh.html" title="Especificación de la clase Producto." alt="" coords="5,304,104,331"/>
+<area shape="rect" id="node4" href="$Inventario_8hh.html" title="Especificación de la clase Inventario." alt="" coords="93,229,201,256"/>
+<area shape="rect" id="node5" href="$Barco_8hh.html" title="Especificación de la clase Barco." alt="" coords="67,80,146,107"/>
+</map>

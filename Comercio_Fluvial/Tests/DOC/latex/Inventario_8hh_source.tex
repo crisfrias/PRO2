@@ -1,0 +1,60 @@
+\hypertarget{Inventario_8hh_source}{}\doxysection{Inventario.\+hh}
+\mbox{\hyperlink{Inventario_8hh}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef \_INVENTARIO\_HH\_}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define \_INVENTARIO\_HH\_}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Producto_8hh}{Producto.hh}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef NO\_DIAGRAM}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{12 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classInventario}{Inventario}} }
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     vector<Producto> \mbox{\hyperlink{classInventario_ab81279b1a7ca0b86c1983c0536acb4cc}{catalogo}};}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInventario_aa215d7c5bcb50549a5a534db9a75b82c}{ultimo\_id}};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInventario_acbb01ef7cc58d0fe281ce1195adf491b}{tamano\_inventario}};}
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInventario_a27df68723c79b7a3face763c356878af}{peso\_inventario}};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInventario_a1187a254e994e8507aaff450d150ee91}{volumen\_inventario}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{// Constructoras}}
+\DoxyCodeLine{33     }
+\DoxyCodeLine{39     \mbox{\hyperlink{classInventario_ab7ca21da6822bc59fa236f7238e20fd3}{Inventario}}();}
+\DoxyCodeLine{40   }
+\DoxyCodeLine{46     \mbox{\hyperlink{classInventario_ab7ca21da6822bc59fa236f7238e20fd3}{Inventario}}(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// Modificadoras}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{classInventario_aa514ff579837edc724e0d3287c6a7261}{anadir\_producto\_nuevo}}(\textcolor{keyword}{const} \mbox{\hyperlink{classProducto}{Producto}}\& p);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{classInventario_a11117879cff41b98a886cb9be99b18a1}{cambiar\_producto}}(\mbox{\hyperlink{classProducto}{Producto}} p, \textcolor{keywordtype}{int} peso\_nuevo, \textcolor{keywordtype}{int} volumen\_nuevo);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{comment}{// Consultoras}}
+\DoxyCodeLine{64     }
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInventario_a5c8612c17896d83a5d80e026deebf74d}{consultar\_tamano\_inventario}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{70     }
+\DoxyCodeLine{75     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInventario_a1173c9f30046fb1a26661a3e5edd279c}{consultar\_peso\_inventario}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{76     }
+\DoxyCodeLine{81     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInventario_a434087f25b7e45d8e4e797a7178779dc}{consultar\_vol\_inventario}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{82   }
+\DoxyCodeLine{90     \mbox{\hyperlink{classProducto}{Producto}} \mbox{\hyperlink{classInventario_a5aeaf0a01b5fd207e539946342d23e7b}{consultar\_producto}}(\textcolor{keywordtype}{int} id\_prod, \textcolor{keywordtype}{bool}\& error) \textcolor{keyword}{const};}
+\DoxyCodeLine{91     }
+\DoxyCodeLine{96     \mbox{\hyperlink{classProducto}{Producto}} \mbox{\hyperlink{classInventario_adff99f95b49b6913b04faae4298f211d}{devolver\_producto}}(\textcolor{keywordtype}{int} id\_prod) \textcolor{keyword}{const};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{comment}{// Lectura y escritura}}
+\DoxyCodeLine{99   }
+\DoxyCodeLine{104     \textcolor{keywordtype}{void} \mbox{\hyperlink{classInventario_ad516b5d54f90c925b643f44e655947c1}{leer\_inventario}}();}
+\DoxyCodeLine{105     }
+\DoxyCodeLine{106 \};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

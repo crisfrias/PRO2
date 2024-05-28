@@ -1,5 +1,5 @@
 /** @file Barco.hh
-    @brief Especificación de la clase barco
+    @brief Especificación de la clase Barco
 */
 
 #ifndef _BARCO_HH_
@@ -14,6 +14,10 @@
 using namespace std;
 
 #endif
+
+/** @class Barco
+    @brief Representa un barco que interacciona con las ciudades del río
+*/
 
 class Barco {
 private:

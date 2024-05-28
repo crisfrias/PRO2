@@ -43,30 +43,29 @@ public:
     /** @brief Creadora con identificador
         Se ejecuta al declarar una ciudad con identificador
         \pre id=NULL
-        \post El resultado es una ciudad con identificador = id y con peso y volumen total = 0
+        \post El resultado es una ciudad con identificador="id" y con peso_total=0 y volumen_total=0
     */
     Ciudad(const string& id);
 
     // Modificadoras
 	
 	/** @brief Añadir productos a la reserva
-        \pre "cierto"
+        \pre "p" existe dentro del inventario del p.i. y unidades>0
         \post Se añaden las unidades correspondientes del producto "p" al inventario de la ciudad, 
 			  añadiéndoles el peso y volumen respectivos al p.i
     */
     void anadir_prod_reserva(const Producto& p, int unidades);
     
     /** @brief Quitar productos a la reserva
-        \pre p existe dentro del inventario del p.i y unidades > 0
-        \post Se borran las unidades correspondientes del producto p en la ciudad, quitándoles el peso y 
-			  volúmen respectivos
+        \pre "p" existe dentro del inventario del p.i. y unidades>0
+        \post Se borran las unidades correspondientes del producto "p" en el inventario de la ciudad,
+			  quitándoles el peso y volumen respectivos al p.i
     */
     void quitar_prod_reserva(const Producto& p, int unidades);
     
     /** @brief Eliminar producto de la reserva
-        p deja de estar en los productos de la ciudad
-        \pre p existe en el inventario del p.i.
-        \post Se ha quitado p del inventario de la ciudad, además del peso y volúmen que ocupaba éste 
+        \pre "p" existe en el inventario del p.i.
+        \post Se ha quitado "p" del inventario de la ciudad, además del peso y volúmen que ocupaba éste 
 			  en la ciudad
     */
     void eliminar_prod_reserva(const Producto& p);
@@ -74,9 +73,10 @@ public:
     /** @brief Modificar producto de la ciudad
         El producto p es modificador de las listas de unidades que la ciudad tiene
         y también de las que la ciudad quiere
-        \pre p no está vacío y existe, reserva y lista son positivos y al menos uno de ellos es 
-        estrictamente positivo
-        \post Se han modificado los valores del inventario de la ciudad
+        \pre "p" no está vacío y existe en el inventario del p.i, reserva y lista son positivos
+			  y al menos uno de ellos es estrictamente positivo
+        \post Se han modificado los valores del inventario de la ciudad con los que tiene=reserva
+			  y los que necesita=lista
     */
     void modificar_producto_reserva(const Producto& p, int reserva, int lista);
     
@@ -121,7 +121,7 @@ public:
     
     /** @brief Consultora de productos
         Devuelve si el producto está en el catalogo de la ciudad
-        \pre <em>cierto</em>
+        \pre id_prod hace referencia a un producto que tiene el p.i.
         \post Devuelve true si el producto está en la ciudad, y false si no está
     */
     bool consultar_producto(int id_prod);
@@ -133,31 +133,30 @@ public:
     int consultar_reserva(int id_prod);
 
     /** @brief Consultora de la cantidad de productos necesitados
-        \pre id_prod hace referencia a un producto que tiene el p.i.
+        \pre "id_prod" hace referencia a un producto que tiene el p.i.
         \post Devuelve la cantidad de producto que necesita
     */
     int consultar_faltante(int id_prod);
     
     /** @brief Consultora del tamaño del inventario de la ciudad
         \pre "Cierto"
-        \post Devuelve la cantidad de productos diferentes válidos que tiene el 
-			  p.i. en su inventario
+        \post Devuelve la cantidad de productos diferentes válidos que tiene el p.i. en su inventario
     */
     int consultar_tamano_inv_ciudad() const;
 
     // Lectura y escritura
 	
 	/** @brief Lectura del inventario
-        Entran por el canal de entrada el inventario del parámetro implícito
-        \pre "cierto"
+        Entra por el canal de entrada el inventario del parámetro implícito
+        \pre Todos los productos que entrarán por el canal de entrada se encuentran en "inv"
         \post Se ha actualizado el inventario de la ciudad con los identificadores
         de los productos, la cantidad que tiene y necesita, respectivamente, además 
-        de sustituir el peso y volumen totales con los nuevos productos
+        de sustituir el peso y volumen totales con los de nuevos productos
     */
     void leer_inventario_ciudad(const Inventario& inv);
     
     /** @brief Escritura de la ciudad
-        Sale por el canal de salida el inventario del parámetro implícito
+        Sale por el canal de salida el inventario del p.i.
         \pre "cierto"
         \post Sale por el canal de salida el inventario de la ciudad con su peso 
         y volumen total, respectivamente

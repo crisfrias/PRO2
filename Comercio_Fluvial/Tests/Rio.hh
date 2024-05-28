@@ -35,32 +35,28 @@ private:
     /** @brief Lector de ríos en formato de BinTree
         Se ejecuta cuando se lee un río de forma oculta
         \pre "t" y "m" vacíos
-        \post El parámetro implícito ya no está vacío y "t" y "m" están sincronizados
+        \post El p.i. ya no está vacío y "t" y "m" están sincronizados
     */
     static void leer_cuenca_priv(BinTree<string>& t, map<string, Ciudad>& m);
     
     /** @brief Redistribuir recursivamente
         Es la implementación recursiva de la función redistribuir
-        \pre t no está vacío
-        \post Se ha realizado la acción de Redistribuir
+        \pre "t" y "m" no están vacíos
+        \post Se ha comerciado recursivamente entre todas las ciudades del árbol "t"
     */
     static void redistribuir_priv(BinTree<string>& t, const Inventario& inv, map<string, Ciudad>& m);
 
     /** @brief Planear ruta sobre la cuenca
-        \pre t, b y r no están vacíos
-        \post Se ha actualizado q con todas las ciudades que forman la mejor ruta posible
+        \pre "t" y "b" no están vacíos, "r" está vacío, compra_barco >= 0, venta_barco >= 0
+        \post Se han añadido a "r" el nombre de las ciudades con las que el barco ha de comprar y vender productos,
+			  además de devolver el número de nodos que ha de visitar la ruta
     */
-    pair<pair<int, int>, int > buscar_ruta(const BinTree<string>& t, const Barco& b, stack<string>& r);
+    int planear_viaje(const BinTree<string>& t, const Barco& b, stack<string>& r, int& compra_barco, int& venta_barco);
     
-    /** @brief Mínimo de dos números
-        \pre "cierto"
-        \post Devuelve el número más grande
-    */
-    static int min(int a, int b);
-
-    /** @brief Realización de compra-venta 
-        \pre m y q no están vacíos, además los elementos de q están en m representando ciudades
-        \post Se ha realizado la compra-venta entre el barco y las ciudades que forman parte de la ruta
+    /** @brief Realización de compraventa 
+        \pre "b" está inicializado y "r" contiene la ruta por la que ha de comprar y vender con el barco
+        \post Se han añadido o eliminado unidades de los productos que compra o vende el barco si ha sido posible,
+			  "r" se ha quedado vacío
     */
     int hacer_viaje_priv(Barco& b, stack<string>& r, const Inventario& inv);
 
@@ -77,9 +73,8 @@ public:
     // Modificadoras
     
     /** @brief Actualiza el río
-        \pre id_ciudad es el identificador de una ciudad en el río y c 
-        no está vacía
-        \post Actualiza el nodo de la ciudad con id=id_ciudad a c
+        \pre "id_ciudad" es el identificador único de "c"
+        \post Borra del inventario de c todos los productos que no se necesiten ni estén en reserva
     */
     void actualizar_ciudad_rio(const string& id_ciudad, const Ciudad& c);
 	
@@ -99,35 +94,29 @@ public:
         \post Devuelve el número de productos que el barco ha comprado y vendido por la ruta
     */
     int hacer_viaje(Barco& b, const Inventario& inv);
-    
-    /** @brief Comerciar en el rio
-        \pre c1 y c2 existen en el rio, inv tiene productos de c1 y c2
-        \post Realiza el método "comerciar" siendo el p.i. c1 o c2 dependiendo
-			  de qué ciudad tiene el inventario con menos productos
-    */
-    void comerciar_rio(Ciudad& c1, Ciudad& c2, const Inventario& inv);
 	
     // Consultoras
 
     /** @brief Buscadora de ciudades
         Busca si el identificador de la ciudad representa una ciudad existente
         \pre "id_ciudad" no está vacío
-        \post El resultado es un booleano que es cierto si la ciudad existe, y es falso si es lo contrario
+        \post El resultado es un booleano que es cierto si la ciudad existe, y es falso si es lo contrario.
+        Si error=false devuelve una ciudad vacía, sino devuelve la ciudad con identificador=id_ciudad
     */
     Ciudad buscar_ciudad(const string& id_ciudad, bool& error);
 
     // Lectura y escritura
 	
 	/** @brief Lectura del río
-        \pre id_ciudad es el identificador de una ciudad en el río y c 
-        no está vacía
-        \post Actualiza el nodo de la ciudad con id=id_ciudad a c
+        \pre Entran por el canal de entrada strings con el nombre de las ciudades, siendo '#' el carácter
+			 utilizado para indicar que no tiene más ciudades río arriba
+        \post Se han añadido correctamente las ciudades introducidas en el río
     */
     void leer_cuenca();
     
     /** @brief Lectura de inventarios de las ciudades del río
         \pre Está preparado el canal de entrada para los inventarios de
-        las ciudades
+			 las ciudades
         \post Se han añadido los inventarios a las ciudades del p.i.
     */
     void leer_inventarios(const Inventario& inv);

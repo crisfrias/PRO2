@@ -1,0 +1,504 @@
+\hypertarget{classRio}{}\doxysection{Referencia de la Clase Rio}
+\label{classRio}\index{Rio@{Rio}}
+
+
+{\ttfamily \#include $<$Rio.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRio_a1dc8b1e6f2e4d7087575bf051abb28f4}{Rio}} ()
+\begin{DoxyCompactList}\small\item\em Creadora por defecto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRio_a4871b8e782988947c31a1ab653eba2b7}{actualizar\+\_\+ciudad\+\_\+rio}} (const string \&id\+\_\+ciudad, const \mbox{\hyperlink{classCiudad}{Ciudad}} \&c)
+\begin{DoxyCompactList}\small\item\em Actualiza el río. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRio_a20b87de3f14bbd25194882b7f123233e}{redistribuir}} (const \mbox{\hyperlink{classInventario}{Inventario}} \&inv)
+\begin{DoxyCompactList}\small\item\em Redistribuir A partir de la ciudad de la desembocadura, cada ciudad comerciará con las dos ciudades inmediatamente situadas río arriba, y así hasta llegar a las ciudades de los nacimientos. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRio_a67a10c7e89ea00c401cd1285a2830d55}{hacer\+\_\+viaje}} (\mbox{\hyperlink{classBarco}{Barco}} \&b, const \mbox{\hyperlink{classInventario}{Inventario}} \&inv)
+\begin{DoxyCompactList}\small\item\em Hacer viaje El barco va desde la desembocadura hasta los nacimientos de los afluentes buscando rutas para comprar y vender. Seguirá la ruta donde pueda comprar y vender más productos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCiudad}{Ciudad}} \mbox{\hyperlink{classRio_a1f8ec6e61d8d7200a20581913829891d}{buscar\+\_\+ciudad}} (const string \&id\+\_\+ciudad, bool \&error)
+\begin{DoxyCompactList}\small\item\em Buscadora de ciudades Busca si el identificador de la ciudad representa una ciudad existente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRio_a89db23b53e3e808826dfd74bb1678a33}{leer\+\_\+cuenca}} ()
+\begin{DoxyCompactList}\small\item\em Lectura del río. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRio_ac10dbff81c33cd5010b7c070d2ca6555}{leer\+\_\+inventarios}} (const \mbox{\hyperlink{classInventario}{Inventario}} \&inv)
+\begin{DoxyCompactList}\small\item\em Lectura de inventarios de las ciudades del río. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\+\_\+viaje}} (const Bin\+Tree$<$ string $>$ \&t, const \mbox{\hyperlink{classBarco}{Barco}} \&b, stack$<$ string $>$ \&r, int \&compra\+\_\+barco, int \&venta\+\_\+barco)
+\begin{DoxyCompactList}\small\item\em Planear ruta sobre la cuenca. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRio_a8cf1dbced931c4284a78d5963b8cbdfe}{hacer\+\_\+viaje\+\_\+priv}} (\mbox{\hyperlink{classBarco}{Barco}} \&b, stack$<$ string $>$ \&r, const \mbox{\hyperlink{classInventario}{Inventario}} \&inv)
+\begin{DoxyCompactList}\small\item\em Realización de compraventa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classRio_abb4346d57692428e85c37c46610b23a6}{leer\+\_\+cuenca\+\_\+priv}} (Bin\+Tree$<$ string $>$ \&t, map$<$ string, \mbox{\hyperlink{classCiudad}{Ciudad}} $>$ \&m)
+\begin{DoxyCompactList}\small\item\em Lector de ríos en formato de Bin\+Tree Se ejecuta cuando se lee un río de forma oculta. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classRio_af5e24407c6b3f93b1a35006586bd1b09}{redistribuir\+\_\+priv}} (Bin\+Tree$<$ string $>$ \&t, const \mbox{\hyperlink{classInventario}{Inventario}} \&inv, map$<$ string, \mbox{\hyperlink{classCiudad}{Ciudad}} $>$ \&m)
+\begin{DoxyCompactList}\small\item\em Redistribuir recursivamente Es la implementación recursiva de la función redistribuir. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Bin\+Tree$<$ string $>$ \mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}
+\item 
+map$<$ string, \mbox{\hyperlink{classCiudad}{Ciudad}} $>$ \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\+\_\+cuenca}}
+\item 
+stack$<$ string $>$ \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classRio_a1dc8b1e6f2e4d7087575bf051abb28f4}\label{classRio_a1dc8b1e6f2e4d7087575bf051abb28f4}} 
+\index{Rio@{Rio}!Rio@{Rio}}
+\index{Rio@{Rio}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{Rio()}{Rio()}}
+{\footnotesize\ttfamily Rio\+::\+Rio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creadora por defecto. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}cierto\char`\"{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un río vacío 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5          \{}
+\DoxyCodeLine{6 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classRio_a4871b8e782988947c31a1ab653eba2b7}\label{classRio_a4871b8e782988947c31a1ab653eba2b7}} 
+\index{Rio@{Rio}!actualizar\_ciudad\_rio@{actualizar\_ciudad\_rio}}
+\index{actualizar\_ciudad\_rio@{actualizar\_ciudad\_rio}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{actualizar\_ciudad\_rio()}{actualizar\_ciudad\_rio()}}
+{\footnotesize\ttfamily void Rio\+::actualizar\+\_\+ciudad\+\_\+rio (\begin{DoxyParamCaption}\item[{const string \&}]{id\+\_\+ciudad,  }\item[{const \mbox{\hyperlink{classCiudad}{Ciudad}} \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Actualiza el río. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}id\+\_\+ciudad\char`\"{} es el identificador único de \char`\"{}c\char`\"{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Borra del inventario de c todos los productos que no se necesiten ni estén en reserva 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{171                                                                         \{}
+\DoxyCodeLine{172     \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad] = c;}
+\DoxyCodeLine{173 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRio_a1f8ec6e61d8d7200a20581913829891d}\label{classRio_a1f8ec6e61d8d7200a20581913829891d}} 
+\index{Rio@{Rio}!buscar\_ciudad@{buscar\_ciudad}}
+\index{buscar\_ciudad@{buscar\_ciudad}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{buscar\_ciudad()}{buscar\_ciudad()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCiudad}{Ciudad}} Rio\+::buscar\+\_\+ciudad (\begin{DoxyParamCaption}\item[{const string \&}]{id\+\_\+ciudad,  }\item[{bool \&}]{error }\end{DoxyParamCaption})}
+
+
+
+Buscadora de ciudades Busca si el identificador de la ciudad representa una ciudad existente. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}id\+\_\+ciudad\char`\"{} no está vacío 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es un booleano que es cierto si la ciudad existe, y es falso si es lo contrario. Si error=false devuelve una ciudad vacía, sino devuelve la ciudad con identificador=id\+\_\+ciudad 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{194                                                               \{}
+\DoxyCodeLine{195     \textcolor{keyword}{auto} it = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}.find(id\_ciudad);}
+\DoxyCodeLine{196     \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}.end()) \{}
+\DoxyCodeLine{197         error = \textcolor{keyword}{false};}
+\DoxyCodeLine{198         \textcolor{keywordflow}{return} \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad];}
+\DoxyCodeLine{199     \}}
+\DoxyCodeLine{200     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{201         error = \textcolor{keyword}{true};}
+\DoxyCodeLine{202         \mbox{\hyperlink{classCiudad}{Ciudad}} c;}
+\DoxyCodeLine{203         \textcolor{keywordflow}{return} c;}
+\DoxyCodeLine{204     \}}
+\DoxyCodeLine{205 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRio_a67a10c7e89ea00c401cd1285a2830d55}\label{classRio_a67a10c7e89ea00c401cd1285a2830d55}} 
+\index{Rio@{Rio}!hacer\_viaje@{hacer\_viaje}}
+\index{hacer\_viaje@{hacer\_viaje}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{hacer\_viaje()}{hacer\_viaje()}}
+{\footnotesize\ttfamily int Rio\+::hacer\+\_\+viaje (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBarco}{Barco}} \&}]{b,  }\item[{const \mbox{\hyperlink{classInventario}{Inventario}} \&}]{inv }\end{DoxyParamCaption})}
+
+
+
+Hacer viaje El barco va desde la desembocadura hasta los nacimientos de los afluentes buscando rutas para comprar y vender. Seguirá la ruta donde pueda comprar y vender más productos. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}cierto\char`\"{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el número de productos que el barco ha comprado y vendido por la ruta 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{179                                                     \{}
+\DoxyCodeLine{180   \textcolor{comment}{// Reinicializamos la pila de la ruta}}
+\DoxyCodeLine{181   stack<string> vacio;}
+\DoxyCodeLine{182   \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}} = vacio;}
+\DoxyCodeLine{183   \textcolor{comment}{// Planeamos la ruta del viaje}}
+\DoxyCodeLine{184   \textcolor{keywordtype}{int} c1 = b.\mbox{\hyperlink{classBarco_a29b09b9b2ca1dbdc7e01f012354dc994}{consultar\_prod\_compra}}();}
+\DoxyCodeLine{185   \textcolor{keywordtype}{int} c2 = b.\mbox{\hyperlink{classBarco_a8568d229b593f5f36b2a4afa8fc9f972}{consultar\_prod\_venta}}();}
+\DoxyCodeLine{186   \textcolor{keywordtype}{int} d = \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(\mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}, b, \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}}, c1, c2);}
+\DoxyCodeLine{187   \textcolor{comment}{// Calculamos los productos vendidos despueś de hacer el viaje y los devolvemos}}
+\DoxyCodeLine{188   d = \mbox{\hyperlink{classRio_a8cf1dbced931c4284a78d5963b8cbdfe}{hacer\_viaje\_priv}}(b, \mbox{\hyperlink{classRio_a76548dc637f03012f1dfd5aa6c689329}{ruta}}, inv);}
+\DoxyCodeLine{189   \textcolor{keywordflow}{return} d;}
+\DoxyCodeLine{190 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRio_a8cf1dbced931c4284a78d5963b8cbdfe}\label{classRio_a8cf1dbced931c4284a78d5963b8cbdfe}} 
+\index{Rio@{Rio}!hacer\_viaje\_priv@{hacer\_viaje\_priv}}
+\index{hacer\_viaje\_priv@{hacer\_viaje\_priv}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{hacer\_viaje\_priv()}{hacer\_viaje\_priv()}}
+{\footnotesize\ttfamily int Rio\+::hacer\+\_\+viaje\+\_\+priv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBarco}{Barco}} \&}]{b,  }\item[{stack$<$ string $>$ \&}]{r,  }\item[{const \mbox{\hyperlink{classInventario}{Inventario}} \&}]{inv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Realización de compraventa. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}b\char`\"{} está inicializado y \char`\"{}r\char`\"{} contiene la ruta por la que ha de comprar y vender con el barco 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se han añadido o eliminado unidades de los productos que compra o vende el barco si ha sido posible, \char`\"{}r\char`\"{} se ha quedado vacío 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110                                                                            \{}
+\DoxyCodeLine{111   \textcolor{comment}{// Parámetros iniciales}}
+\DoxyCodeLine{112   \textcolor{keywordtype}{int} unidades\_compra = b.\mbox{\hyperlink{classBarco_a29b09b9b2ca1dbdc7e01f012354dc994}{consultar\_prod\_compra}}();}
+\DoxyCodeLine{113   \textcolor{keywordtype}{int} unidades\_venta = b.\mbox{\hyperlink{classBarco_a8568d229b593f5f36b2a4afa8fc9f972}{consultar\_prod\_venta}}();}
+\DoxyCodeLine{114   \textcolor{keywordtype}{int} id\_compra = b.\mbox{\hyperlink{classBarco_acf1560f4f87f9a91c470769fe1dc3a90}{consultar\_id\_prod\_compra}}();}
+\DoxyCodeLine{115   \textcolor{keywordtype}{int} id\_venta = b.\mbox{\hyperlink{classBarco_a0d3f687e542aac75703233682e9bd294}{consultar\_id\_prod\_venta}}();}
+\DoxyCodeLine{116   \textcolor{keywordtype}{int} suma\_ops = 0;}
+\DoxyCodeLine{117   \textcolor{keywordtype}{string} ultima\_ciudad\_visitada;}
+\DoxyCodeLine{118   }
+\DoxyCodeLine{119   \textcolor{comment}{// El bucle se ejecuta mientras haya ciudades en la ruta o se pueda comprar y vender al barco}}
+\DoxyCodeLine{120   \textcolor{keywordflow}{while} (not r.empty() and (unidades\_compra != 0 or unidades\_venta != 0)) \{}
+\DoxyCodeLine{121     \textcolor{keywordtype}{string} id\_ciudad = r.top();}
+\DoxyCodeLine{122     \mbox{\hyperlink{classCiudad}{Ciudad}} c = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad];}
+\DoxyCodeLine{123     \textcolor{comment}{// Hacemos la compra}}
+\DoxyCodeLine{124     \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{classCiudad_af6ea4eb0ba6a88aef26e75ef08b83808}{consultar\_producto}}(id\_compra) and unidades\_compra > 0) \{}
+\DoxyCodeLine{125       \mbox{\hyperlink{classProducto}{Producto}} p1 = inv.\mbox{\hyperlink{classInventario_adff99f95b49b6913b04faae4298f211d}{devolver\_producto}}(id\_compra);}
+\DoxyCodeLine{126       \textcolor{keywordtype}{int} sobrante = c.\mbox{\hyperlink{classCiudad_a6391792b91e0e1b70d1bf9f0e449f375}{consultar\_reserva}}(id\_compra) -\/ c.\mbox{\hyperlink{classCiudad_af39cf0d7a62b925d15e2b782cb9699cd}{consultar\_faltante}}(id\_compra);}
+\DoxyCodeLine{127       \textcolor{keywordflow}{if} (sobrante > 0) \{}
+\DoxyCodeLine{128         \textcolor{keywordflow}{if} (unidades\_compra > sobrante) \{}
+\DoxyCodeLine{129           c.\mbox{\hyperlink{classCiudad_ad267e8c1fcbb4f622339ea54bf5a87cd}{quitar\_prod\_reserva}}(p1, sobrante);}
+\DoxyCodeLine{130           unidades\_compra -\/= sobrante;}
+\DoxyCodeLine{131           suma\_ops += sobrante;}
+\DoxyCodeLine{132         \}}
+\DoxyCodeLine{133         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{134           c.\mbox{\hyperlink{classCiudad_ad267e8c1fcbb4f622339ea54bf5a87cd}{quitar\_prod\_reserva}}(p1, unidades\_compra);}
+\DoxyCodeLine{135           suma\_ops += unidades\_compra;}
+\DoxyCodeLine{136           unidades\_compra = 0;}
+\DoxyCodeLine{137         \}}
+\DoxyCodeLine{138       \}}
+\DoxyCodeLine{139       ultima\_ciudad\_visitada = id\_ciudad;}
+\DoxyCodeLine{140     \}}
+\DoxyCodeLine{141     \textcolor{comment}{// Hacemos la venta}}
+\DoxyCodeLine{142     \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{classCiudad_af6ea4eb0ba6a88aef26e75ef08b83808}{consultar\_producto}}(id\_venta) and unidades\_venta > 0) \{}
+\DoxyCodeLine{143       \mbox{\hyperlink{classProducto}{Producto}} p2 = inv.\mbox{\hyperlink{classInventario_adff99f95b49b6913b04faae4298f211d}{devolver\_producto}}(id\_venta);}
+\DoxyCodeLine{144       \textcolor{keywordtype}{int} falta = c.\mbox{\hyperlink{classCiudad_af39cf0d7a62b925d15e2b782cb9699cd}{consultar\_faltante}}(id\_venta) -\/ c.\mbox{\hyperlink{classCiudad_a6391792b91e0e1b70d1bf9f0e449f375}{consultar\_reserva}}(id\_venta);}
+\DoxyCodeLine{145       \textcolor{keywordflow}{if} (falta > 0) \{}
+\DoxyCodeLine{146         \textcolor{keywordflow}{if} (unidades\_venta > falta) \{}
+\DoxyCodeLine{147           c.\mbox{\hyperlink{classCiudad_aa70a816f4c3cce379803be49ee3ef979}{anadir\_prod\_reserva}}(p2, falta);}
+\DoxyCodeLine{148           unidades\_venta -\/= falta;}
+\DoxyCodeLine{149           suma\_ops += falta;}
+\DoxyCodeLine{150         \}}
+\DoxyCodeLine{151         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{152           c.\mbox{\hyperlink{classCiudad_aa70a816f4c3cce379803be49ee3ef979}{anadir\_prod\_reserva}}(p2, unidades\_venta);}
+\DoxyCodeLine{153           suma\_ops += unidades\_venta;}
+\DoxyCodeLine{154           unidades\_venta = 0;}
+\DoxyCodeLine{155         \}}
+\DoxyCodeLine{156       \}}
+\DoxyCodeLine{157       ultima\_ciudad\_visitada = id\_ciudad;}
+\DoxyCodeLine{158     \}}
+\DoxyCodeLine{159     \textcolor{comment}{// Actualizamos la ciudad}}
+\DoxyCodeLine{160     c.\mbox{\hyperlink{classCiudad_aa37e49c8bc515f4765110d44a2aa6eff}{actualizar\_ciudad}}();}
+\DoxyCodeLine{161     \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad] = c;}
+\DoxyCodeLine{162     r.pop();}
+\DoxyCodeLine{163   \}}
+\DoxyCodeLine{164   \textcolor{comment}{// Si es la última ciudad visitada, la añadimos al historial}}
+\DoxyCodeLine{165   b.\mbox{\hyperlink{classBarco_a322f6fa5a83108234120ff74122f54ba}{anadir\_ciudad\_historial}}(ultima\_ciudad\_visitada);}
+\DoxyCodeLine{166   \textcolor{keywordflow}{return} suma\_ops;}
+\DoxyCodeLine{167 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRio_a89db23b53e3e808826dfd74bb1678a33}\label{classRio_a89db23b53e3e808826dfd74bb1678a33}} 
+\index{Rio@{Rio}!leer\_cuenca@{leer\_cuenca}}
+\index{leer\_cuenca@{leer\_cuenca}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{leer\_cuenca()}{leer\_cuenca()}}
+{\footnotesize\ttfamily void Rio\+::leer\+\_\+cuenca (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lectura del río. 
+
+\begin{DoxyPrecond}{Precondición}
+Entran por el canal de entrada strings con el nombre de las ciudades, siendo \textquotesingle{}\#\textquotesingle{} el carácter utilizado para indicar que no tiene más ciudades río arriba 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se han añadido correctamente las ciudades introducidas en el río 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209                       \{}
+\DoxyCodeLine{210   \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}.clear();}
+\DoxyCodeLine{211   \mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}} = BinTree<string> ();}
+\DoxyCodeLine{212     \mbox{\hyperlink{classRio_abb4346d57692428e85c37c46610b23a6}{leer\_cuenca\_priv}}(\mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}, \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}});}
+\DoxyCodeLine{213 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRio_abb4346d57692428e85c37c46610b23a6}\label{classRio_abb4346d57692428e85c37c46610b23a6}} 
+\index{Rio@{Rio}!leer\_cuenca\_priv@{leer\_cuenca\_priv}}
+\index{leer\_cuenca\_priv@{leer\_cuenca\_priv}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{leer\_cuenca\_priv()}{leer\_cuenca\_priv()}}
+{\footnotesize\ttfamily void Rio\+::leer\+\_\+cuenca\+\_\+priv (\begin{DoxyParamCaption}\item[{Bin\+Tree$<$ string $>$ \&}]{t,  }\item[{map$<$ string, \mbox{\hyperlink{classCiudad}{Ciudad}} $>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Lector de ríos en formato de Bin\+Tree Se ejecuta cuando se lee un río de forma oculta. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}t\char`\"{} y \char`\"{}m\char`\"{} vacíos 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El p.\+i. ya no está vacío y \char`\"{}t\char`\"{} y \char`\"{}m\char`\"{} están sincronizados 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8                                                                      \{}
+\DoxyCodeLine{9     \textcolor{keywordtype}{string} s;}
+\DoxyCodeLine{10     BinTree<string> esq, dre;}
+\DoxyCodeLine{11     cin >> s;}
+\DoxyCodeLine{12     \textcolor{keywordflow}{if} (s != \textcolor{stringliteral}{"{}\#"{}}) \{}
+\DoxyCodeLine{13         \mbox{\hyperlink{classRio_abb4346d57692428e85c37c46610b23a6}{leer\_cuenca\_priv}}(esq, m);}
+\DoxyCodeLine{14         \mbox{\hyperlink{classRio_abb4346d57692428e85c37c46610b23a6}{leer\_cuenca\_priv}}(dre, m);}
+\DoxyCodeLine{15         t = BinTree<string> (s, esq, dre);}
+\DoxyCodeLine{16         \mbox{\hyperlink{classCiudad}{Ciudad}} c(s);}
+\DoxyCodeLine{17         m[s] = c;}
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRio_ac10dbff81c33cd5010b7c070d2ca6555}\label{classRio_ac10dbff81c33cd5010b7c070d2ca6555}} 
+\index{Rio@{Rio}!leer\_inventarios@{leer\_inventarios}}
+\index{leer\_inventarios@{leer\_inventarios}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{leer\_inventarios()}{leer\_inventarios()}}
+{\footnotesize\ttfamily void Rio\+::leer\+\_\+inventarios (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classInventario}{Inventario}} \&}]{inv }\end{DoxyParamCaption})}
+
+
+
+Lectura de inventarios de las ciudades del río. 
+
+\begin{DoxyPrecond}{Precondición}
+Está preparado el canal de entrada para los inventarios de las ciudades 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se han añadido los inventarios a las ciudades del p.\+i. 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{215                                                 \{}
+\DoxyCodeLine{216     \textcolor{keywordtype}{string} s;}
+\DoxyCodeLine{217     cin >> s;}
+\DoxyCodeLine{218     \textcolor{keywordflow}{while} (s != \textcolor{stringliteral}{"{}\#"{}}) \{}
+\DoxyCodeLine{219     \mbox{\hyperlink{classCiudad}{Ciudad}} c;}
+\DoxyCodeLine{220     c = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[s];}
+\DoxyCodeLine{221     c.\mbox{\hyperlink{classCiudad_a897a683f6f544e0fe2d9f7ddece835ad}{leer\_inventario\_ciudad}}(inv);}
+\DoxyCodeLine{222     \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[s] = c;}
+\DoxyCodeLine{223     cin >> s;}
+\DoxyCodeLine{224   \}}
+\DoxyCodeLine{225 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}\label{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}} 
+\index{Rio@{Rio}!planear\_viaje@{planear\_viaje}}
+\index{planear\_viaje@{planear\_viaje}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{planear\_viaje()}{planear\_viaje()}}
+{\footnotesize\ttfamily int Rio\+::planear\+\_\+viaje (\begin{DoxyParamCaption}\item[{const Bin\+Tree$<$ string $>$ \&}]{t,  }\item[{const \mbox{\hyperlink{classBarco}{Barco}} \&}]{b,  }\item[{stack$<$ string $>$ \&}]{r,  }\item[{int \&}]{compra\+\_\+barco,  }\item[{int \&}]{venta\+\_\+barco }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Planear ruta sobre la cuenca. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}t\char`\"{} y \char`\"{}b\char`\"{} no están vacíos, \char`\"{}r\char`\"{} está vacío, compra\+\_\+barco $>$= 0, venta\+\_\+barco $>$= 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se han añadido a \char`\"{}r\char`\"{} el nombre de las ciudades con las que el barco ha de comprar y vender productos, además de devolver el número de nodos que ha de visitar la ruta 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46                                                                                                                       \{}
+\DoxyCodeLine{47   \textcolor{comment}{// Caso base}}
+\DoxyCodeLine{48   \textcolor{keywordflow}{if} (t.empty()) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{49   \textcolor{keywordflow}{if} (compra\_barco == 0 and venta\_barco == 0) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{50   \textcolor{comment}{// Caso general}}
+\DoxyCodeLine{51   \textcolor{keywordtype}{string} id\_ciudad = t.value();}
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} id\_prod\_compra = b.\mbox{\hyperlink{classBarco_acf1560f4f87f9a91c470769fe1dc3a90}{consultar\_id\_prod\_compra}}();}
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} id\_prod\_venta = b.\mbox{\hyperlink{classBarco_a0d3f687e542aac75703233682e9bd294}{consultar\_id\_prod\_venta}}();}
+\DoxyCodeLine{54     \textcolor{keywordtype}{int} sobrante\_ciudad = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad].consultar\_reserva(id\_prod\_compra) -\/ \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad].consultar\_faltante(id\_prod\_compra);}
+\DoxyCodeLine{55   \textcolor{keywordtype}{int} necesidad\_ciudad = \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad].consultar\_faltante(id\_prod\_venta) -\/ \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad].consultar\_reserva(id\_prod\_venta);}
+\DoxyCodeLine{56   \textcolor{comment}{// Calculo lo que tiene que comprar y vender el nodo actual }}
+\DoxyCodeLine{57   \textcolor{keywordtype}{int} compra = 0;}
+\DoxyCodeLine{58     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad].consultar\_producto(id\_prod\_compra) and compra\_barco > 0)\{}
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} (sobrante\_ciudad > 0 ) \{}
+\DoxyCodeLine{60       compra = compra\_barco; }
+\DoxyCodeLine{61       \textcolor{keywordflow}{if} (sobrante\_ciudad < compra) \{}
+\DoxyCodeLine{62         compra = sobrante\_ciudad;}
+\DoxyCodeLine{63         compra\_barco -\/= compra;}
+\DoxyCodeLine{64       \}}
+\DoxyCodeLine{65       \textcolor{keywordflow}{else} compra\_barco = 0;}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{68     \textcolor{keywordtype}{int} venta=0;}
+\DoxyCodeLine{69     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}}[id\_ciudad].consultar\_producto(id\_prod\_venta) and venta\_barco > 0)\{}
+\DoxyCodeLine{70         \textcolor{keywordflow}{if} (necesidad\_ciudad > 0) \{}
+\DoxyCodeLine{71       venta = venta\_barco;}
+\DoxyCodeLine{72       \textcolor{keywordflow}{if} (necesidad\_ciudad < venta) \{}
+\DoxyCodeLine{73         venta = necesidad\_ciudad;}
+\DoxyCodeLine{74         venta\_barco -\/= venta;}
+\DoxyCodeLine{75       \}}
+\DoxyCodeLine{76       \textcolor{keywordflow}{else} venta\_barco = 0;}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79     \textcolor{comment}{// Miro cuantas unidades me entran de la ciudad izquiera y derecha por recursion}}
+\DoxyCodeLine{80     BinTree<string> tree\_esq = t.left();}
+\DoxyCodeLine{81   BinTree<string> tree\_dre = t.right();}
+\DoxyCodeLine{82   \textcolor{keywordtype}{int} compra\_esq = compra\_barco, compra\_dre = compra\_barco;}
+\DoxyCodeLine{83   \textcolor{keywordtype}{int} venta\_esq = venta\_barco, venta\_dre = venta\_barco;}
+\DoxyCodeLine{84   stack<string> aux\_esq, aux\_dre;}
+\DoxyCodeLine{85   \textcolor{keywordtype}{int} prods\_esq = \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_esq, b, aux\_esq, compra\_esq, venta\_esq);}
+\DoxyCodeLine{86   \textcolor{keywordtype}{int} prods\_dre = \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_dre, b, aux\_dre, compra\_dre, venta\_dre);}
+\DoxyCodeLine{87   }
+\DoxyCodeLine{88   \textcolor{comment}{// Defino la variable unidades que se encargará de devolver cuántos nodos han sido visitados}}
+\DoxyCodeLine{89   \textcolor{keywordtype}{int} unidades = compra+venta;}
+\DoxyCodeLine{90   \textcolor{comment}{// Si hay más productos en la izquierda guardo la recursion izquierda}}
+\DoxyCodeLine{91   \textcolor{keywordflow}{if} (prods\_esq > prods\_dre) \{}
+\DoxyCodeLine{92     unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_esq, b, r, compra\_barco, venta\_barco);}
+\DoxyCodeLine{93   \}}
+\DoxyCodeLine{94   \textcolor{comment}{// Si hay más en la derecha se guarda la recursion derecha}}
+\DoxyCodeLine{95   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (prods\_dre == 0 or prods\_esq > prods\_dre or (prods\_esq == prods\_dre and}
+\DoxyCodeLine{96       aux\_esq.size() <= aux\_dre.size())) \{}
+\DoxyCodeLine{97     unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_dre, b, r, compra\_barco, venta\_barco);}
+\DoxyCodeLine{98   \}}
+\DoxyCodeLine{99   \textcolor{comment}{// Si hay el mismo numero se queda el camino mas corto, que en caso de empate es el izquierdo}}
+\DoxyCodeLine{100   \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{101     unidades += \mbox{\hyperlink{classRio_a10b2ebf2ee567f9bbd5ed448d9b4f834}{planear\_viaje}}(tree\_dre, b, r, compra\_barco, venta\_barco);}
+\DoxyCodeLine{102   \}}
+\DoxyCodeLine{103   }
+\DoxyCodeLine{104   \textcolor{keywordflow}{if} (compra+venta != 0) \{}
+\DoxyCodeLine{105     r.push(id\_ciudad);}
+\DoxyCodeLine{106   \}}
+\DoxyCodeLine{107   \textcolor{keywordflow}{return} unidades;}
+\DoxyCodeLine{108 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRio_a20b87de3f14bbd25194882b7f123233e}\label{classRio_a20b87de3f14bbd25194882b7f123233e}} 
+\index{Rio@{Rio}!redistribuir@{redistribuir}}
+\index{redistribuir@{redistribuir}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{redistribuir()}{redistribuir()}}
+{\footnotesize\ttfamily void Rio\+::redistribuir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classInventario}{Inventario}} \&}]{inv }\end{DoxyParamCaption})}
+
+
+
+Redistribuir A partir de la ciudad de la desembocadura, cada ciudad comerciará con las dos ciudades inmediatamente situadas río arriba, y así hasta llegar a las ciudades de los nacimientos. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}cierto\char`\"{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha realizado el intercambio de productos entre las ciudades del río 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{175                                             \{}
+\DoxyCodeLine{176   \mbox{\hyperlink{classRio_af5e24407c6b3f93b1a35006586bd1b09}{redistribuir\_priv}}(\mbox{\hyperlink{classRio_afcc3bba9247769e4856f65c09f4fa933}{cuenca}}, inv, \mbox{\hyperlink{classRio_ab548ea18d2901d5a8d077980eff1ad3f}{mapa\_cuenca}});}
+\DoxyCodeLine{177 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRio_af5e24407c6b3f93b1a35006586bd1b09}\label{classRio_af5e24407c6b3f93b1a35006586bd1b09}} 
+\index{Rio@{Rio}!redistribuir\_priv@{redistribuir\_priv}}
+\index{redistribuir\_priv@{redistribuir\_priv}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{redistribuir\_priv()}{redistribuir\_priv()}}
+{\footnotesize\ttfamily void Rio\+::redistribuir\+\_\+priv (\begin{DoxyParamCaption}\item[{Bin\+Tree$<$ string $>$ \&}]{t,  }\item[{const \mbox{\hyperlink{classInventario}{Inventario}} \&}]{inv,  }\item[{map$<$ string, \mbox{\hyperlink{classCiudad}{Ciudad}} $>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Redistribuir recursivamente Es la implementación recursiva de la función redistribuir. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}t\char`\"{} y \char`\"{}m\char`\"{} no están vacíos 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha comerciado recursivamente entre todas las ciudades del árbol \char`\"{}t\char`\"{} 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                                                                              \{}
+\DoxyCodeLine{22   \textcolor{comment}{// Caso base}}
+\DoxyCodeLine{23   \textcolor{keywordflow}{if} (t.empty()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{24   \textcolor{keywordtype}{string} id\_ciudad = t.value();}
+\DoxyCodeLine{25   \textcolor{keywordflow}{if} (t.left().empty()) \{}
+\DoxyCodeLine{26     m[id\_ciudad].actualizar\_ciudad();}
+\DoxyCodeLine{27     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{28   \}}
+\DoxyCodeLine{29   \textcolor{comment}{// Creo arboles auxiliares derecho y izquierdo para la recursion}}
+\DoxyCodeLine{30   BinTree<string> esq = t.left();}
+\DoxyCodeLine{31   BinTree<string> dre = t.right();}
+\DoxyCodeLine{32   }
+\DoxyCodeLine{33   \textcolor{comment}{// Comercio con la ciudad de la izquierda y con la de la derecha, respectivamente}}
+\DoxyCodeLine{34   m[id\_ciudad].comerciar(m[esq.value()], inv);}
+\DoxyCodeLine{35   m[id\_ciudad].comerciar(m[dre.value()], inv);}
+\DoxyCodeLine{36   \textcolor{comment}{// Actualizo la ciudad raíz para no haber errores en el inventario}}
+\DoxyCodeLine{37   m[id\_ciudad].actualizar\_ciudad();}
+\DoxyCodeLine{38   }
+\DoxyCodeLine{39   \textcolor{comment}{// Redistribuyo en izquierda y derecha}}
+\DoxyCodeLine{40   \mbox{\hyperlink{classRio_af5e24407c6b3f93b1a35006586bd1b09}{redistribuir\_priv}}(esq, inv, m);}
+\DoxyCodeLine{41   \mbox{\hyperlink{classRio_af5e24407c6b3f93b1a35006586bd1b09}{redistribuir\_priv}}(dre, inv, m);}
+\DoxyCodeLine{42   \textcolor{comment}{// Vuelvo a juntar el arbol izquierdo y derecho con el nodo raiz en t}}
+\DoxyCodeLine{43   t = BinTree<string> (id\_ciudad, esq, dre);}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classRio_afcc3bba9247769e4856f65c09f4fa933}\label{classRio_afcc3bba9247769e4856f65c09f4fa933}} 
+\index{Rio@{Rio}!cuenca@{cuenca}}
+\index{cuenca@{cuenca}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{cuenca}{cuenca}}
+{\footnotesize\ttfamily Bin\+Tree$<$string$>$ Rio\+::cuenca\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRio_ab548ea18d2901d5a8d077980eff1ad3f}\label{classRio_ab548ea18d2901d5a8d077980eff1ad3f}} 
+\index{Rio@{Rio}!mapa\_cuenca@{mapa\_cuenca}}
+\index{mapa\_cuenca@{mapa\_cuenca}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{mapa\_cuenca}{mapa\_cuenca}}
+{\footnotesize\ttfamily map$<$string, \mbox{\hyperlink{classCiudad}{Ciudad}}$>$ Rio\+::mapa\+\_\+cuenca\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRio_a76548dc637f03012f1dfd5aa6c689329}\label{classRio_a76548dc637f03012f1dfd5aa6c689329}} 
+\index{Rio@{Rio}!ruta@{ruta}}
+\index{ruta@{ruta}!Rio@{Rio}}
+\doxysubsubsection{\texorpdfstring{ruta}{ruta}}
+{\footnotesize\ttfamily stack$<$string$>$ Rio\+::ruta\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Rio_8hh}{Rio.\+hh}}\item 
+\mbox{\hyperlink{Rio_8cc}{Rio.\+cc}}\end{DoxyCompactItemize}

@@ -1,0 +1,291 @@
+\hypertarget{classProducto}{}\doxysection{Referencia de la Clase Producto}
+\label{classProducto}\index{Producto@{Producto}}
+
+
+Representa un producto con identificador único, peso y volúmen.  
+
+
+
+
+{\ttfamily \#include $<$Producto.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProducto_abdf37557185a4660251488b2db47fc7d}{Producto}} ()
+\begin{DoxyCompactList}\small\item\em Creadora sin identificador Se ejecuta al declarar un producto vacío. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProducto_a275131e446264a8a36972ce5bd37c935}{Producto}} (int id\+\_\+prod)
+\begin{DoxyCompactList}\small\item\em Creadora con identificador Se ejecuta al declarar un producto con identificador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProducto_a3b7b706b1fb1e817baf3d3a172b4bb88}{cambiar\+\_\+peso}} (int p)
+\begin{DoxyCompactList}\small\item\em Modificar peso Cambia el peso del parámetro implícito. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProducto_a448d8f281e70d7b640d603ccdf3d61b8}{cambiar\+\_\+volumen}} (int v)
+\begin{DoxyCompactList}\small\item\em Modificar volumen Cambia el volumen del parámetro implícito. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProducto_a7ceb0b0d1cd44139ffb7101911818f24}{consultar\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Consultar ID Retorna el identificador único del parámetro implícito. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProducto_a90e4cd5cab49d54c688b6ae4bec890e4}{consultar\+\_\+peso}} () const
+\begin{DoxyCompactList}\small\item\em Consultar peso Retorna el peso del parámetro implícito. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProducto_ad1acf1617d2ffc5a7a692beed2ede495}{consultar\+\_\+vol}} () const
+\begin{DoxyCompactList}\small\item\em Consultar volumen Retorna el volumen del parámetro implícito. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProducto_ad8d6d4bc46d18f18b1c4e4efccde781f}{leer}} ()
+\begin{DoxyCompactList}\small\item\em Lectura del \mbox{\hyperlink{classProducto}{Producto}} Entran por el canal de entrada los atributos del parámetro implícito. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProducto_a9ec4157e4e178c81e80b745de534a09e}{escribir}} () const
+\begin{DoxyCompactList}\small\item\em Escritura del \mbox{\hyperlink{classProducto}{Producto}} Se imprime en el canal de salida los atributos del parámetro implícito. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}
+\item 
+int \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}
+\item 
+int \mbox{\hyperlink{classProducto_a2af752baacc7e519b66f37145ee21419}{vol}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Representa un producto con identificador único, peso y volúmen. 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classProducto_abdf37557185a4660251488b2db47fc7d}\label{classProducto_abdf37557185a4660251488b2db47fc7d}} 
+\index{Producto@{Producto}!Producto@{Producto}}
+\index{Producto@{Producto}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{Producto()}{Producto()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Producto\+::\+Producto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creadora sin identificador Se ejecuta al declarar un producto vacío. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es un producto con id=-\/1 (sin inicializar) 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                    \{}
+\DoxyCodeLine{6     \textcolor{keywordtype}{id} = -\/1;}
+\DoxyCodeLine{7 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProducto_a275131e446264a8a36972ce5bd37c935}\label{classProducto_a275131e446264a8a36972ce5bd37c935}} 
+\index{Producto@{Producto}!Producto@{Producto}}
+\index{Producto@{Producto}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{Producto()}{Producto()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Producto\+::\+Producto (\begin{DoxyParamCaption}\item[{int}]{id\+\_\+prod }\end{DoxyParamCaption})}
+
+
+
+Creadora con identificador Se ejecuta al declarar un producto con identificador. 
+
+\begin{DoxyPrecond}{Precondición}
+id == -\/1 y id\+\_\+prod $>$= 1 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es una ciudad con id=id\+\_\+prod 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9                               \{}
+\DoxyCodeLine{10     \textcolor{keywordtype}{id} = id\_prod;}
+\DoxyCodeLine{11     \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}} = 0;}
+\DoxyCodeLine{12     \mbox{\hyperlink{classProducto_a2af752baacc7e519b66f37145ee21419}{vol}} = 0;}
+\DoxyCodeLine{13 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classProducto_a3b7b706b1fb1e817baf3d3a172b4bb88}\label{classProducto_a3b7b706b1fb1e817baf3d3a172b4bb88}} 
+\index{Producto@{Producto}!cambiar\_peso@{cambiar\_peso}}
+\index{cambiar\_peso@{cambiar\_peso}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{cambiar\_peso()}{cambiar\_peso()}}
+{\footnotesize\ttfamily void Producto\+::cambiar\+\_\+peso (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})}
+
+
+
+Modificar peso Cambia el peso del parámetro implícito. 
+
+\begin{DoxyPrecond}{Precondición}
+p $>$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha actualizado el peso del parámetro implícito 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                  \{}
+\DoxyCodeLine{18     \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}} = p;}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProducto_a448d8f281e70d7b640d603ccdf3d61b8}\label{classProducto_a448d8f281e70d7b640d603ccdf3d61b8}} 
+\index{Producto@{Producto}!cambiar\_volumen@{cambiar\_volumen}}
+\index{cambiar\_volumen@{cambiar\_volumen}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{cambiar\_volumen()}{cambiar\_volumen()}}
+{\footnotesize\ttfamily void Producto\+::cambiar\+\_\+volumen (\begin{DoxyParamCaption}\item[{int}]{v }\end{DoxyParamCaption})}
+
+
+
+Modificar volumen Cambia el volumen del parámetro implícito. 
+
+\begin{DoxyPrecond}{Precondición}
+p $>$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha actualizado el volumen del parámetro implícito 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                     \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{classProducto_a2af752baacc7e519b66f37145ee21419}{vol}} = v;}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProducto_a7ceb0b0d1cd44139ffb7101911818f24}\label{classProducto_a7ceb0b0d1cd44139ffb7101911818f24}} 
+\index{Producto@{Producto}!consultar\_id@{consultar\_id}}
+\index{consultar\_id@{consultar\_id}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{consultar\_id()}{consultar\_id()}}
+{\footnotesize\ttfamily int Producto\+::consultar\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultar ID Retorna el identificador único del parámetro implícito. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}cierto\char`\"{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+id$>$=1 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                                  \{}
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}};}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProducto_a90e4cd5cab49d54c688b6ae4bec890e4}\label{classProducto_a90e4cd5cab49d54c688b6ae4bec890e4}} 
+\index{Producto@{Producto}!consultar\_peso@{consultar\_peso}}
+\index{consultar\_peso@{consultar\_peso}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{consultar\_peso()}{consultar\_peso()}}
+{\footnotesize\ttfamily int Producto\+::consultar\+\_\+peso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultar peso Retorna el peso del parámetro implícito. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}cierto\char`\"{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+peso$>$0 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                                    \{}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}};}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProducto_ad1acf1617d2ffc5a7a692beed2ede495}\label{classProducto_ad1acf1617d2ffc5a7a692beed2ede495}} 
+\index{Producto@{Producto}!consultar\_vol@{consultar\_vol}}
+\index{consultar\_vol@{consultar\_vol}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{consultar\_vol()}{consultar\_vol()}}
+{\footnotesize\ttfamily int Producto\+::consultar\+\_\+vol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultar volumen Retorna el volumen del parámetro implícito. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}cierto\char`\"{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+vol$>$0 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35                                   \{}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProducto_a2af752baacc7e519b66f37145ee21419}{vol}};}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProducto_a9ec4157e4e178c81e80b745de534a09e}\label{classProducto_a9ec4157e4e178c81e80b745de534a09e}} 
+\index{Producto@{Producto}!escribir@{escribir}}
+\index{escribir@{escribir}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{escribir()}{escribir()}}
+{\footnotesize\ttfamily void Producto\+::escribir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Escritura del \mbox{\hyperlink{classProducto}{Producto}} Se imprime en el canal de salida los atributos del parámetro implícito. 
+
+\begin{DoxyPrecond}{Precondición}
+\char`\"{}cierto\char`\"{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se imprime el identificador, el peso y el volúmen separados por un espacio, respectivamente 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50                               \{}
+\DoxyCodeLine{51     cout << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{"{} "{}} << \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}} << \textcolor{stringliteral}{"{} "{}} << \mbox{\hyperlink{classProducto_a2af752baacc7e519b66f37145ee21419}{vol}} << endl;}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProducto_ad8d6d4bc46d18f18b1c4e4efccde781f}\label{classProducto_ad8d6d4bc46d18f18b1c4e4efccde781f}} 
+\index{Producto@{Producto}!leer@{leer}}
+\index{leer@{leer}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{leer()}{leer()}}
+{\footnotesize\ttfamily void Producto\+::leer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lectura del \mbox{\hyperlink{classProducto}{Producto}} Entran por el canal de entrada los atributos del parámetro implícito. 
+
+\begin{DoxyPrecond}{Precondición}
+Se prepara el canal de entrada para peso y volúmen, respectivamente 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se actualizan los atributos peso y volumen del parámetro implícito 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                     \{}
+\DoxyCodeLine{42     \textcolor{comment}{// Leemos peso y volumen}}
+\DoxyCodeLine{43     \textcolor{keywordtype}{int} p, v;}
+\DoxyCodeLine{44     cin >> p >> v;}
+\DoxyCodeLine{45     \textcolor{comment}{// Asignamos parametros}}
+\DoxyCodeLine{46     \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}} = p;}
+\DoxyCodeLine{47     \mbox{\hyperlink{classProducto_a2af752baacc7e519b66f37145ee21419}{vol}} = v;}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classProducto_ac7e63125ce8671260d15e473e689efa4}\label{classProducto_ac7e63125ce8671260d15e473e689efa4}} 
+\index{Producto@{Producto}!id@{id}}
+\index{id@{id}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Producto\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classProducto_a5432f079d648035abccdf978b5ab6c74}\label{classProducto_a5432f079d648035abccdf978b5ab6c74}} 
+\index{Producto@{Producto}!peso@{peso}}
+\index{peso@{peso}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{peso}{peso}}
+{\footnotesize\ttfamily int Producto\+::peso\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classProducto_a2af752baacc7e519b66f37145ee21419}\label{classProducto_a2af752baacc7e519b66f37145ee21419}} 
+\index{Producto@{Producto}!vol@{vol}}
+\index{vol@{vol}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{vol}{vol}}
+{\footnotesize\ttfamily int Producto\+::vol\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Producto_8hh}{Producto.\+hh}}\item 
+\mbox{\hyperlink{Producto_8cc}{Producto.\+cc}}\end{DoxyCompactItemize}
